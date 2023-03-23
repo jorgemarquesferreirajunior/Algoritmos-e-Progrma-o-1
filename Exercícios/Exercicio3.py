@@ -1,0 +1,8 @@
+print('=-'*10, 'LOJA DE PNEUS', '=-'*10)
+print('PROMOÇÃO ATUAL: R$275,00/PNEU')
+print('')
+qtd = int(input("Bom dia senhor(a)!Quantos carros você tem? "))
+print('FICHA DO CLINTE')
+print(f'{"QTD CARROS:":<16} {qtd}')
+print(f'{"QTD PNEUS:":<16} {qtd * 4}')
+print(f'{"TOTAL A PAGAR:":<13} R${qtd * 4 * 275:.2f}')

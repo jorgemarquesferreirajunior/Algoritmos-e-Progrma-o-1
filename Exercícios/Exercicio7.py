@@ -1,0 +1,6 @@
+print('=-'*10, 'CALCULO DE IMC', '=-'*10)
+print('\033[1:31m OBS: \033[m \033[31m Não esqueça que voce deve trocar a vírgula pelo ponto ex: 1.75\033[m')
+print('')
+w = float(input('Parceiro(a), qual seu peso [quilogramas] '))
+h = float(input('Parceiro(a), qual sua altura [metros] '))
+print(f'Vejamos... seu IMC é de: \033[1:32m{w / (h * h):.2f}\033[m')
