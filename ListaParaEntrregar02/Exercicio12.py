@@ -11,10 +11,11 @@ x = float(input('1° Número: '))
 y = float(input('2° Número: '))
 
 if a == 1:
-    print(f"{x} + {y} = {(x - y):.2f}")
+    print(f"{x} + {y} = {(x + y):.2f}")
 if a == 2:
     print(f"{x} - {y} = {(x - y):.2f}")
 if a == 3:
     print(f"{x} * {y} = {(x * y):.2f}")
 if a == 4:
     print(f"{x} / {y} = {(x / y):.2f}")
+
