@@ -8,12 +8,16 @@
 
 batalhao = int(input("Número de soldados: "))
 linha = 0
+caractere = "|-"
 
 while True:
     linha += 1  # incrementando uma linha a cada loop
     batalhao -= linha # subtraindo a quantidade de soldados para cada linha do total (batalhao)
-    print(f"linha:{linha}")
+    caractere *= linha
+    print(f"{linha}ªlinha: -{caractere}")
+    caractere = "|-"
     if batalhao <= linha:
         if batalhao != 0:
             print(f"Restante: {batalhao}")
+            pass
         break
