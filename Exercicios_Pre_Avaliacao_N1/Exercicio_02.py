@@ -19,5 +19,4 @@ while True:
     if batalhao <= linha:
         if batalhao != 0:
             print(f"Restante: {batalhao}")
-            pass
         break
