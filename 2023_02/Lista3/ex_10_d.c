@@ -1,50 +1,42 @@
 /*
-d) Escreva uma funÁ„o que apague todos os # de um vetor c[0..n-1] de caracteres ASCII.
-Exemplo: Se n vale 7 e o vetor contÈm   a b c # # d #   ent„o o resultado deve ser   a b c d .
+d) Escreva uma fun√ß√£o que apague todos os # de um vetor c[0..n-1] de caracteres ASCII.
+Exemplo: Se n vale 7 e o vetor cont√©m   a b c # # d #   ent√£o o resultado deve ser   a b c d .
 */
 #include <stdio.h>
 #include <stdlib.h>
-//#include <locale.h>
+#include <locale.h>
 #include <time.h>
-
 #include <string.h>
 
 int main () {
-   int val;
+   int cont = 0;
+   int len;
    char str[100];
-   char str_n[100] = "";
-   char vazio[10] = "";
+
+    setlocale(LC_ALL, "Portuguese");
 
     printf("Digite uma palavra que contenha #: ");
-    //scanf("%s", &str);
-    scanf("%[^\n]", &str);
+    scanf("%[^\n]", str);//nao usar & quando ler uma string em vetor;
+    //%[^\n] le paravras com espa√ßos at√© a tecla Enter ser pressionada...
     fflush(stdin);
+    len = strlen(str);
+    int str_n[len];
 
-    printf("%s\n", str);
-    printf("%s\n", str_n);
+    char filter[len];
 
-    for(int i = 0; i < strlen(str); i++){
-        if((int)str[i] != 35){
-            //printf("%c\n", str[i]);
-            strcpy(vazio, str[i]);
-            strcat(str_n,vazio);
+    for(int i = 0; i < len; i++){
+        int str_int;
+
+        str_int = (int)str[i];
+
+        if(str_int != 35){
+            filter[cont] = str[i];
+            cont++;
         }
     }
-    printf("str_n: %s \n",str_n);
-   /*
-   int i = 0;
-   while (str[i] != '\0') {
-
-        if((int)str[i] == 35){
-            strcat(str_n,str_n);
-
-        }else{
-            strcat(str_n,str[i]);
-        }
-        i++;
-        printf("%s\n", str_n);
-   }
-   */
+    filter[cont] = '\0';
+    printf("Palavra Original: %s\n", str);
+    printf("Palavra Filtrada: %s\n", filter);
 
    return(0);
 }
