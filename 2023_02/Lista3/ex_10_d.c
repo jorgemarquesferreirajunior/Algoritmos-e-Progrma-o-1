@@ -5,7 +5,6 @@ Exemplo: Se n vale 7 e o vetor contém   a b c # # d #   então o resultado deve
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <time.h>
 #include <string.h>
 
 int main () {
