@@ -6,12 +6,12 @@
 
 /*
 b) Elabore um algoritmo que calcule o que deve ser pago por um produto, considerando
-o preço normal de etiqueta e a escolha da condição de pagamento. Utilize os códigos da
-tabela a seguir para ler qual a condição de pagamento escolhida e efetuar o cálculo adequado.
-Código Condição de pagamento  1 À vista em dinheiro ou cheque, recebe 10% de desconto
-2 À vista no cartão de crédito, recebe 15% de desconto
-3 Em duas vezes, preço normal de etiqueta sem juros
-4 Em duas vezes, preço normal de etiqueta mais juros de 10%
+o preÃ§o normal de etiqueta e a escolha da condiÃ§Ã£o de pagamento. Utilize os cÃ³digos da
+tabela a seguir para ler qual a condiÃ§Ã£o de pagamento escolhida e efetuar o cÃ¡lculo adequado.
+CÃ³digo CondiÃ§Ã£o de pagamento  1 Ã€ vista em dinheiro ou cheque, recebe 10% de desconto
+2 Ã€ vista no cartÃ£o de crÃ©dito, recebe 15% de desconto
+3 Em duas vezes, preÃ§o normal de etiqueta sem juros
+4 Em duas vezes, preÃ§o normal de etiqueta mais juros de 10%
 */
 
 int main()
@@ -20,12 +20,12 @@ int main()
     float preco_etiqueta;
     int opcao;
     char payment[5][200] = {""};
-    strcpy(payment[1],"[1]À vista em dinheiro ou cheque, recebe 10% de desconto" );
-    strcpy(payment[2],"[2]À vista no cartão de crédito, recebe 15% de desconto" );
-    strcpy(payment[3],"[3]Em duas vezes, preço normal de etiqueta sem juros" );
-    strcpy(payment[4],"[4]Em duas vezes, preço normal de etiqueta mais juros de 10%" );
+    strcpy(payment[1],"[1]Ã€ vista em dinheiro ou cheque, recebe 10% de desconto" );
+    strcpy(payment[2],"[2]Ã€ vista no cartÃ£o de crÃ©dito, recebe 15% de desconto" );
+    strcpy(payment[3],"[3]Em duas vezes, preÃ§o normal de etiqueta sem juros" );
+    strcpy(payment[4],"[4]Em duas vezes, preÃ§o normal de etiqueta mais juros de 10%" );
 
-    printf("Qual o preço da etiqueta? R$");
+    printf("Qual o preÃ§o da etiqueta? R$");
     scanf("%f", &preco_etiqueta);
 
     do
@@ -34,7 +34,7 @@ int main()
     scanf("%d", &opcao);
     }while(opcao > 4 || opcao < 1);
 
-    printf("Opção escolhida: %s\n\n", payment[opcao]);
+    printf("OpÃ§Ã£o escolhida: %s\n\n", payment[opcao]);
     switch(opcao)
     {
     case(1):

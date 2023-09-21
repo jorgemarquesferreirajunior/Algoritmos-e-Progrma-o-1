@@ -117,7 +117,7 @@ int main()
     cont3 = cont_divisor(3,divididos3, max);
     cont5 = cont_divisor(5,divididos5, max);
     max_divisor = cont2 * cont3 * cont5;
-    printf("Maximo divisor comum = %d\n", max_divisor);
+    printf("Maximo divisor comum = %d\n\n", max_divisor);
     free(numeros);
 
     system("pause");
