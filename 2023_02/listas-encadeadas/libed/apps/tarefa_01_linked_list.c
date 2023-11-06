@@ -6,7 +6,7 @@
 Escreva uma função que receba duas listas e retorne uma
 terceira contendo as duas primeiras concatenadas. Faça a função
 para todos os tipos de listas: estática e dinâmica (encadeada,
-circular e duplamente encadeada)
+duplamente encadeada e circular)
 */
 
 
