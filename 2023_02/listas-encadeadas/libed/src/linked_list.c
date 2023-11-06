@@ -78,6 +78,7 @@ CNode *create_CNode(int val){
 }
 //*******************checking sizes******************//
 bool ESList_is_full(const ESList *estatic_slist){return estatic_slist->size == estatic_slist->capacity;}
+bool ESList_is_empty(const ESList *estatic_slist){return estatic_slist->size == 0;}
 bool SList_is_empty(const SList *singly_list){return singly_list->size == 0;}
 bool DList_is_empty(const DList *doubly_list){return doubly_list->size == 0;}
 bool CList_is_empty(const CList *circ_list){return circ_list->size == 0;}
@@ -188,6 +189,21 @@ void destroy_CList_v2(CList **ref_circ_list){
 //******************accessing values*****************//
 
 //*******************adding to lists*****************//
+//****BEGIN-ESTATIC_LIST
+void append_in_ESList(ESList *estatic_slist, int val){
+    if (ESList_is_full(estatic_slist)){
+        fprintf(stderr, "ERROR in 'append'\n");
+        fprintf(stderr , "List is full'\n");
+        exit(EXIT_FAILURE);
+    }
+    else{
+        estatic_slist->data[estatic_slist->size] = val;
+        estatic_slist->size++;
+    }
+    
+}
+//****END-ESTATIC_LIST
+
 //****BEGIN-SINGLY_LIST
 void add_begin_SList(SList *singly_list, int val){
     SNode *p = create_SNode(val);
@@ -263,6 +279,23 @@ void add_end_CList(CList *circ_list, int val){
 //****END-CIRC_LIST
 
 //******************concatenating lists****************//
+ESList *concat_ESList(const ESList *estatic_slist01, const ESList *estatic_slist02){
+    int capacity = estatic_slist01->size + estatic_slist02->size;
+    ESList *newlist = create_ESList(capacity);
+
+    for (int i = 0; i < estatic_slist01->size; i++){
+        append_in_ESList(newlist, estatic_slist01->data[i]);
+        // newlist->size++;
+    }
+
+    for (int i = 0; i < estatic_slist02->size; i++){
+        append_in_ESList(newlist, estatic_slist02->data[i]);
+        // newlist->size++;
+    }
+
+    return newlist;
+}
+
 SList *concat_SList(const SList *singly_list_01, const SList *singly_list_02){
     SList *L = (SList *)calloc(1, sizeof(SList));
 
@@ -332,6 +365,10 @@ CList *concat_CList(const CList *circ_list_01, const CList *circ_list_02){
     return L;
 }
 //******************removing to lists****************//
+//****BEGIN-ESTATIC_LIST
+
+//****END-ESTATIC_LIST
+
 //****BEGIN-SINGLY_LIST
 
 //****END-SINGLY_LIST
@@ -434,6 +471,18 @@ void removel_CList(CList *circ_list, int val){
 
 //*********************print lists*******************//
 
+void print_ESList(const ESList *estatic_slist){
+    printf("Size: %d\n", estatic_slist->size);
+    printf("Capacity: %d\n", estatic_slist->capacity);
+    puts("---");
+
+    for (int i = 0; i < estatic_slist->size; i++) {
+        printf("[%d] = %d\n", i, estatic_slist->data[i]);
+    }
+
+    puts("");
+}
+
 void print_SList(const SList *singly_list){
     SNode *current = singly_list->begin;
 
@@ -479,6 +528,7 @@ void print_inverted_DList(const DList *doubly_list){
     puts("");
 }
 void print_CList(const CList *circ_list){
+
     printf("L-> =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
@@ -497,6 +547,8 @@ void print_CList(const CList *circ_list){
         printf("    L->end   = %d\n", circ_list->end->val);
     }    
     printf("    L->size  = %d\n\n", circ_list->size);
+    puts("");
+
 }
 void print_CList_v2(const CList *circ_list){
     //puts("print_CList_v2");
@@ -519,6 +571,7 @@ void print_CList_v2(const CList *circ_list){
         printf("    L->end   = %d\n", circ_list->end->val);
     }    
     printf("    L->size  = %d\n\n", circ_list->size);
+    puts("");
 }
 void print_inverted_CList(const CList *circ_list){
     //puts("print_inverted_CList");
@@ -539,6 +592,7 @@ void print_inverted_CList(const CList *circ_list){
         printf("    L->end   = %d\n", circ_list->end->val);
     }    
     printf("    L->size  = %d\n\n", circ_list->size);
+    puts("");
 }
 void print_inverted_CList_v2(const CList *circ_list){
     //puts("print_inverted_CList_v2");
@@ -560,5 +614,6 @@ void print_inverted_CList_v2(const CList *circ_list){
         printf("    L->end   = %d\n", circ_list->end->val);
     }    
     printf("    L->size  = %d\n\n", circ_list->size);
+    puts("");
 }
 
