@@ -48,8 +48,10 @@ void removel_CList(CList *circ_list, int val);
 void removen_ESList(ESList *estatic_slist, int n_items);
 void removen_SList(SList *singly_list, int n_items);
 void removen_DList(DList *doubly_list, int n_items);
+void removen_CList(CList *circ_list, int n_items);
 void removeall_SList(SList *singly_list);
 void removeall_DList(DList *doubly_list);
+void removeall_CList(CList *circ_list);
 
 void print_ESList(const ESList *estatic_slist);
 void print_SList(const SList *singly_list);

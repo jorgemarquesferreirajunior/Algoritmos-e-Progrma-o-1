@@ -492,7 +492,7 @@ void removen_DList(DList *doubly_list, int n_items){
 
 //****BEGIN-CIRC_LIST
 void removel_CList(CList *circ_list, int val){
-    printf("removing val %d ... ", val);
+    // printf("removing val %d ... ", val);
     CNode *p = circ_list->begin;
 
     if (!CList_is_empty(circ_list)){
@@ -512,7 +512,7 @@ void removel_CList(CList *circ_list, int val){
                 destroy_CNode(&p);
             }
             circ_list->size--;
-            puts("SUCCESS: Process finished\n");
+            // puts("SUCCESS: Process finished\n");
         }
         else{
             p = p->next;
@@ -529,7 +529,7 @@ void removel_CList(CList *circ_list, int val){
 
                     destroy_CNode(&p);
                     circ_list->size--;
-                    puts("SUCCESS: Process finished\n");
+                    // puts("SUCCESS: Process finished\n");
                     break;
                 }
                 else{
@@ -545,13 +545,24 @@ void removel_CList(CList *circ_list, int val){
         puts("FAILURE: List is empty\n");
     }
 }
+void removeall_CList(CList *circ_list){
+    while (!CList_is_empty(circ_list)){
+        removel_CList(circ_list, circ_list->begin->val);
+    }
+}
+void removen_CList(CList *circ_list, int n_items){
+    while (n_items > 0 && !CList_is_empty(circ_list)) {
+        removel_CList(circ_list, circ_list->begin->val);
+        n_items--;
+    }
+}
 //****END-CIRC_LIST
 
 //*********************print lists*******************//
 
 void print_ESList(const ESList *estatic_slist){
-    printf("Size: %d\n", estatic_slist->size);
-    printf("Capacity: %d\n", estatic_slist->capacity);
+    printf("    ES->size:     %d\n", estatic_slist->size);
+    printf("    ES->capacity: %d\n", estatic_slist->capacity);
     puts("---");
 
     for (int i = 0; i < estatic_slist->size; i++) {
@@ -572,9 +583,11 @@ void print_SList(const SList *singly_list){
         current = current->next;
     }
     
-    printf("NULL\nL->end = ");
+    printf("NULL\n    L->begin = ");
+    (singly_list->begin == NULL) ? (printf("NULL\n")) : (printf("%d\n", singly_list->begin->val));
+    printf("    L->end   = ");
     (singly_list->end == NULL) ? (printf("NULL\n")) : (printf("%d\n", singly_list->end->val));
-    printf("Size = %d\n", singly_list->size);
+    printf("    L->size  = %d\n", singly_list->size);
     puts("");
 }
 void print_DList(const DList *doubly_list){
@@ -586,11 +599,11 @@ void print_DList(const DList *doubly_list){
         printf("%d -> ", current->val);
         current = current->next;
     }
-    printf("NULL\nL->begin = ");
+    printf("NULL\n    L->begin = ");
     (doubly_list->begin == NULL) ? (printf("NULL\n")) : (printf("%d\n", doubly_list->begin->val));
-    printf("L->end = ");
+    printf("    L->end   = ");
     (doubly_list->end == NULL) ? (printf("NULL\n")) : (printf("%d\n", doubly_list->end->val));
-    printf("Size = %d\n", doubly_list->size);
+    printf("    L->size  = %d\n", doubly_list->size);
     puts("");
 }
 

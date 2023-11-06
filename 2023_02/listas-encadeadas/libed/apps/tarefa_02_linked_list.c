@@ -61,5 +61,18 @@ int main(int argc, char const *argv[]){
     puts("\n***************************************************************************");
     puts("Removendo os n primeiros elementos de uma lista duplamente circular...\n");
 
+    CList *circ_list = create_CList();
+
+    for (int i = 1; i <= MAX + 10; i++){
+        add_end_CList(circ_list, i + 20);
+    }
+
+    n_items = 12;
+
+    print_CList(circ_list);
+    printf("Removendo os %d primeiros elementos da lista...\n",n_items);
+    removen_CList(circ_list, n_items);
+    print_CList(circ_list);
+
     return EXIT_SUCCESS;
 }
