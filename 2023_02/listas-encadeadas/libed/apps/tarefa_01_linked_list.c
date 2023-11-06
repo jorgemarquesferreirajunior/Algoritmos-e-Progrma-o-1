@@ -11,8 +11,8 @@ duplamente encadeada e circular)
 
 
 int main(int argc, char const *argv[]){
-
-    puts("\ntratando listas simplesmente encadeadas...");
+    puts("\n***************************************************************************");
+    puts("\nconcatenando listas simplesmente encadeadas...\n");
     SList *slista01 = create_SList();
     SList *slista02 = create_SList();
 
@@ -20,19 +20,18 @@ int main(int argc, char const *argv[]){
         add_end_SList(slista01, i);
         add_end_SList(slista02, i * 10);
     }
+    puts("\nLista01");
     print_SList(slista01);
+    puts("\nLista02");
     print_SList(slista02);
 
     SList *slista03 = create_SList();
 
-    print_SList(slista03);
     slista03 = concat_SList(slista01, slista02);
+    puts("\nLista concatenada");
     print_SList(slista03);
-
-    add_end_SList(slista03, 99);
-    print_SList(slista03);
-
-    puts("\ntratando listas duplamente encadeadas...");
+    puts("\n***************************************************************************");
+    puts("\nconcatenando listas duplamente encadeadas...\n");
 
     DList *dlist01 = create_DList();
     DList *dlist02 = create_DList();
@@ -41,13 +40,19 @@ int main(int argc, char const *argv[]){
         add_end_DList(dlist01, i);
         add_end_DList(dlist02, i * 10);
     }
+
+    puts("\nLista01");
     print_DList(dlist01);
+    puts("\nLista02");
     print_DList(dlist02);
 
     DList *dlist03 = concat_DList(dlist01, dlist02);
+
+    puts("\nLista concatenada");
     print_DList(dlist03);
 
-    puts("\ntratando listas circulares...");
+    puts("\n***************************************************************************");
+    puts("\nconcatenando listas circulares...");
 
     CList *clist01 = create_CList();
     CList *clist02 = create_CList();
@@ -56,10 +61,14 @@ int main(int argc, char const *argv[]){
         add_end_CList(clist01, i);
         add_end_CList(clist02, i * 2);
     }
+
+    puts("\nLista01");
     print_CList(clist01);
+    puts("\nLista02");
     print_CList(clist02);
 
     CList *clist03 = concat_CList(clist01, clist02);
+    puts("\nLista concatenada");
     print_CList(clist03);
 
     return EXIT_SUCCESS;

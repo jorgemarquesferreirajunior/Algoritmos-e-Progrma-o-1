@@ -230,7 +230,7 @@ void add_end_DList(DList *doubly_list, int val){
 //****BEGIN-CIRC_LIST
 void add_begin_CList(CList *circ_list, int val){
     CNode *p = create_CNode(val);
-    printf("adding value %d in the header...\n", val);
+    // printf("adding value %d in the header...\n", val);
     if (CList_is_empty(circ_list)){
         circ_list->end = p;
     }
@@ -244,7 +244,7 @@ void add_begin_CList(CList *circ_list, int val){
     circ_list->size++;
 }
 void add_end_CList(CList *circ_list, int val){
-    printf("adding value %d in the tail...\n", val);
+    // printf("adding value %d in the tail...\n", val);
     CNode *p = create_CNode(val);
 
     if (CList_is_empty(circ_list)){
@@ -479,7 +479,7 @@ void print_inverted_DList(const DList *doubly_list){
     puts("");
 }
 void print_CList(const CList *circ_list){
-    printf("\nL-> =");
+    printf("L-> =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
         printf("    L->begin = NULL\n");
@@ -522,7 +522,7 @@ void print_CList_v2(const CList *circ_list){
 }
 void print_inverted_CList(const CList *circ_list){
     //puts("print_inverted_CList");
-    printf("\nL->end =");
+    printf("CircListinverted->end =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
         printf("    L->begin = NULL\n");
@@ -542,7 +542,7 @@ void print_inverted_CList(const CList *circ_list){
 }
 void print_inverted_CList_v2(const CList *circ_list){
     //puts("print_inverted_CList_v2");
-    printf("\nCircList->end =");
+    printf("CircListinverted->end =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
         printf("    L->begin = NULL\n");
