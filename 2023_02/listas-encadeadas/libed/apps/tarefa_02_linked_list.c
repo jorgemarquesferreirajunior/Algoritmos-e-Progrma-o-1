@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]){
     print_ESList(estatic_list);
     
     printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_ESList(estatic_list, n_items);
+    removen_begin_ESList(estatic_list, n_items);
 
     puts("\nESLista01");
     print_ESList(estatic_list);
@@ -39,7 +39,7 @@ int main(int argc, char const *argv[]){
 
     print_SList(singly_list);
     printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_SList(singly_list, n_items);
+    removen_begin_SList(singly_list, n_items);
     print_SList(singly_list);
 
     puts("\n***************************************************************************");
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[]){
 
     print_DList(doubly_list);
     printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_DList(doubly_list, n_items);
+    removen_begin_DList(doubly_list, n_items);
     print_DList(doubly_list);
 
     puts("\n***************************************************************************");
@@ -71,7 +71,7 @@ int main(int argc, char const *argv[]){
 
     print_CList(circ_list);
     printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_CList(circ_list, n_items);
+    removen_begin_CList(circ_list, n_items);
     print_CList(circ_list);
 
     return EXIT_SUCCESS;

@@ -14,9 +14,9 @@ Faça a função para todos os tipos de listas: estática e dinâmica
 
 int main(int argc, char const *argv[]){
     int n_items = 2;
-    // REFAZER TUDO A PARTIR DAQUI...
+    // No arquivo linked_list.c, implementar as funcoes de remocao de itens no final da lista
     puts("");
-    puts("Removendo os n primeiros elementos de uma lista estatica");
+    puts("Removendo os n ultimos elementos de uma lista estatica");
     ESList *estatic_list = create_ESList(MAX);
 
     for (int i = 1; i <= MAX; i++){
@@ -25,13 +25,13 @@ int main(int argc, char const *argv[]){
     puts("\nESLista01");
     print_ESList(estatic_list);
     
-    printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_ESList(estatic_list, n_items);
+    printf("Removendo os %d ultimos elementos da lista...\n",n_items);
+    removen_end_ESList(estatic_list, n_items);
 
     puts("\nESLista01");
     print_ESList(estatic_list);
     puts("\n***************************************************************************");
-    puts("Removendo os n primeiros elementos de uma lista simplesmente encadeada...\n");
+    puts("Removendo os n ultimos elementos de uma lista simplesmente encadeada...\n");
     SList *singly_list = create_SList();
 
     for (int i = 1; i <= MAX; i++){
@@ -41,12 +41,12 @@ int main(int argc, char const *argv[]){
     n_items = 4;
 
     print_SList(singly_list);
-    printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_SList(singly_list, n_items);
+    printf("Removendo os %d ultimos elementos da lista...\n",n_items);
+    removen_end_SList(singly_list, n_items);
     print_SList(singly_list);
 
     puts("\n***************************************************************************");
-    puts("Removendo os n primeiros elementos de uma lista duplamente encadeada...\n");
+    puts("Removendo os n ultimos elementos de uma lista duplamente encadeada...\n");
 
     DList *doubly_list = create_DList();
 
@@ -57,12 +57,12 @@ int main(int argc, char const *argv[]){
     n_items = 7;
 
     print_DList(doubly_list);
-    printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_DList(doubly_list, n_items);
+    printf("Removendo os %d ultimos elementos da lista...\n",n_items);
+    removen_end_DList(doubly_list, n_items);
     print_DList(doubly_list);
 
     puts("\n***************************************************************************");
-    puts("Removendo os n primeiros elementos de uma lista duplamente circular...\n");
+    puts("Removendo os n ultimos elementos de uma lista duplamente circular...\n");
 
     CList *circ_list = create_CList();
 
@@ -73,8 +73,8 @@ int main(int argc, char const *argv[]){
     n_items = 12;
 
     print_CList(circ_list);
-    printf("Removendo os %d primeiros elementos da lista...\n",n_items);
-    removen_CList(circ_list, n_items);
+    printf("Removendo os %d ultimos elementos da lista...\n",n_items);
+    removen_end_CList(circ_list, n_items);
     print_CList(circ_list);
 
     return EXIT_SUCCESS;

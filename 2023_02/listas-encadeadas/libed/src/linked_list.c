@@ -366,7 +366,7 @@ CList *concat_CList(const CList *circ_list_01, const CList *circ_list_02){
 }
 //******************removing to lists****************//
 //****BEGIN-ESTATIC_LIST
-void removen_ESList(ESList *estatic_slist, int n_items){
+void removen_begin_ESList(ESList *estatic_slist, int n_items){
     if (ESList_is_empty(estatic_slist)){
         fprintf(stderr, "ERROR in 'n_removeESList'\n");
         fprintf(stderr , "List is empty'\n");
@@ -381,6 +381,10 @@ void removen_ESList(ESList *estatic_slist, int n_items){
         }
         estatic_slist->size-= n_items;
     }   
+    
+}
+void removen_end_ESList(ESList *estatic_slist, int n_items){
+    /*code_here*/  
     
 }
 //****END-ESTATIC_LIST
@@ -432,11 +436,14 @@ void removeall_SList(SList *singly_list) {
         removel_SList(singly_list, singly_list->begin->val);
     }
 }
-void removen_SList(SList *singly_list, int n_items) {
+void removen_begin_SList(SList *singly_list, int n_items) {
     while (n_items > 0 && !SList_is_empty(singly_list)) {
         removel_SList(singly_list, singly_list->begin->val);
         n_items--;
     }
+}
+void removen_end_SList(SList *singly_list, int n_items) {
+    /*code_here*/
 }
 //****END-SINGLY_LIST
 
@@ -482,11 +489,15 @@ void removeall_DList(DList *doubly_list) {
         removel_DList(doubly_list, doubly_list->begin->val);
     }
 }
-void removen_DList(DList *doubly_list, int n_items){
+
+void removen_begin_DList(DList *doubly_list, int n_items){
     while (n_items > 0 && !DList_is_empty(doubly_list)) {
         removel_DList(doubly_list, doubly_list->begin->val);
         n_items--;
     }
+}
+void removen_end_DList(DList *doubly_list, int n_items){
+    /*code_here*/
 }
 //****END-DOUBLY_LIST
 
@@ -550,11 +561,14 @@ void removeall_CList(CList *circ_list){
         removel_CList(circ_list, circ_list->begin->val);
     }
 }
-void removen_CList(CList *circ_list, int n_items){
+void removen_begin_CList(CList *circ_list, int n_items){
     while (n_items > 0 && !CList_is_empty(circ_list)) {
         removel_CList(circ_list, circ_list->begin->val);
         n_items--;
     }
+}
+void removen_end_CList(CList *circ_list, int n_items){
+    /*code_here*/
 }
 //****END-CIRC_LIST
 
