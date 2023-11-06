@@ -13,17 +13,12 @@ LIBS = -lm -led -L $(LIB)
 all: libed myapps
 
 libed: \
-	$(OBJ)/linked_list.o
+	$(OBJ)/stack.o
 	ar -rcs $(LIB)/libed.a $(OBJ)/*.o
 
 
 myapps: clean_apps \
-	$(BIN)/listas_encadeadas \
-	$(BIN)/tarefa_01_linked_list \
-	$(BIN)/tarefa_02_linked_list \
-	$(BIN)/tarefa_03_linked_list \
-	$(BIN)/tarefa_04_linked_list \
-	$(BIN)/tarefa_05_linked_list
+	$(BIN)/task_01_stack
 
 $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
 	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@
@@ -32,7 +27,7 @@ $(BIN)/%: $(APPS)/%.c
 	gcc $(FLAGS) $< $(LIBS) -I $(INCLUDE) -o $@
 
 run:
-	$(BIN)/tarefa_01_linked_list
+	$(BIN)/task_01_stack
 
 clean:
 	rm -rf $(BIN)/* $(LIB)/* $(OBJ)/*

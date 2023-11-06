@@ -1,5 +1,5 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+#ifndef STACK
+#define STACK
 #include <stdbool.h>
 #include <stddef.h>
 
