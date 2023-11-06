@@ -42,14 +42,9 @@ void add_end_CList(CList *circ_list, int val);
 void add_end_SList(SList *singly_list , int val);
 void add_end_DList(DList *doubly_list, int val);
 
-void removel_SList(SList *singly_list, int val);
+void n_removeESList(ESList *estatic_slist, int n_items);
 void removel_DList(DList *doubly_list, int val);
 void removel_CList(CList *circ_list, int val);
-void removen_ESList(ESList *estatic_slist, int n_items);
-void removen_SList(SList *singly_list, int n_items);
-void removen_DList(DList *doubly_list, int n_items);
-void removeall_SList(SList *singly_list);
-void removeall_DList(DList *doubly_list);
 
 void print_ESList(const ESList *estatic_slist);
 void print_SList(const SList *singly_list);

@@ -1,13 +1,8 @@
-#include "stack.h"
+#include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 //**********************structs**********************//
-
-typedef struct _dinamic_stack{
-    SList *data;
-}Stack;
-
 //****BEGIN-ESTATIC_LIST
 typedef struct _estatic_singly_list{
     int size;

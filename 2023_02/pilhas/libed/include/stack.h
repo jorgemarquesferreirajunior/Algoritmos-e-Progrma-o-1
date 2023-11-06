@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+typedef struct _dinamic_stack Stack;
 typedef struct _estatic_singly_list ESList;
 typedef struct _singly_node SinglyNode, SNode;
 typedef struct _singly_linked_list SinglyLinkedList, SList;

@@ -366,13 +366,78 @@ CList *concat_CList(const CList *circ_list_01, const CList *circ_list_02){
 }
 //******************removing to lists****************//
 //****BEGIN-ESTATIC_LIST
-void n_removeESList(ESList *estatic_slist, int n_items){
-    // fazer
+void removen_ESList(ESList *estatic_slist, int n_items){
+    if (ESList_is_empty(estatic_slist)){
+        fprintf(stderr, "ERROR in 'n_removeESList'\n");
+        fprintf(stderr , "List is empty'\n");
+        //exit(EXIT_FAILURE);
+    }
+    else if (n_items >= estatic_slist->capacity){
+        estatic_slist->size = 0;
+    }
+    else{
+        for (int i = 0; i < estatic_slist->size - n_items; i++){
+            estatic_slist->data[i] = estatic_slist->data[i + n_items];
+        }
+        estatic_slist->size-= n_items;
+    }   
+    
 }
 //****END-ESTATIC_LIST
 
 //****BEGIN-SINGLY_LIST
+void removel_SList(SList *singly_list, int val) {
+    if (!SList_is_empty(singly_list)) {
+        // caso 1 - o elemento está na cabeça da lista
+        if (singly_list->begin->val == val) {
+            SNode *pos = singly_list->begin;
 
+            // a lista tem só um nó
+            if (singly_list->begin == singly_list->end) {
+                singly_list->end = NULL;
+            }
+
+            singly_list->begin = singly_list->begin->next;
+            free(pos);
+
+            singly_list->size--;
+        }
+        // caso 2 - o elemento está no meio da lista
+        // caso 3 - o elemento está no final da lista
+        else {
+            SNode *prev = singly_list->begin;
+            SNode *pos = singly_list->begin->next;
+
+            while (pos != NULL && pos->val != val) {
+                prev = prev->next;
+                pos = pos->next;
+            }
+
+            if (pos != NULL) {
+                prev->next = pos->next;
+
+                // caso 3 - removendo o último nó da lista
+                if (pos->next == NULL) {
+                    singly_list->end = prev;
+                }
+                
+                free(pos);
+                singly_list->size--;
+            }
+        }
+    }
+}
+void removeall_SList(SList *singly_list) {
+    while (!SList_is_empty(singly_list)) {
+        removel_SList(singly_list, singly_list->begin->val);
+    }
+}
+void removen_SList(SList *singly_list, int n_items) {
+    while (n_items > 0 && !SList_is_empty(singly_list)) {
+        removel_SList(singly_list, singly_list->begin->val);
+        n_items--;
+    }
+}
 //****END-SINGLY_LIST
 
 //****BEGIN-DOUBLY_LIST
@@ -411,6 +476,17 @@ void removel_DList(DList *doubly_list, int val){
     
     }
     else{puts("Lista vazia");}    
+}
+void removeall_DList(DList *doubly_list) {
+    while (!DList_is_empty(doubly_list)) {
+        removel_DList(doubly_list, doubly_list->begin->val);
+    }
+}
+void removen_DList(DList *doubly_list, int n_items){
+    while (n_items > 0 && !DList_is_empty(doubly_list)) {
+        removel_DList(doubly_list, doubly_list->begin->val);
+        n_items--;
+    }
 }
 //****END-DOUBLY_LIST
 
@@ -480,6 +556,7 @@ void print_ESList(const ESList *estatic_slist){
 
     for (int i = 0; i < estatic_slist->size; i++) {
         printf("[%d] = %d\n", i, estatic_slist->data[i]);
+
     }
 
     puts("");
@@ -509,7 +586,9 @@ void print_DList(const DList *doubly_list){
         printf("%d -> ", current->val);
         current = current->next;
     }
-    printf("NULL\nL->end = ");
+    printf("NULL\nL->begin = ");
+    (doubly_list->begin == NULL) ? (printf("NULL\n")) : (printf("%d\n", doubly_list->begin->val));
+    printf("L->end = ");
     (doubly_list->end == NULL) ? (printf("NULL\n")) : (printf("%d\n", doubly_list->end->val));
     printf("Size = %d\n", doubly_list->size);
     puts("");
