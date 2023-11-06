@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include<locale.h>
+#include <locale.h>
 
 typedef struct{
     int matricula;
@@ -10,6 +10,7 @@ typedef struct{
 }alunos;
 
 void reset();
+//teste
 int main() {
     setlocale(LC_ALL, "Portuguese");
     alunos turma[30];
@@ -18,10 +19,10 @@ int main() {
     do{
         printf("\nMenu:\n");
         printf("1. Cadastrar aluno\n");
-        printf("2. Calcular média final\n");
-        printf("3. Pesquisar aluno por matrícula\n");
+        printf("2. Calcular mï¿½dia final\n");
+        printf("3. Pesquisar aluno por matrï¿½cula\n");
         printf("4. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opï¿½ï¿½o: ");
         scanf("%d", &opcao);reset();
 
         switch(opcao){
@@ -30,13 +31,13 @@ int main() {
                     alunos novoAluno;
                     printf("Nome do aluno: ");
                     scanf("^[\n]", novoAluno.nome);reset();
-                    printf("Matrícula do aluno: ");
+                    printf("Matrï¿½cula do aluno: ");
                     scanf("%d", &novoAluno.matricula);reset();
                     printf("Nota 1 do aluno: ");
                     scanf("%f", &novoAluno.nota1);reset();
                     printf("Nota 2 do aluno: ");
                     scanf("%f", &novoAluno.nota2);reset();
-                    printf("Nota de recuperação do aluno (0 se não houver): ");
+                    printf("Nota de recuperaï¿½ï¿½o do aluno (0 se nï¿½o houver): ");
                     scanf("%f", &novoAluno.notaRecuperacao);reset();
                     if (novoAluno.notaRecuperacao == 0) {
                         novoAluno.mediaFinal = (novoAluno.nota1 + novoAluno.nota2) / 2.0;
@@ -47,35 +48,35 @@ int main() {
                     contAlunos++;
                     printf("Aluno cadastrado com sucesso!\n");
                 } else {
-                    printf("A turma está cheia (limite de 30 alunos).\n");
+                    printf("A turma estï¿½ cheia (limite de 30 alunos).\n");
                 }
                 break;
             case 2://calcular a  media final
                 if (contAlunos > 0) {
                     int matricula;
-                    printf("Digite a matrícula do aluno: ");
+                    printf("Digite a matrï¿½cula do aluno: ");
                     scanf("%d", &matricula);
 
                     int encontrado = 0;
                     for (int i = 0; i < contAlunos; i++) {
                         if (turma[i].matricula == matricula) {
-                            printf("Média final do aluno %s: %.2f\n", turma[i].nome, turma[i].mediaFinal);
+                            printf("Mï¿½dia final do aluno %s: %.2f\n", turma[i].nome, turma[i].mediaFinal);
                             encontrado = 1;
                             break;
                         }
                     }
                     if (!encontrado) {
-                        printf("Aluno não encontrado.\n");
+                        printf("Aluno nï¿½o encontrado.\n");
                     }
                 } else {
                     printf("Nenhum aluno cadastrado.\n");
                 }
                 break;
 
-            case 3://pesquisar aluno pr matrícula
+            case 3://pesquisar aluno pr matrï¿½cula
                 if (contAlunos > 0) {
                     int matricula;
-                    printf("Digite a matrícula do aluno: ");
+                    printf("Digite a matrï¿½cula do aluno: ");
                     scanf("%d", &matricula);
 
                     int encontrado = 0;
@@ -83,17 +84,17 @@ int main() {
                         if (turma[i].matricula == matricula) {
                             printf("Aluno encontrado:\n");
                             printf("Nome: %s\n", turma[i].nome);
-                            printf("Matrícula: %d\n", turma[i].matricula);
+                            printf("Matrï¿½cula: %d\n", turma[i].matricula);
                             printf("Nota 1: %.2f\n", turma[i].nota1);
                             printf("Nota 2: %.2f\n", turma[i].nota2);
-                            printf("Nota de recuperação: %.2f\n", turma[i].notaRecuperacao);
-                            printf("Média final: %.2f\n", turma[i].mediaFinal);
+                            printf("Nota de recuperaï¿½ï¿½o: %.2f\n", turma[i].notaRecuperacao);
+                            printf("Mï¿½dia final: %.2f\n", turma[i].mediaFinal);
                             encontrado = 1;
                             break;
                         }
                     }
                     if (!encontrado) {
-                        printf("Aluno não encontrado.\n");
+                        printf("Aluno nï¿½o encontrado.\n");
                     }
                 } else {
                     printf("Nenhum aluno cadastrado.\n");
@@ -101,11 +102,11 @@ int main() {
                 break;
 
             case 4:
-                printf("Encerrando o programa. Até mais!\n");
+                printf("Encerrando o programa. Atï¿½ mais!\n");
                 break;
 
             default:
-                printf("Opção inválida. Tente novamente.\n");
+                printf("Opï¿½ï¿½o invï¿½lida. Tente novamente.\n");
                 break;
         }
         printf("\nSair do programa? ");

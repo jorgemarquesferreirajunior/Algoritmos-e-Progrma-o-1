@@ -1,6 +1,3 @@
-Aqui está um programa em C que permite cadastrar alunos, calcular suas médias finais e pesquisar por matrículas:
-
-```c
 #include <stdio.h>
 #include <string.h>
 
@@ -126,6 +123,3 @@ int main() {
 
     return 0;
 }
-```
-
-Neste programa, você pode escolher entre cadastrar alunos, calcular a média final de um aluno ou pesquisar um aluno por matrícula. O programa permite cadastrar até 30 alunos na turma e calcula a média final levando em consideração as notas e, se necessário, a nota de recuperação. Certifique-se de que esteja utilizando um compilador C para testar o código.
