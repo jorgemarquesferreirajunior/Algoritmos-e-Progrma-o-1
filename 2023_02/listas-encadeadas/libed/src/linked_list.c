@@ -437,7 +437,7 @@ void removel_CList(CList *circ_list, int val){
 void print_SList(const SList *singly_list){
     SNode *current = singly_list->begin;
 
-    printf("SL-> ");
+    printf("SinglyList-> ");
     while (current != NULL)
     {
         printf("%d -> ", current->val);
@@ -452,7 +452,7 @@ void print_SList(const SList *singly_list){
 void print_DList(const DList *doubly_list){
     DNode *current = doubly_list->begin;
 
-    printf("DL-> ");
+    printf("DoublyList-> ");
     while (current != NULL)
     {
         printf("%d -> ", current->val);
@@ -467,7 +467,7 @@ void print_DList(const DList *doubly_list){
 void print_inverted_DList(const DList *doubly_list){
     DNode *current = doubly_list->end;
 
-    printf("DL-> end -> ");
+    printf("DoublyList-> end -> ");
     while (current != NULL)
     {
         printf("%d -> ", current->val);
@@ -479,7 +479,6 @@ void print_inverted_DList(const DList *doubly_list){
     puts("");
 }
 void print_CList(const CList *circ_list){
-    //puts("print_CList");
     printf("\nL-> =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
@@ -501,7 +500,7 @@ void print_CList(const CList *circ_list){
 }
 void print_CList_v2(const CList *circ_list){
     //puts("print_CList_v2");
-    printf("L-> =");
+    printf("CircList-> =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
         printf("    L->begin = NULL\n");
@@ -543,7 +542,7 @@ void print_inverted_CList(const CList *circ_list){
 }
 void print_inverted_CList_v2(const CList *circ_list){
     //puts("print_inverted_CList_v2");
-    printf("\nL->end =");
+    printf("\nCircList->end =");
     if (CList_is_empty(circ_list)){
         puts(" NULL");
         printf("    L->begin = NULL\n");
