@@ -19,7 +19,8 @@ libed: \
 
 myapps: clean_apps \
 	$(BIN)/listas_encadeadas \
-	$(BIN)/tarefa_01_linked_list
+	$(BIN)/tarefa_01_linked_list \
+	$(BIN)/tarefa_02_linked_list
 
 $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
 	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@
