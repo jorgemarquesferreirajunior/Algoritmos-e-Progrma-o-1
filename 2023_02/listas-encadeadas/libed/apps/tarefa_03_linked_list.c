@@ -14,7 +14,7 @@ Faça a função para todos os tipos de listas: estática e dinâmica
 
 int main(int argc, char const *argv[]){
     int n_items = 2;
-    // No arquivo linked_list.c, implementar as funcoes de remocao de itens no final da lista
+
     puts("");
     puts("Removendo os n ultimos elementos de uma lista estatica");
     ESList *estatic_list = create_ESList(MAX);
