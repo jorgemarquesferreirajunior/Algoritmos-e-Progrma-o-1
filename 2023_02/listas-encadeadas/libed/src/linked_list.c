@@ -368,8 +368,8 @@ CList *concat_CList(const CList *circ_list_01, const CList *circ_list_02){
 //****BEGIN-ESTATIC_LIST
 void removen_begin_ESList(ESList *estatic_slist, int n_items){
     if (ESList_is_empty(estatic_slist)){
-        fprintf(stderr, "ERROR in 'n_removeESList'\n");
-        fprintf(stderr , "List is empty'\n");
+        fprintf(stderr, "ERROR in 'removen_begin_ESList'\n");
+        fprintf(stderr , "List is empty\n");
         //exit(EXIT_FAILURE);
     }
     else if (n_items >= estatic_slist->capacity){
@@ -384,7 +384,17 @@ void removen_begin_ESList(ESList *estatic_slist, int n_items){
     
 }
 void removen_end_ESList(ESList *estatic_slist, int n_items){
-    /*code_here*/  
+    if (ESList_is_empty(estatic_slist)){
+        fprintf(stderr, "ERROR in 'removen_end_ESList'\n");
+        fprintf(stderr , "List is empty\n");
+    }
+    else if (n_items >= estatic_slist->capacity){
+        estatic_slist->size = 0;
+    }
+    else{
+        estatic_slist->size -= n_items;
+    }
+    
     
 }
 //****END-ESTATIC_LIST
@@ -443,7 +453,40 @@ void removen_begin_SList(SList *singly_list, int n_items) {
     }
 }
 void removen_end_SList(SList *singly_list, int n_items) {
-    /*code_here*/
+    if (SList_is_empty(singly_list)){
+        fprintf(stderr, "ERROR in 'removen_end_SList'\n");
+        fprintf(stderr , "List is empty\n");
+    }
+    else if (n_items == singly_list->size){
+        removeall_SList(singly_list);
+    }
+    else{
+        for (int i = 0; i < n_items; i++){
+            if (singly_list->size == 1) {
+                free(singly_list->begin);
+                singly_list->begin = singly_list->end = NULL;
+                singly_list->size = 0;
+            } else {
+                SNode *p = singly_list->begin;
+                SNode *prev = NULL;
+
+                while (p->next != NULL) {
+                    prev = p;
+                    p = p->next;
+                }
+
+                free(p);
+                if (prev != NULL) {
+                    prev->next = NULL;
+                    singly_list->end = prev;
+                }
+                singly_list->size--;
+            }
+            
+        }
+        
+    }
+    
 }
 //****END-SINGLY_LIST
 
@@ -497,7 +540,25 @@ void removen_begin_DList(DList *doubly_list, int n_items){
     }
 }
 void removen_end_DList(DList *doubly_list, int n_items){
-    /*code_here*/
+    if (DList_is_empty(doubly_list)){
+        fprintf(stderr, "ERROR in 'removen_end_DList'\n");
+        fprintf(stderr , "List is empty\n");
+    }
+    else if (n_items >= doubly_list->size){
+        removeall_DList(doubly_list);
+    }
+    else{
+        for (int i = 0; i < n_items; i++){
+            DNode *p = doubly_list->end;
+
+            doubly_list->end = p->prev;
+            doubly_list->end->next = NULL;
+            free(p);
+            doubly_list->size--;
+        }
+            
+    }
+        
 }
 //****END-DOUBLY_LIST
 
@@ -568,7 +629,25 @@ void removen_begin_CList(CList *circ_list, int n_items){
     }
 }
 void removen_end_CList(CList *circ_list, int n_items){
-    /*code_here*/
+    if (CList_is_empty(circ_list)){
+        fprintf(stderr, "ERROR in 'removen_end_CList'\n");
+        fprintf(stderr , "List is empty\n");
+    }
+    else if (n_items >= circ_list->size){
+        removeall_CList(circ_list);
+    }
+    else{
+        for (int i = 0; i < n_items; i++){
+            CNode *p = circ_list->end;
+
+            circ_list->end = p->prev;
+            circ_list->end->next = circ_list->begin;
+            circ_list->begin->prev = circ_list->end;
+            free(p);
+            circ_list->size--;
+        }
+            
+    }
 }
 //****END-CIRC_LIST
 

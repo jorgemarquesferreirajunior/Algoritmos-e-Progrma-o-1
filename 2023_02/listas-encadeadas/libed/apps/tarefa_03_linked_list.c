@@ -30,6 +30,7 @@ int main(int argc, char const *argv[]){
 
     puts("\nESLista01");
     print_ESList(estatic_list);
+    
     puts("\n***************************************************************************");
     puts("Removendo os n ultimos elementos de uma lista simplesmente encadeada...\n");
     SList *singly_list = create_SList();
@@ -38,13 +39,13 @@ int main(int argc, char const *argv[]){
         add_end_SList(singly_list, i + 5);
     }
 
-    n_items = 4;
+    n_items = 3;
 
     print_SList(singly_list);
     printf("Removendo os %d ultimos elementos da lista...\n",n_items);
     removen_end_SList(singly_list, n_items);
     print_SList(singly_list);
-
+    
     puts("\n***************************************************************************");
     puts("Removendo os n ultimos elementos de uma lista duplamente encadeada...\n");
 
@@ -54,7 +55,7 @@ int main(int argc, char const *argv[]){
         add_end_DList(doubly_list, i + 15);
     }
 
-    n_items = 7;
+    n_items = 1;
 
     print_DList(doubly_list);
     printf("Removendo os %d ultimos elementos da lista...\n",n_items);
@@ -70,12 +71,15 @@ int main(int argc, char const *argv[]){
         add_end_CList(circ_list, i + 20);
     }
 
-    n_items = 12;
+    n_items = 10;
 
     print_CList(circ_list);
     printf("Removendo os %d ultimos elementos da lista...\n",n_items);
     removen_end_CList(circ_list, n_items);
     print_CList(circ_list);
 
+    removen_end_CList(circ_list, n_items);
+    print_CList(circ_list);
+    
     return EXIT_SUCCESS;
 }
