@@ -23,7 +23,8 @@ myapps: clean_apps \
 	$(BIN)/tarefa_02_linked_list \
 	$(BIN)/tarefa_03_linked_list \
 	$(BIN)/tarefa_04_linked_list \
-	$(BIN)/tarefa_05_linked_list
+	$(BIN)/tarefa_05_linked_list \
+	$(BIN)/tarefa_01_LDE
 
 $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
 	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@

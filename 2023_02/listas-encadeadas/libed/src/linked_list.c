@@ -1,6 +1,7 @@
 #include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 //**********************structs**********************//
 //****BEGIN-ESTATIC_LIST
@@ -277,6 +278,197 @@ void add_end_CList(CList *circ_list, int val){
 }
 
 //****END-CIRC_LIST
+
+//********************counting numbers*****************//
+bool isPrime(int num){
+    if (num <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int countEvenNumbersFromDList(const DList *doubly_list){
+    int count = 0;
+
+    if (DList_is_empty(doubly_list)){
+        return count;
+    }
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        if (p->val % 2 == 0){
+            count++;
+        }
+        
+        p = p->next;
+    }
+    
+    return count;
+}
+
+float meanDList(const DList *doubly_list){
+    float mean = 0;
+
+    if (DList_is_empty(doubly_list)){
+        return mean;
+    }
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        mean += p->val;
+        p = p->next;
+    }
+    mean /= doubly_list->size;
+
+    return mean;
+}
+int maxValueFromDList(const DList *doubly_list){
+    int value = INT_MIN;
+    DNode *p = doubly_list->begin;
+
+    if (DList_is_empty(doubly_list)){
+        return value;
+    }
+
+    while (p){
+        if (p->val > value){
+            value = p->val;
+        }
+        
+        p = p->next;
+    }
+
+    return value;
+}
+
+int minValueFromDList(const DList *doubly_list){
+    int value = INT_MAX;
+    DNode *p = doubly_list->begin;
+
+    if (DList_is_empty(doubly_list)){
+        return value;
+    }
+
+    while (p){
+        if (p->val < value){
+            value = p->val;
+        }
+        
+        p = p->next;
+    }
+
+    return value;
+}
+
+int findIndexOfMaxValueInDList(const DList *doubly_list){
+    int max_index = -1;
+
+    if (DList_is_empty(doubly_list)){
+        return max_index;
+    }
+
+    int current_index = 0;
+    int max_value = INT_MIN;
+    
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        if (p->val > max_value){
+            max_value = p->val;
+            max_index = current_index;
+        }
+        
+        p = p->next;
+        current_index++;
+    }
+
+    return max_index;
+}
+
+int findIndexOfMinValueInDList(const DList *doubly_list){
+    int min_index = -1;
+
+    if (DList_is_empty(doubly_list)){
+        return min_index;
+    }
+
+    int min_value = INT_MAX;
+    int current_index = 0;
+    
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        if (p->val < min_value){
+            min_value = p->val;
+            min_index = current_index;
+        }
+        
+        p = p->next;
+        current_index++;
+    }
+
+    return min_index;
+}
+
+int countNodesAboveXInDList(const DList *doubly_list, int x){
+    int count = 0;
+    
+    if (DList_is_empty(doubly_list)){
+        return count;
+    }
+
+    DNode *p = doubly_list->begin;
+
+    while (p) {
+        if (p->val > x) {
+            count++;
+        }
+
+        p = p->next;
+    }
+
+    return count;
+}
+
+int sumOfDList(const DList *doubly_list){
+    int sum = 0;
+
+    if (DList_is_empty(doubly_list)){
+        return sum;
+    }
+
+    DNode *p = doubly_list->begin;
+
+    while (p) {
+        sum += p->val;
+        p = p->next;
+    }
+
+    return sum;
+}
+
+int countPrimesInDList(const DList *doubly_list){
+    int count = 0;
+    DNode *p = doubly_list->begin;
+
+    while (p) {
+        if (isPrime(p->val)) {
+            count++;
+        }
+
+        p = p->next;
+    }
+
+    return count;
+}
+
 
 //******************concatenating lists****************//
 ESList *concat_ESList(const ESList *estatic_slist01, const ESList *estatic_slist02){

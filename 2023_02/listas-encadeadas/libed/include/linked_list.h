@@ -42,6 +42,17 @@ void add_end_CList(CList *circ_list, int val);
 void add_end_SList(SList *singly_list , int val);
 void add_end_DList(DList *doubly_list, int val);
 
+int countEvenNumbersFromDList(const DList *doubly_list);
+float meanDList(const DList *doubly_list);
+int maxValueFromDList(const DList *doubly_list);
+int minValueFromDList(const DList *doubly_list);
+int findIndexOfMaxValueInDList(const DList *doubly_list);
+int findIndexOfMinValueInDList(const DList *doubly_list);
+int countNodesAboveXInDList(const DList *doubly_list, int x);
+int sumOfDList(const DList *doubly_list);
+int countPrimesInDList(const DList *doubly_list);
+bool isPrime(int num);
+
 void removel_SList(SList *singly_list, int val);
 void removel_DList(DList *doubly_list, int val);
 void removel_CList(CList *circ_list, int val);
