@@ -468,7 +468,19 @@ int countPrimesInDList(const DList *doubly_list){
 
     return count;
 }
+//******************copying lists****************//
 
+DList* copyDList(const DList *doubly_list){
+    DList *copyDList = create_DList();
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        add_end_DList(copyDList, p->val);
+        p = p->next;
+    }
+    
+    return copyDList;
+}
 
 //******************concatenating lists****************//
 ESList *concat_ESList(const ESList *estatic_slist01, const ESList *estatic_slist02){

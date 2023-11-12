@@ -52,6 +52,7 @@ int countNodesAboveXInDList(const DList *doubly_list, int x);
 int sumOfDList(const DList *doubly_list);
 int countPrimesInDList(const DList *doubly_list);
 bool isPrime(int num);
+DList* copyDList(const DList *doubly_list);
 
 void removel_SList(SList *singly_list, int val);
 void removel_DList(DList *doubly_list, int val);
