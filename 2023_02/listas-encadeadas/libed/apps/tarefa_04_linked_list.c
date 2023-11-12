@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linked_list.h"
+#include <limits.h>
+#include <stdbool.h>
+#include <string.h>
 
 /*
 Dada uma lista que armazena a struct produto, escreva a
@@ -16,87 +18,230 @@ struct produto{
 
 */
 
+struct produto{
+    int codido;
+    char nome[30];
+    float preco;
+    int qtd;
+};
 
-int main(int argc, char const *argv[]){
+// Lista Sequencial Estatica
+typedef struct _estatic_list{
+    int size;
+    int capacity;
+    struct produto *data;
 
-    // REFAZER TUDO A PARTIR DAQUI...
-    puts("\nconcatenando listas estaticas...");
-    ESList *eslist01 = create_ESList(5);
-    ESList *eslist02 = create_ESList(5);
-    for (int i = 0; i < 5; i++){
-        append_in_ESList(eslist01, i);
-        append_in_ESList(eslist02, i + 50);
+} Elist;
+
+bool Elist_is_empty(const Elist * list){
+    return list->size == 0;
+}
+
+Elist *createElist(int capacity){
+    Elist *l = (Elist*)calloc(1, sizeof(Elist));
+    l->capacity = capacity;
+    l->size = 0;
+    l->data = (struct produto*)calloc(capacity, sizeof(struct produto));
+
+    return l;
+}
+
+void addproduct(Elist *list, int code, char *name, float price, int qtd){
+    struct produto product;
+
+    product.codido = code;
+    strcpy(product.nome, name);
+    product.preco = price;
+    product.qtd = qtd;
+
+    if (Elist_is_empty(list)){
+        list->data[0] = product;
+        
     }
-    puts("\nESLista01");
-    print_ESList(eslist01);
-    puts("\nESLista02");
-    print_ESList(eslist02);
+    else{
+        // Encontrando a posição correta para inserção ordenada
+        int i = list->size - 1;
 
-    ESList *eslist03 = concat_ESList(eslist01, eslist02);
-
-    puts("\nLista concatenada");
-    print_ESList(eslist03);
-
-    puts("\n***************************************************************************");
-    puts("\nconcatenando listas simplesmente encadeadas...\n");
-    SList *slista01 = create_SList();
-    SList *slista02 = create_SList();
-
-    for (int i = 1; i < 6; i++){
-        add_end_SList(slista01, i);
-        add_end_SList(slista02, i * 10);
+        while (i >= 0 && list->data[i].preco > product.preco) {
+            list->data[i + 1] = list->data[i];
+            i--;
+        }
+        list->data[i + 1] = product;
     }
-    puts("\nLista01");
-    print_SList(slista01);
-    puts("\nLista02");
-    print_SList(slista02);
+    list->size++;
+}
 
-    SList *slista03 = create_SList();
+struct produto price_product(const Elist *list){
+    struct produto product;
 
-    slista03 = concat_SList(slista01, slista02);
-    puts("\nLista concatenada");
-    print_SList(slista03);
+    if (Elist_is_empty(list)){
+        fprintf(stderr, "ERROR in price_product\n");
+        fprintf(stderr , "List is empty'\n");
+    }
+    else if (list->size == 1){
+        product = list->data[0];
+    }
+    else{
+        int loops = list->size;
+        product = list->data[0];
+
+        for (size_t i = 0; i < loops; i++){
+            if (list->data[i].preco < product.preco){
+                product = list->data[i];
+            }
+            
+        }
+        
+    }
     
-    puts("\n***************************************************************************");
-    puts("\nconcatenando listas duplamente encadeadas...\n");
+    return product;
+}
 
-    DList *dlist01 = create_DList();
-    DList *dlist02 = create_DList();
-
-    for (int i = 5; i < 25; i = i + 5){
-        add_end_DList(dlist01, i);
-        add_end_DList(dlist02, i * 10);
+void printf_list(const Elist *lista){
+    puts("Lista de Produtos:");
+    for (int i = 0; i < lista->size; i++) { 
+        printf("Nome:   %s\nCódigo: %d\nPreço:  %.2f\nQtd:    %d\n",
+               lista->data[i].nome, lista->data[i].codido,
+               lista->data[i].preco, lista->data[i].qtd);
+        printf("*************************************\n");
     }
+}
 
-    puts("\nLista01");
-    print_DList(dlist01);
-    puts("\nLista02");
-    print_DList(dlist02);
+void printf_product(const struct produto product){
+    puts("Produto:");
+    printf("Nome:   %s\nCódigo: %d\nPreço:  %.2f\nQtd:    %d\n",
+               product.nome, product.codido,
+               product.preco, product.qtd);
+    printf("#####################################\n");
 
-    DList *dlist03 = concat_DList(dlist01, dlist02);
+}
+void destroyElist(Elist **list_ref){
+    Elist *l = *list_ref;
+    free(l->data);
+    free(*list_ref);
+    *list_ref = NULL;
+}
+int main(int argc, char const *argv[]){
+    puts("LISTA ESTATICA...");
 
-    puts("\nLista concatenada");
-    print_DList(dlist03);
+    Elist *lista = createElist(10);
 
-    puts("\n***************************************************************************");
-    puts("\nconcatenando listas circulares...");
+    addproduct(lista, 1, "Produto1", 10.5, 20);
+    addproduct(lista, 2, "Produto2", 5.5, 15);
+    addproduct(lista, 3, "Produto3", 8.0, 30);
 
-    CList *clist01 = create_CList();
-    CList *clist02 = create_CList();
+    // Imprimir a lista de produtos ordenada por preço
+    printf_list(lista);
 
-    for (int i = 3; i < 30; i = i + 3){
-        add_end_CList(clist01, i);
-        add_end_CList(clist02, i * 2);
-    }
+    puts("qual é o pruduto de menor valor?");
 
-    puts("\nLista01");
-    print_CList(clist01);
-    puts("\nLista02");
-    print_CList(clist02);
+    struct produto menor_produto = price_product(lista);
+    printf_product(menor_produto);
 
-    CList *clist03 = concat_CList(clist01, clist02);
-    puts("\nLista concatenada");
-    print_CList(clist03);
+    destroyElist(&lista);
+    
+    puts("LISTA DINÂMICA...");
 
     return EXIT_SUCCESS;
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+struct produto {
+    int codigo;
+    char nome[30];
+    float preco;
+    int qtd;
+};
+
+// Lista Sequencial Estática
+struct lista_sequencial {
+    struct produto dados[100]; // Tamanho arbitrário, ajuste conforme necessário
+    int tamanho;
+};
+
+struct produto *menor_preco_sequencial(const struct lista_sequencial *lista) {
+    if (lista->tamanho == 0) {
+        return NULL; // Lista vazia
+    }
+
+    struct produto *menor = &lista->dados[0];
+    
+    for (int i = 1; i < lista->tamanho; i++) {
+        if (lista->dados[i].preco < menor->preco) {
+            menor = &lista->dados[i];
+        }
+    }
+
+    return menor;
+}
+
+// Lista Dinâmica Encadeada
+struct no {
+    struct produto dados;
+    struct no *prox;
+};
+
+struct lista_encadeada {
+    struct no *inicio;
+};
+
+struct produto *menor_preco_encadeada(const struct lista_encadeada *lista) {
+    if (lista->inicio == NULL) {
+        return NULL; // Lista vazia
+    }
+
+    struct no *atual = lista->inicio;
+    struct produto *menor = &atual->dados;
+
+    while (atual != NULL) {
+        if (atual->dados.preco < menor->preco) {
+            menor = &atual->dados;
+        }
+        atual = atual->prox;
+    }
+
+    return menor;
+}
+
+int main() {
+    // Exemplo de uso com lista sequencial estática
+    struct lista_sequencial lista_seq = {
+        .dados = {
+            {1, "Produto A", 10.5, 5},
+            {2, "Produto B", 8.0, 8},
+            {3, "Produto C", 12.3, 3},
+            // ... outros produtos ...
+        },
+        .tamanho = 3 // Número real de produtos na lista
+    };
+
+    struct produto *menor_seq = menor_preco_sequencial(&lista_seq);
+
+    if (menor_seq != NULL) {
+        printf("Menor preço (Sequencial): %s - R$%.2f\n", menor_seq->nome, menor_seq->preco);
+    } else {
+        printf("Lista sequencial vazia.\n");
+    }
+
+    // Exemplo de uso com lista dinâmica encadeada
+    struct lista_encadeada lista_enc = {
+        .inicio = NULL
+        // Adicione produtos à lista dinâmica aqui
+    };
+
+    struct produto *menor_enc = menor_preco_encadeada(&lista_enc);
+
+    if (menor_enc != NULL) {
+        printf("Menor preço (Encadeada): %s - R$%.2f\n", menor_enc->nome, menor_enc->preco);
+    } else {
+        printf("Lista encadeada vazia.\n");
+    }
+
+    return 0;
+}
+
+*/
