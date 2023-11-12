@@ -58,7 +58,7 @@ typedef struct _circ_linked_list{
 SNode *create_SNode(int val){
     SNode *s_node   = (SNode *)calloc(1, sizeof(SNode));
     s_node->val = val;
-    s_node->next    = NULL;
+    s_node->next = NULL;
 
     return s_node;
 }

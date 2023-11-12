@@ -121,14 +121,140 @@ void destroyElist(Elist **list_ref){
     free(*list_ref);
     *list_ref = NULL;
 }
+
+//LISTA SEQUENCIAL DINÂMICA
+typedef struct _doubly_node {
+    struct produto val;
+    struct _doubly_node *prev;
+    struct _doubly_node *next;
+}DoublyNode, Dnode;
+
+typedef struct _doubly_list{
+    int size;
+    Dnode *begin;
+    Dnode *end;
+    
+}Dlist;
+
+Dnode *createDnode() {
+    Dnode *node = (Dnode *)calloc(1, sizeof(Dnode));
+    
+    if (node) {
+        node->prev = node->next = NULL;
+        node->val.codido = 0;
+        strcpy(node->val.nome, "");
+        node->val.preco = 0.0;
+        node->val.qtd = 0;
+
+        return node;
+    }
+    return NULL;
+}
+
+Dlist *createDlist(){
+    Dlist *list = (Dlist *)calloc(1, sizeof(Dlist));
+    if (list) {
+        list->size = 0;
+        list->begin = list->end = NULL;
+        
+        return list;
+    }
+    return NULL;    
+}
+
+
+void destroyDList(Dlist **list_ref) {
+    if (*list_ref == NULL) {
+        return;
+    }
+
+    Dlist *l = *list_ref;
+    Dnode *current = l->begin;
+
+    while (current) {
+        Dnode *next = current->next;
+
+        free(current);
+        current = next;
+    }
+
+    free(*list_ref);
+    *list_ref = NULL;
+}
+
+bool DList_is_empty(const Dlist * list){
+    return list->size == 0;
+}
+
+void addToDList(Dlist *list, int code, char *name, float price, int qtd) {
+    Dnode *node = createDnode();
+    
+    if (!node) {
+        fprintf(stderr, "Error creating node\n");
+        return;
+    }
+
+    node->val.codido = code;
+    strcpy(node->val.nome, name);
+    node->val.preco = price;
+    node->val.qtd = qtd;
+
+    if (DList_is_empty(list)) {
+        list->begin = list->end = node;
+    } else {
+        list->end->next = node;
+        node->prev = list->end;
+        list->end = node;
+    }
+
+    list->size++;
+}
+
+struct produto price_product_DList(const Dlist *list) {
+    if (DList_is_empty(list)) {
+        fprintf(stderr, "Error in price_product_DList\n");
+        fprintf(stderr, "List is empty\n");
+        
+        struct produto invalid_product = { .codido = -1, .nome = "", .preco = -1.0, .qtd = -1 };
+        return invalid_product;
+    }
+
+    struct produto product = list->begin->val; 
+    Dnode *current = list->begin->next;
+
+    while (current != NULL) {
+        if (current->val.preco < product.preco) {
+            product = current->val;
+        }
+        current = current->next;
+    }
+
+    return product;
+}
+
+void printf_DList(const Dlist *list) {
+    if (DList_is_empty(list)) {
+        printf("Lista dinâmica encadeada vazia.\n");
+        return;
+    }
+
+    Dnode *current = list->begin;
+
+    while (current != NULL) {
+        printf_product(current->val);
+        current = current->next;
+    }
+}
+
+//*********************************************MAIN*********************************************//
 int main(int argc, char const *argv[]){
-    puts("LISTA ESTATICA...");
+    puts("LISTA ESTATICA");
 
     Elist *lista = createElist(10);
 
-    addproduct(lista, 1, "Produto1", 10.5, 20);
-    addproduct(lista, 2, "Produto2", 5.5, 15);
-    addproduct(lista, 3, "Produto3", 8.0, 30);
+    addproduct(lista, 1, "Produto1", 7.8, 20);
+    addproduct(lista, 2, "Produto2", 9.5, 15);
+    addproduct(lista, 3, "Produto3", 1.2, 30);
 
     // Imprimir a lista de produtos ordenada por preço
     printf_list(lista);
@@ -142,106 +268,20 @@ int main(int argc, char const *argv[]){
     
     puts("LISTA DINÂMICA...");
 
+    Dlist *dlista = createDlist();
+
+    addToDList(dlista, 1, "Produto1", 10.5, 20);
+    addToDList(dlista, 2, "Produto2", 25.5, 15);
+    addToDList(dlista, 3, "Produto3", 81.0, 30);
+
+    printf_DList(dlista);
+
+    puts("Qual é o produto de menor valor?");
+
+    struct produto menor_produto_d = price_product_DList(dlista);
+    printf_product(menor_produto_d);
+
+    destroyDList(&dlista);
+
     return EXIT_SUCCESS;
 }
-
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-struct produto {
-    int codigo;
-    char nome[30];
-    float preco;
-    int qtd;
-};
-
-// Lista Sequencial Estática
-struct lista_sequencial {
-    struct produto dados[100]; // Tamanho arbitrário, ajuste conforme necessário
-    int tamanho;
-};
-
-struct produto *menor_preco_sequencial(const struct lista_sequencial *lista) {
-    if (lista->tamanho == 0) {
-        return NULL; // Lista vazia
-    }
-
-    struct produto *menor = &lista->dados[0];
-    
-    for (int i = 1; i < lista->tamanho; i++) {
-        if (lista->dados[i].preco < menor->preco) {
-            menor = &lista->dados[i];
-        }
-    }
-
-    return menor;
-}
-
-// Lista Dinâmica Encadeada
-struct no {
-    struct produto dados;
-    struct no *prox;
-};
-
-struct lista_encadeada {
-    struct no *inicio;
-};
-
-struct produto *menor_preco_encadeada(const struct lista_encadeada *lista) {
-    if (lista->inicio == NULL) {
-        return NULL; // Lista vazia
-    }
-
-    struct no *atual = lista->inicio;
-    struct produto *menor = &atual->dados;
-
-    while (atual != NULL) {
-        if (atual->dados.preco < menor->preco) {
-            menor = &atual->dados;
-        }
-        atual = atual->prox;
-    }
-
-    return menor;
-}
-
-int main() {
-    // Exemplo de uso com lista sequencial estática
-    struct lista_sequencial lista_seq = {
-        .dados = {
-            {1, "Produto A", 10.5, 5},
-            {2, "Produto B", 8.0, 8},
-            {3, "Produto C", 12.3, 3},
-            // ... outros produtos ...
-        },
-        .tamanho = 3 // Número real de produtos na lista
-    };
-
-    struct produto *menor_seq = menor_preco_sequencial(&lista_seq);
-
-    if (menor_seq != NULL) {
-        printf("Menor preço (Sequencial): %s - R$%.2f\n", menor_seq->nome, menor_seq->preco);
-    } else {
-        printf("Lista sequencial vazia.\n");
-    }
-
-    // Exemplo de uso com lista dinâmica encadeada
-    struct lista_encadeada lista_enc = {
-        .inicio = NULL
-        // Adicione produtos à lista dinâmica aqui
-    };
-
-    struct produto *menor_enc = menor_preco_encadeada(&lista_enc);
-
-    if (menor_enc != NULL) {
-        printf("Menor preço (Encadeada): %s - R$%.2f\n", menor_enc->nome, menor_enc->preco);
-    } else {
-        printf("Lista encadeada vazia.\n");
-    }
-
-    return 0;
-}
-
-*/
