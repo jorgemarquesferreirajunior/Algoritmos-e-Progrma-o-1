@@ -23,14 +23,10 @@ int main(int argc, char const *argv[]){
     }
 
     puts("\nLista01");
-    print_DList(dlist01);
-
+    print_DList(dlist01);    
 
     puts("\nLista02-copiada(sem valores repetidos) da Lista01");
-    DList *dlist02 = create_DList();
-    print_DList(dlist02);
-
-    dlist02 = copyUniquesDList(dlist01);
+    DList *dlist02 = copyUniquesDList(dlist01);
     print_DList(dlist02);
 
     destroy_DList(&dlist01);

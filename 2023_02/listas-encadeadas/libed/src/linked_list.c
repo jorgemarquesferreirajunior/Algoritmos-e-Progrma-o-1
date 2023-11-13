@@ -280,6 +280,24 @@ void add_end_CList(CList *circ_list, int val){
 
 //****END-CIRC_LIST
 
+//********************getting values*****************//
+int lenDList(const DList *doubly_list){
+    return doubly_list->size;
+}
+int getValDList(const DList *doubly_list, int pos){
+    if (DList_is_empty(doubly_list) || pos > doubly_list->size || pos < 0){
+        return INT_MIN;
+    }
+    else{
+        DNode *p = doubly_list->begin;
+
+        for (int i = 0; i < pos; i++){
+            p = p->next;
+        }
+
+        return p->val;
+    }
+}
 //********************counting numbers*****************//
 bool isPrime(int num){
     if (num <= 1) {
@@ -317,11 +335,14 @@ bool findUniqueValueDlist(const DList *doubly_list, int val){
         if (p->val == val){
             count++;
         }
+        if (count >= 2){
+            break;
+        }
         
         p = p->next;
     }
     
-    return count <= 0;
+    return count <= 1;
 }
 
 int countEvenNumbersFromDList(const DList *doubly_list){
@@ -524,20 +545,36 @@ DList* copyInvertedDList(const DList *doubly_list){
     return copyDList;
 }
 
+/*
 DList* copyUniquesDList(const DList *doubly_list){
-    DList *copyDList = create_DList();
+    DList *copylist = create_DList();
     DNode *p = doubly_list->begin;
 
-    //add_end_DList(copyDList, INT_MIN);
     while (p){
-        if (findUniqueValueDlist(copyDList, p->val)){
-            add_end_DList(copyDList, p->val);
+        if (findUniqueValueDlist(copylist, p->val)){
+            add_end_DList(copylist, p->val);
         }        
         p = p->next;
     }
     
-    return copyDList;
+    return copylist;
 }
+*/
+
+DList* copyUniquesDList(const DList *doubly_list){
+    DList *copylist = create_DList();
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        if (findUniqueValueDlist(doubly_list, p->val)){
+            add_end_DList(copylist, p->val);
+        }        
+        p = p->next;
+    }
+    
+    return copylist;
+}
+
 
 //*******************checking sort******************//
 bool sortedDList(const DList *doubly_list){
@@ -560,6 +597,34 @@ bool sortedDList(const DList *doubly_list){
     
     return (ascending == doubly_list->size || descending == doubly_list->size);
 }
+
+//******************combined operations****************//
+DList *unionDList(const DList *doubly_list1, const DList *doubly_list2){
+    DList *list = copyDList(doubly_list1);
+    DNode *p = doubly_list2->begin;
+
+    while (p){
+        if (!findValueDlist(list, p->val)){
+            add_end_DList(list, p->val);
+        }
+        p = p->next;
+    }
+    return list;
+}
+
+DList *intersectionDList(const DList *doubly_list1, const DList *doubly_list2){
+    DList *list = create_DList();
+    DNode *p = doubly_list1->begin;
+
+    while (p){
+        if (findValueDlist(doubly_list2, p->val)){
+            add_end_DList(list, p->val);
+        }
+        p = p->next;
+    } 
+    return list;
+}
+
 //******************concatenating lists****************//
 ESList *concat_ESList(const ESList *estatic_slist01, const ESList *estatic_slist02){
     int capacity = estatic_slist01->size + estatic_slist02->size;
@@ -623,6 +688,8 @@ DList *concat_DList(const DList *doubly_list_01, const DList *doubly_list_02){
     
     return L;
 }
+
+
 CList *concat_CList(const CList *circ_list_01, const CList *circ_list_02){
     CList *L = create_CList();
 

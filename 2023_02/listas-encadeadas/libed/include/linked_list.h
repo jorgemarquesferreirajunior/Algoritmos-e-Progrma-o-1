@@ -54,10 +54,14 @@ int countPrimesInDList(const DList *doubly_list);
 bool isPrime(int num);
 bool findValueDlist(const DList *doubly_list, int val);
 bool findUniqueValueDlist(const DList *doubly_list, int val);
-DList* copyDList(const DList *doubly_list);
-DList* copyInvertedDList(const DList *doubly_list);
-DList* copyUniquesDList(const DList *doubly_list);
+DList *copyDList(const DList *doubly_list);
+DList *copyInvertedDList(const DList *doubly_list);
+DList *copyUniquesDList(const DList *doubly_list);
 bool sortedDList(const DList *doubly_list);
+DList *unionDList(const DList *doubly_list1, const DList *doubly_list2);
+DList *intersectionDList(const DList *doubly_list1, const DList *doubly_list2);
+int lenDList(const DList *doubly_list);
+int getValDList(const DList *doubly_list, int pos);
 
 void removel_SList(SList *singly_list, int val);
 void removel_DList(DList *doubly_list, int val);
