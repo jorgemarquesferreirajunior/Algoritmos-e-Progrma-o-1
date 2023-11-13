@@ -77,6 +77,7 @@ CNode *create_CNode(int val){
 
     return c_node;
 }
+
 //*******************checking sizes******************//
 bool ESList_is_full(const ESList *estatic_slist){return estatic_slist->size == estatic_slist->capacity;}
 bool ESList_is_empty(const ESList *estatic_slist){return estatic_slist->size == 0;}
@@ -511,6 +512,18 @@ DList* copyDList(const DList *doubly_list){
     return copyDList;
 }
 
+DList* copyInvertedDList(const DList *doubly_list){
+    DList *copyDList = create_DList();
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        add_begin_DList(copyDList, p->val);
+        p = p->next;
+    }
+    
+    return copyDList;
+}
+
 DList* copyUniquesDList(const DList *doubly_list){
     DList *copyDList = create_DList();
     DNode *p = doubly_list->begin;
@@ -526,6 +539,27 @@ DList* copyUniquesDList(const DList *doubly_list){
     return copyDList;
 }
 
+//*******************checking sort******************//
+bool sortedDList(const DList *doubly_list){
+    DNode *p = doubly_list->begin->next;
+    int ascending;
+    int descending;
+    ascending = descending = doubly_list->size;
+
+
+    while (p){
+        if (p->val < p->prev->val){
+            ascending --;
+        }
+        if (p->val > p->prev->val){
+            descending --;
+        }
+
+        p = p->next;
+    }
+    
+    return (ascending == doubly_list->size || descending == doubly_list->size);
+}
 //******************concatenating lists****************//
 ESList *concat_ESList(const ESList *estatic_slist01, const ESList *estatic_slist02){
     int capacity = estatic_slist01->size + estatic_slist02->size;

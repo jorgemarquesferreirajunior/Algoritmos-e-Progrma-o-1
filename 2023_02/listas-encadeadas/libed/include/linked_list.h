@@ -55,7 +55,9 @@ bool isPrime(int num);
 bool findValueDlist(const DList *doubly_list, int val);
 bool findUniqueValueDlist(const DList *doubly_list, int val);
 DList* copyDList(const DList *doubly_list);
+DList* copyInvertedDList(const DList *doubly_list);
 DList* copyUniquesDList(const DList *doubly_list);
+bool sortedDList(const DList *doubly_list);
 
 void removel_SList(SList *singly_list, int val);
 void removel_DList(DList *doubly_list, int val);
