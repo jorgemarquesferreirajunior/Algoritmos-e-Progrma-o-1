@@ -294,6 +294,35 @@ bool isPrime(int num){
     return true;
 }
 
+bool findValueDlist(const DList *doubly_list, int val){
+    DNode *p = doubly_list->begin;
+
+    while (p){
+        if (p->val == val){
+            return true;
+        }
+        
+        p = p->next;
+    }
+
+    return false;
+}
+
+bool findUniqueValueDlist(const DList *doubly_list, int val){
+    DNode *p = doubly_list->begin;
+    int count = 0;
+
+    while (p){
+        if (p->val == val){
+            count++;
+        }
+        
+        p = p->next;
+    }
+    
+    return count <= 0;
+}
+
 int countEvenNumbersFromDList(const DList *doubly_list){
     int count = 0;
 
@@ -476,6 +505,21 @@ DList* copyDList(const DList *doubly_list){
 
     while (p){
         add_end_DList(copyDList, p->val);
+        p = p->next;
+    }
+    
+    return copyDList;
+}
+
+DList* copyUniquesDList(const DList *doubly_list){
+    DList *copyDList = create_DList();
+    DNode *p = doubly_list->begin;
+
+    //add_end_DList(copyDList, INT_MIN);
+    while (p){
+        if (findUniqueValueDlist(copyDList, p->val)){
+            add_end_DList(copyDList, p->val);
+        }        
         p = p->next;
     }
     
