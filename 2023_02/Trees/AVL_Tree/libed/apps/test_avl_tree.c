@@ -1,12 +1,12 @@
-#include "BinaryTree.h"
+#include "AVLTree.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
-    BinaryTree *arvore = createBinaryTree();
+    AVLTree *arvore = createAVLTree();
     int opcao, valor;
     char sep[100] = "-=-=-=-=--=--=-=-=-=-=-=-=-=-=-=--=--=-=-=-=-=-=";
-    
+
     do {
         printf("%s\n\n", sep);
         printf("\t0 - Sair\t\t1 - Inserir\n\t2 - Imprimir\t\t3 - Buscar\n\t4 - Altura\t\t5 - Qtd. de nós\n\t6 - Remover\t\t7 - Qtd. de Folhas\n\t8 - Menor\t\t9 - Maior\n>:");
@@ -16,15 +16,15 @@ int main(int argc, char const *argv[]){
             case 0:
                 printf("%s\n\n", sep);
                 puts("Saindo...");
-                destroyBinaryTree(&arvore);
-                isNullBinaryTree(arvore);
+                destroyAVLTree(&arvore);
+                isNullAVLTree(arvore);
                 puts("");
                 break;
             case 1:
                 printf("%s\n", sep);
-                printf("Digite um número inteiro: ");
+                printf("Digite o valor a ser inserido: ");
                 scanf("%d", &valor);
-                append_v3(&(arvore->root), valor);
+                arvore->root = append_v1(arvore->root, valor);
                 break;
             case 2:
                 printf("%s\n", sep);
@@ -34,9 +34,9 @@ int main(int argc, char const *argv[]){
             case 3:
                 printf("%s\n\n", sep);
                 print_v3(arvore->root, 1);
-                printf("\nDigite um número inteiro: ");
+                printf("\nDigite o valor a ser buscado: ");
                 scanf("%d", &valor);
-                NodeBTree *retorno = find_v1(arvore->root, valor);
+                NodeAVLTree *retorno = find_v2(arvore->root, valor);
 
                 if (retorno)
                     printf("O valor %d foi encontrado!\n", valor);
@@ -46,12 +46,12 @@ int main(int argc, char const *argv[]){
                 break;
             case 4:
                 printf("%s\n\n", sep);
-                printf("Altura da árvore: %d\n", heightBinaryTree(arvore->root));
+                printf("Altura da árvore: %d\n", heightAVLTree(arvore->root));
                 puts("");
                 break;
             case 5:
                 printf("%s\n\n", sep);
-                printf("Quantidade de Nós na árvore: %d\n", qtdNodeBTree(arvore->root));
+                printf("Quantidade de Nós na árvore: %d\n", qtdNodeAVLTree(arvore->root));
                 puts("");
                 break;
             case 6:
@@ -60,12 +60,11 @@ int main(int argc, char const *argv[]){
                 printf("\nDigite o valor a ser removido: ");
                 scanf("%d", &valor);
                 arvore->root = removeLeafsBTree(arvore->root, valor);
-                printBinaryTree_LR(arvore);
                 puts("");
                 break;
             case 7:
                 printf("%s\n\n", sep);
-                printf("Quantidade de Folhas na árvore: %d\n", qtdLeafsBTree(arvore->root));
+                printf("Quantidade de Folhas na árvore: %d\n", qtdLeafsAVLTree(arvore->root));
                 puts("");
                 break;
             case 8:
@@ -89,7 +88,7 @@ int main(int argc, char const *argv[]){
                     puts("Árvore Vazia\n");
                 break;
             default:
-				puts("*******************************************************\n");
+                puts("*******************************************************\n");
                 printf("Opção inválida!\n\n");
         }
     } while (opcao != 0);

@@ -13,7 +13,7 @@ LIBS = -lm -led -L $(LIB)
 all: libed myapps
 
 libed: \
-	$(OBJ)/TreeAVL.o
+	$(OBJ)/AVLTree.o
 	ar -rcs $(LIB)/libed.a $(OBJ)/*.o
 
 
