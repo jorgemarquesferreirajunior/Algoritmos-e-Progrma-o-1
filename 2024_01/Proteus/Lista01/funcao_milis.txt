@@ -1,0 +1,99 @@
+
+// Inclusão de bibliotecas
+#include <p18F4550.h>
+#include <delays.h>
+
+// Configurações para gravação
+#pragma config FOSC = HS
+#pragma config PWRT = ON
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+#pragma config LVP = OFF
+
+unsigned long tickCount = 0;
+
+
+// Protótipos das Rotinas de Tratamento de Interrupções (ISR)
+void LowISR(void);
+void HighISR(void);
+unsigned long millis(void);
+
+// Redirecionamento para a ISR de alta prioridade
+#pragma code high_vector=0x08
+void interrupt_at_high_vector(void) {
+  _asm GOTO HighISR _endasm
+}
+#pragma code
+
+
+// Redirecionamento para a ISR de baixa prioridade
+#pragma code low_vector=0x18
+void interrupt_at_low_vector(void) {
+  _asm GOTO LowISR _endasm
+}
+#pragma code
+
+// Função de tratamento de interrupções de baixa prioridade LowISR
+#pragma interrupt LowISR
+void LowISR(void)
+{
+	INTCONbits.TMR0IF = 0;
+	PORTDbits.RD1 = 1;
+	tickCount++;
+	PORTDbits.RD1 = 0;
+	TMR0L = 0x00;
+}
+
+// Função de tratamento de interrupções de alta prioridade - HighISR
+#pragma interrupt HighISR
+void HighISR(void)
+{
+  INTCON3bits.INT2IF  = 0;
+  PORTDbits.RD0 = !PORTDbits.RD0;
+}
+unsigned long millis(void){
+	return tickCount;
+}
+
+// Início do programa principal
+void main(void)
+{
+
+	unsigned long oldTick = millis();
+
+	// Inicialização das portas
+	PORTA = 0x00; PORTB = 0x00; PORTC = 0x00; PORTD = 0x00; PORTE = 0x00;
+	LATA  = 0x00; LATB  = 0x00; LATC  = 0x00; LATD  = 0x00; LATE  = 0x00;
+	TRISA = 0x10; TRISB = 0x04; TRISC = 0x00; TRISD = 0x00; TRISE = 0x00;
+
+	ADCON1= 0x0F;
+	CMCON = 0x07;
+	
+	// Inicialização do Timer0
+	T0CON = 0xD1;            // Configuração do Timer0 c
+	TMR0L = 0x00;            // Carrega valores iniciais do Timer (0X00 = 0 ZERO)
+
+	INTCONbits.TMR0IF = 0;   // Limpa sinalizador de interrupção do Timer0
+	INTCON3bits.INT2IF  = 0; // Limpa sinalizador de interrupção externa
+	
+	// Configuração das interrupções	
+	RCONbits.IPEN = 1;			// Habilita atribuição de prioridades às interrupções
+	INTCON2bits.TMR0IP = 0;		// Timer0: Baixa prioridade
+
+	INTCON3bits.INT2IP = 1;		// Externa2: alta prioridade
+	INTCON2bits.INTEDG2 = 0;	// Define borda para ocorrência da interrupção externa
+	INTCONbits.GIEH = 1;		// Habilita interrupções de alta prioridade
+	INTCONbits.GIEL = 1;		// Habilita interrupções de baixa prioridade
+	INTCONbits.TMR0IE = 1;		// Habilita interrupção do Timer0
+
+	INTCON3bits.INT2IE = 1;		// Habilita interrupção Externa2
+
+	while(1) 	// Aguarda ocorrência de interrupções
+	{
+		if ((millis() - oldTick) > 1954) {
+			PORTDbits.RD7 = !PORTDbits.RD7;
+			oldTick = tickCount;
+		}
+	}
+}
+
