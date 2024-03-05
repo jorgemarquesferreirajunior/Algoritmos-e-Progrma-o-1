@@ -1,0 +1,47 @@
+/*
+
+8. Utilize um pino do microcontrolador como saída digital. Durante a execução do programa, o LED deve
+ser ativado de forma intermitente com frequência de 10 Hz.
+
+ */
+
+#include <p18f4450.h>
+#include <delays.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = OFF
+
+#define LED	PORTAbits.RA0
+
+void delay_ms(unsigned int tempo){
+   while(tempo > 0){
+      Delay100TCYx(10);
+      tempo--;
+   }
+}
+
+void delay_hz(unsigned int frequencia){
+   int tempo = (1/frequencia)*1000;
+   
+   while(tempo > 0){
+      Delay100TCYx(10);
+      tempo--;
+   }
+}
+   
+void pisca_LED(){
+   LED = 1;
+   delay_hz(10);
+   LED = 0;
+   delay_hz(10);
+}
+
+void main(){ 
+   PORTA = 0x00; LATA = 0x00; TRISA = 0x00;
+   ADCON1 = 0x0F;
+   
+   while (1){
+      pisca_LED();
+   }
+ }

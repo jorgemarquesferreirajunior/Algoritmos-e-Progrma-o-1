@@ -1,0 +1,47 @@
+/*
+
+3. Utilize dois pinos do microcontrolador como entradas digitais e um pino como saída digital. Quando o
+BOTAO1 for pressionado, o LED deve ser ativado e, quando o BOTAO2 for pressionado, o LED deve
+ser desativado.
+
+ */
+
+#include <p18f4450.h>
+#include <delays.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = OFF
+
+#define BT00	PORTAbits.RA0
+#define BT01	PORTAbits.RA1
+#define LED 	PORTAbits.RA2
+
+void delay_ms(unsigned int tempo){
+   while(tempo > 0){
+      Delay100TCYx(10);
+      tempo--;
+      }
+   }
+   
+void delay_bounce(){
+   delay_ms(30);
+   }
+
+void main(){ 
+   PORTA = 0x00; LATA = 0x00; TRISA = 0x03;
+   ADCON1 = 0x0F;
+   
+   while (1){
+      
+      if(BT00 && !BT01){
+	 LED = 1;
+      }
+      
+      if(BT01){
+	 LED = 0;
+      }
+      
+      delay_bounce();
+   } 
+ }
