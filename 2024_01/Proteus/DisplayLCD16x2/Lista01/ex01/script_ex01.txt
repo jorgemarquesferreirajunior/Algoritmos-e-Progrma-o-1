@@ -1,0 +1,194 @@
+/*
+
+ 1. Utilize um display LCD 16x2 para apresentar seus dados de identificaçao: nome, curso e instituiçao.
+ 
+*/
+
+//Inclusão de bibliotecas
+#include <p18F4550.h>	// Biblioteca do dispositivo utilizado
+#include <delays.h>		// Biblioteca para gerar atrasos (Desativar o WDT)
+
+// Configurações para gravação
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+
+// Atribuição de rótulos para os pinos de comunicação com o display
+#define RS      PORTEbits.RE2   // Via do LCD que sinaliza recepção de dados ou comando
+#define ENABLE  PORTEbits.RE1   // Enable do LCD
+#define LCD     PORTD           // Barramento de dados do LCD
+#define L1      PORTBbits.RB0
+#define L2      PORTBbits.RB1
+#define L3      PORTBbits.RB2
+#define L4      PORTBbits.RB3
+#define C1      PORTBbits.RB4
+#define C2      PORTBbits.RB5
+#define C3      PORTBbits.RB6
+
+// Protótipos das funções
+void ConfiguraLCD8(unsigned char COMANDO);
+void InicializaLCD8(void);
+void EscreveLCD8(unsigned char DADO);
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *STR);
+void AtivarTeclado(void);
+void LerLinhas(void);
+void delay_ms(unsigned int);
+
+// Programa principal
+void main(void){
+	// Rotina de inicialização
+	PORTB = 0x00; LATB = 0x00; TRISB = 0x0F; 
+	PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
+	PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
+	ADCON1= 0x0F;
+	CMCON = 0x07;
+
+	InicializaLCD8(); 	// Inicialização do LCD	
+	
+	while(1){
+		// Escreve texto no LCD usando função de linha inteira
+		
+	  EscreveLinhaLCD8(1, "Jorge CURSO: ECA");
+	  EscreveLinhaLCD8(2, "IFRS-FARROUPILHA");
+	  Delay10KTCYx(200);   // Aguarda 1 segundo
+	  ConfiguraLCD8(0x01);
+	  /*
+	   // Escreve caractere no LCD
+	  EscreveLCD8('2');
+	  EscreveLCD8('0');
+	  // Escreve caractere no LCD baseado no valor hexadecimal
+	  EscreveLCD8(0x32);
+	  EscreveLCD8(0x30 + 1);
+	  Delay10KTCYx(200);   // Aguarda 1 segundo
+	  */
+	   
+	        //AtivarTeclado();
+	}                     
+}
+
+// Rotina que envia um COMANDO para o LCD
+void ConfiguraLCD8(unsigned char INST){
+	RS = 0;             // seleciona o envio de uma instrução
+	LCD = INST;         // carrega o barramento com a instrução desejada
+	ENABLE = 1;         // habilita o display
+	Delay100TCYx(2);    // espera 100us
+	ENABLE = 0;         // desabilita o display
+	Delay1KTCYx(10);    // espera 5ms
+}
+
+// Rotina para inicialização do Display de LCD (RW conectado em GND)
+void InicializaLCD8(void){
+	Delay1KTCYx(30);        // aguarda pelo menos 15ms
+	ConfiguraLCD8(0x30);    // instrução de inicialização
+	Delay1KTCYx(10);        // aguarda pelo menos 4.1ms
+	ConfiguraLCD8(0x30);    // instrução de inicialização
+	Delay100TCYx(2);        // aguarda pelo menos 100us
+	ConfiguraLCD8(0x30);    // instrução de inicialização
+	ConfiguraLCD8(0x38);    // define interface de 8 bits e display de 2 linhas
+	ConfiguraLCD8(0x06);    // desloca cursor para direita sem deslocar a mensagem
+	ConfiguraLCD8(0x0C);    // desliga cursor
+	ConfiguraLCD8(0x01);    // limpa display
+}
+
+// Rotina que envia um DADO a ser escrito no LCD
+void EscreveLCD8(unsigned char DADO){
+	RS = 1;             // seleciona o envio de um caractere
+	LCD = DADO;         // carrega o barramento com o caractere a ser exibido
+	ENABLE = 1;         // habilita o display
+	Delay100TCYx(2);    // espera 100us
+	ENABLE = 0;         // desabilita o display
+	Delay100TCYx(2);    // espera 100us
+}
+
+// Rotina que escreve uma linha completa no LCD
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *FRASE){
+	if(LINHA == 1) ConfiguraLCD8(0x80);
+	if(LINHA == 2) ConfiguraLCD8(0xC0);
+	// Escreve todos os caracteres até encontrar o final do ponteiro
+	while(*FRASE != '\0'){
+		EscreveLCD8(*FRASE);
+		++FRASE;
+	}
+}
+
+void LerLinhas(void){
+   if(C1 == 1){
+      if(L1 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        1       ");
+      }
+      else if(L2 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        4       ");
+      }
+      else if(L3 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        7       ");
+      }
+      else if(L4 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        *       ");
+      }
+   }
+   else if(C2 == 1){
+      if(L1 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        2       ");
+      }
+      else if(L2 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        5       ");
+      }
+      else if(L3 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        8       ");
+      }
+      else if(L4 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        0       ");
+      }
+   }
+   else if(C3 == 1){
+      if(L1 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        3       ");
+      }
+      else if(L2 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        6       ");
+      }
+      else if(L3 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        9       ");
+      }
+      else if(L4 == 1){
+	 ConfiguraLCD8(0x01);
+	 EscreveLinhaLCD8(1, "        #       ");
+      }
+   }
+}
+
+void AtivarTeclado(void){
+   C1 = 1;
+   LerLinhas();
+   delay_ms(30);
+   C1 = 0;
+   
+   C2 = 1;
+   LerLinhas();
+   delay_ms(30);
+   C2 = 0;
+   
+   C3 = 1;
+   LerLinhas();
+   delay_ms(30);
+   C3 = 0;
+}
+   
+void delay_ms(unsigned int tempo){
+   while(tempo > 0){
+      Delay100TCYx(10);
+      tempo--;
+      }
+   }
+   

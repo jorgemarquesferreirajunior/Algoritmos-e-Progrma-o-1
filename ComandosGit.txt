@@ -30,3 +30,5 @@ git clone <endereco-repositorio-git.git> </destino>	# baixa/clona o repositorio 
 Gerando chaves ssh. No terminal:
 	ssh-keygen -t rsa	
 Depois selecionar o arquivo id_rsa.pub para encontrar a chave ssh
+
+

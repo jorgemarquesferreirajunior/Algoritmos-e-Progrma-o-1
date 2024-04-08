@@ -1,0 +1,240 @@
+/*
+
+ 3. Utilize o microcontrolador para monitorar o valor de 4 sensores de temperatura com saída analogica de 0
+ a 5V (para temperaturas de 0 a 200ºC) e apresentar a temperatura instantanea dos sensores em um
+ display LCD.
+
+*/
+
+#include <p18F4550.h>
+#include <delays.h>
+#include <math.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+
+#define RS      PORTEbits.RE2
+#define ENABLE  PORTEbits.RE1
+#define LCD     PORTD
+#define L1      PORTBbits.RB0
+#define L2      PORTBbits.RB1
+#define L3      PORTBbits.RB2
+#define L4      PORTBbits.RB3
+#define C1      PORTBbits.RB4
+#define C2      PORTBbits.RB5
+#define C3      PORTBbits.RB6
+#define S1      PORTBbits.RA0
+#define S2      PORTBbits.RA1
+#define S3      PORTBbits.RA2
+#define S4      PORTBbits.RA3
+
+unsigned short VAN0;
+unsigned short VAN1;
+unsigned short VAN2;
+unsigned short VAN3;
+unsigned short centena;
+unsigned short dezena;
+unsigned short unidade;
+
+void ConfiguraLCD8(unsigned char COMANDO);
+void InicializaLCD8(void);
+void EscreveLCD8(unsigned char DADO);
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *STR);
+void delay_ms(unsigned int);
+unsigned short ler_analogico(char);
+unsigned short conversor_temperatura(float);
+
+void CriaMascara(void);
+void AtualizaDislay(unsigned short);
+
+void main(void){
+    PORTA = 0x00; LATA = 0x00; TRISA = 0x0F;
+    PORTB = 0x00; LATB = 0x00; TRISB = 0x0F; 
+    PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
+    PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
+    ADCON2 = 0x81;
+    ADCON1 = 0x0B;
+    ADCON0 = 0x01;
+
+    InicializaLCD8();
+    CriaMascara();
+    
+    while(1){
+       VAN0 = conversor_temperatura(ler_analogico(0));
+       VAN1 = conversor_temperatura(ler_analogico(1));
+       VAN2 = conversor_temperatura(ler_analogico(2));
+       VAN3 = conversor_temperatura(ler_analogico(3));
+
+       ConfiguraLCD8(0x84);
+       AtualizaDislay(VAN0);
+       
+       ConfiguraLCD8(0x8C);
+       AtualizaDislay(VAN1);
+       
+       ConfiguraLCD8(0xC4);
+       AtualizaDislay(VAN2);
+       
+       ConfiguraLCD8(0xCC);
+       AtualizaDislay(VAN3);
+       /*
+       AtualizaDislay(VAN0);
+       
+       
+       EscreveLCD8(' ');
+       
+       EscreveLCD8('S');
+       EscreveLCD8('2');
+       EscreveLCD8(':');
+       AtualizaDislay(VAN1);
+       EscreveLCD8('C');
+       
+       //ConfiguraLCD8(0x01); // limpa e posiciona
+       //ConfiguraLCD8(0x80); // posiciona l1c1
+       ConfiguraLCD8(0xC1); // posiciona l2c1
+       
+       EscreveLCD8('S');
+       EscreveLCD8('3');
+       EscreveLCD8(':');
+       AtualizaDislay(VAN2);
+       EscreveLCD8('C');
+       
+       EscreveLCD8(' ');
+       
+       EscreveLCD8('S');
+       EscreveLCD8('4');
+       EscreveLCD8(':');
+       AtualizaDislay(VAN3);
+       EscreveLCD8('C');
+       */
+       delay_ms(10);
+       //AtualizaDislay(VAN1, 'S2:', 1);
+       
+       //AtualizaDislay(VAN1);
+       //ConfiguraLCD8(0x01);
+       //AtualizaDislay(VAN2);
+       //AtualizaDislay(VAN3);
+    }                     
+}
+
+void ConfiguraLCD8(unsigned char INST){
+    RS = 0;
+    LCD = INST;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay1KTCYx(10);
+}
+
+void InicializaLCD8(void){
+    Delay1KTCYx(30);
+    ConfiguraLCD8(0x30);
+    Delay1KTCYx(10);
+    ConfiguraLCD8(0x30);
+    Delay100TCYx(2);
+    ConfiguraLCD8(0x30);
+    ConfiguraLCD8(0x38);
+    ConfiguraLCD8(0x06);
+    ConfiguraLCD8(0x0C);
+    ConfiguraLCD8(0x01);
+}
+
+void EscreveLCD8(unsigned char DADO){
+    RS = 1;
+    LCD = DADO;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay100TCYx(2);
+}
+
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *FRASE){
+    if(LINHA == 1) ConfiguraLCD8(0x80);
+    if(LINHA == 2) ConfiguraLCD8(0xC0);
+    while(*FRASE != '\0'){
+        EscreveLCD8(*FRASE);
+        ++FRASE;
+    }
+}
+
+void delay_ms(unsigned int tempo){
+    while(tempo > 0){
+        Delay100TCYx(10);
+        tempo--;
+    }
+}
+   
+unsigned short ler_analogico(char canal){
+    ADCON0bits.CHS = canal;
+    Delay100TCYx(1);
+    ADCON0bits.GO_DONE = 1;
+    while(ADCON0bits.GO_DONE);
+      
+    return ADRES;
+}
+
+unsigned short conversor_temperatura(float valor){
+    return (unsigned short)((valor / 1024) * 200);
+}
+
+void AtualizaDislay(unsigned short valor){  
+   /*
+   short aux;
+	centena = valor / 100; 
+        aux = (valor % 100)
+        dezena = aux / 10;
+        unidade = aux % 10;
+   */
+    if (valor < 100){
+        centena = 0;
+        dezena = floor(valor / 10);
+        unidade = valor - dezena * 10;
+    }
+    else{
+        centena = valor / 100;       
+        dezena = floor((valor - centena * 100) / 10);
+        unidade = (valor - centena * 100 - dezena * 10);
+    }
+    //EscreveLinhaLCD8(linha,STR);
+    //EscreveLCD8(STR);
+    EscreveLCD8(0x30 + centena);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+
+}
+void CriaMascara(void){
+   
+    ConfiguraLCD8(0x81);
+    EscreveLCD8('S'); // 81
+    EscreveLCD8('1'); // 82
+    EscreveLCD8(':'); // 83
+   // 84 , 85 , 86 - valor
+    ConfiguraLCD8(0x87);
+    EscreveLCD8('C'); // 87
+    ConfiguraLCD8(0x89);
+    EscreveLCD8('S'); // 89
+    EscreveLCD8('2'); // 8A
+    EscreveLCD8(':'); // 8B
+   // 8C , 8D , 8E - valor
+    ConfiguraLCD8(0x8F);
+    EscreveLCD8('C'); // 8F
+   
+   
+   ConfiguraLCD8(0xC1);
+   
+    EscreveLCD8('S'); // C1
+    EscreveLCD8('3'); // C2
+    EscreveLCD8(':'); // C3
+   // C4 , C5 , C6 - valor
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8('C'); // C7
+    ConfiguraLCD8(0xC9);
+    EscreveLCD8('S'); // C9
+    EscreveLCD8('4'); // CA
+    EscreveLCD8(':'); // CB
+   // CC , CD , CE - valor
+    ConfiguraLCD8(0xCF);
+    EscreveLCD8('C'); // CF
+   
+   
+}

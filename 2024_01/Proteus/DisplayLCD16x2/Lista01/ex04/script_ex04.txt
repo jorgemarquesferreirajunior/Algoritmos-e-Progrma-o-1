@@ -1,0 +1,689 @@
+#include <p18F4550.h>
+#include <delays.h>
+#include <math.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+
+#define RS		    PORTEbits.RE2
+#define ENABLE		PORTEbits.RE1
+#define LCD		    PORTD
+#define BT_CIMA     PORTBbits.RB0
+#define BT_DIREITA	PORTBbits.RB1
+#define BT_BAIXO	PORTBbits.RB2
+#define BT_ESQUERDA	PORTBbits.RB3
+#define BT_OK		PORTBbits.RB4
+
+// Variaveis analogicas para Temperatura
+unsigned short VAN0;
+unsigned short VAN1;
+unsigned short VAN2;
+unsigned short VAN3;
+
+// Variaveis para mostrar os valores analogicos das Temperaturas
+unsigned short centena;
+unsigned short dezena;
+unsigned short unidade;
+
+// Variaveis para Selececao de Menus, Fornos, Temperatura (max e min)
+unsigned short selecao_menu         = 1;
+unsigned short selecao_menu_fornos  = 1;
+unsigned short selecao_menu_temper  = 1;
+
+// Variaveis para elaboracao de um controle de 5 botoes
+unsigned short BT_CIMA_anterior     = 1;
+unsigned short BT_DIREITA_anterior  = 1;
+unsigned short BT_BAIXO_anterior    = 1;
+unsigned short BT_ESQUERDA_anterior = 1;
+unsigned short BT_OK_anterior       = 1;
+
+// Variaveis de estado para monitoramento de borda de subida para cada botao do controle
+unsigned short flag_BT_CIMA         = 0;
+unsigned short flag_BT_DIREITA      = 0;
+unsigned short flag_BT_BAIXO        = 0;
+unsigned short flag_BT_ESQUERDA     = 0;
+unsigned short flag_BT_OK           = 0;
+
+// Variaveis de estado para controle de estado de cada forno
+unsigned short flag_forno_1         = 0;
+unsigned short flag_forno_2         = 0;
+unsigned short flag_forno_3         = 0;
+unsigned short flag_forno_4         = 0;
+
+// Variaveis para armazenar e mostrar os valores de Temperatura (max e min) 
+unsigned short T_max                = 0xFFFF;
+unsigned short T_min                = 0xFFFF;
+unsigned short c_max;
+unsigned short d_max;
+unsigned short u_max;
+unsigned short c_min;
+unsigned short d_min;
+unsigned short u_min;
+
+// Senha de desbloqueio
+unsigned char senha[5] = {1,0,1,1,0};
+unsigned char tentativa[5] = {2,2,2,2,2};
+unsigned short ChecarSenha(void);
+unsigned short check = 0;
+
+
+// Funcoes para controle do Display
+void ConfiguraLCD8(unsigned char COMANDO);
+void InicializaLCD8(void);
+void EscreveLCD8(unsigned char DADO);
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *STR);
+
+// Funcoes para uso geral no codigo
+void delay_ms(unsigned int);
+
+// Funcoes para controle analogico
+unsigned short ler_analogico(char);
+unsigned short conversor_temperatura(float);
+
+// Funcoes para criacao de mascaras
+void CriaMascara(void);
+void CriaMascaraForno(void);
+void CriaMascaraTemperatura(void);
+
+// Funcoes para atualizacao de dados
+void AtualizaSensores(void);
+void AtualizaDislay(unsigned short);
+void AtualizaBotoes(void);
+void AtualizaMenu(void);
+void CalcTemperaturaMax(void);
+void CalcTemperaturaMin(void);
+
+// Funcoes para mostrar dados
+void MostrarMenu(void);
+void MostrarSubMenu(void);
+void Pagina1_1(void);
+void Pagina1_2(void);
+void Pagina1_3(void);
+void Pagina1_4(void);
+void Pagina2(void);
+void Pagina3_1(void);
+void Pagina3_2(void);
+void Pagina3_3(void);
+void Pagina3_4(void);
+void AtualizaTempMax(void);
+void AtualizaTempMin(void);
+void AtualizaCursorTemp(void);
+
+// Funcoes para controle de flags
+void ResetFlags(void);
+
+// Funcoes para controle digital
+void AlterarForno(unsigned short flag);
+void Ligado(void);
+void Desligado(void);
+
+// -=-=-=-=-=-=-=-=-=-=-=--=-Fucao Principal-=-=-=-=-=-=-=-=-=-=-=--=-
+void main(void){
+    PORTA = 0x00; LATA = 0x00; TRISA = 0x0F;
+    PORTB = 0x00; LATB = 0x00; TRISB = 0x0F; 
+    PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
+    PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
+    ADCON2 = 0x81;
+    ADCON1 = 0x0B;
+    ADCON0 = 0x01;
+    InicializaLCD8();
+    while(1){
+        AtualizaBotoes();
+        AtualizaSensores();
+        AtualizaMenu();
+        MostrarMenu();
+        ResetFlags();
+        delay_ms(15);
+    }                     
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=--=-Implementacao das subfuncoes-=-=-=-=-=-=-=-=-=-=-=--=-
+void ConfiguraLCD8(unsigned char INST){
+    RS = 0;
+    LCD = INST;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay1KTCYx(10);
+}
+void InicializaLCD8(void){
+    Delay1KTCYx(30);
+    ConfiguraLCD8(0x30);
+    Delay1KTCYx(10);
+    ConfiguraLCD8(0x30);
+    Delay100TCYx(2);
+    ConfiguraLCD8(0x30);
+    ConfiguraLCD8(0x38);
+    ConfiguraLCD8(0x06);
+    ConfiguraLCD8(0x0C);
+    ConfiguraLCD8(0x01);
+}
+void EscreveLCD8(unsigned char DADO){
+    RS = 1;
+    LCD = DADO;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay100TCYx(2);
+}
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *FRASE){
+    if(LINHA == 1) ConfiguraLCD8(0x80);
+    if(LINHA == 2) ConfiguraLCD8(0xC0);
+    while(*FRASE != '\0'){
+        EscreveLCD8(*FRASE);
+        ++FRASE;
+    }
+}
+void delay_ms(unsigned int tempo){
+    while(tempo > 0){
+        Delay100TCYx(10);
+        tempo--;
+    }
+}
+unsigned short ler_analogico(char canal){
+    ADCON0bits.CHS = canal;
+    Delay100TCYx(1);
+    ADCON0bits.GO_DONE = 1;
+    while(ADCON0bits.GO_DONE);
+    return ADRES;
+}
+unsigned short conversor_temperatura(float valor){
+    return (unsigned short)((valor / 1024) * 200);
+}
+void AtualizaDislay(unsigned short valor){  
+    if (valor < 100){
+        centena = 0;
+        dezena = floor(valor / 10);
+        unidade = valor - dezena * 10;
+    }
+    else{
+        centena = valor / 100;       
+        dezena = floor((valor - centena * 100) / 10);
+        unidade = (valor - centena * 100 - dezena * 10);
+    }
+    EscreveLCD8(0x30 + centena);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+}
+void CriaMascara(void){
+    ConfiguraLCD8(0x81);
+    EscreveLCD8('S'); // 81
+    EscreveLCD8('1'); // 82
+    EscreveLCD8(':'); // 83
+    // 84 , 85 , 86 - valor
+    ConfiguraLCD8(0x87);
+    EscreveLCD8('C'); // 87
+    ConfiguraLCD8(0x89);
+    EscreveLCD8('S'); // 89
+    EscreveLCD8('2'); // 8A
+    EscreveLCD8(':'); // 8B
+    // 8C , 8D , 8E - valor
+    ConfiguraLCD8(0x8F);
+    EscreveLCD8('C'); // 8F
+
+    ConfiguraLCD8(0xC1);
+    EscreveLCD8('S'); // C1
+    EscreveLCD8('3'); // C2
+    EscreveLCD8(':'); // C3
+    // C4 , C5 , C6 - valor
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8('C'); // C7
+    ConfiguraLCD8(0xC9);
+    EscreveLCD8('S'); // C9
+    EscreveLCD8('4'); // CA
+    EscreveLCD8(':'); // CB
+    // CC , CD , CE - valor
+    ConfiguraLCD8(0xCF);
+    EscreveLCD8('C'); // CF
+}
+void AtualizaSensores(void){
+    VAN0 = conversor_temperatura(ler_analogico(0));
+    VAN1 = conversor_temperatura(ler_analogico(1));
+    VAN2 = conversor_temperatura(ler_analogico(2));
+    VAN3 = conversor_temperatura(ler_analogico(3));
+}
+void AtualizaBotoes(void){
+    if (BT_CIMA == 1  && !BT_CIMA_anterior == 1){
+        flag_BT_CIMA = 1;
+    }
+    BT_CIMA_anterior = BT_CIMA;
+    if (BT_BAIXO == 1  && !BT_BAIXO_anterior == 1){
+        flag_BT_BAIXO = 1;
+    }
+    BT_BAIXO_anterior = BT_BAIXO;
+    if (BT_ESQUERDA == 1  && !BT_ESQUERDA_anterior == 1){
+        flag_BT_ESQUERDA = 1;
+    }
+    BT_ESQUERDA_anterior = BT_ESQUERDA;
+    if (BT_DIREITA == 1  && !BT_DIREITA_anterior == 1){
+        flag_BT_DIREITA = 1;
+    }
+    BT_DIREITA_anterior = BT_DIREITA;
+    if (BT_OK == 1  && !BT_OK_anterior == 1){
+        flag_BT_OK = 1;
+    }
+    BT_OK_anterior = BT_OK;
+}
+void AtualizaMenu(void){
+    if (flag_BT_BAIXO == 1){
+        if (selecao_menu < 4){
+            selecao_menu ++;
+        }
+        else{
+            selecao_menu = 1;
+        }
+    }
+    if (flag_BT_CIMA == 1){
+        if (selecao_menu >1){
+            selecao_menu --;
+        }
+        else{
+            selecao_menu = 4;
+        }
+    }
+    flag_BT_BAIXO = 0;
+    flag_BT_CIMA = 0;
+}
+void ResetFlags(){
+    flag_BT_CIMA     = 0;
+    flag_BT_DIREITA  = 0;
+    flag_BT_ESQUERDA = 0;
+    flag_BT_BAIXO    = 0;
+    flag_BT_OK       = 0;
+}
+void MostrarMenu(void){
+    switch (selecao_menu){
+    case 1:
+        Pagina1_1();
+        if (flag_BT_DIREITA){
+            flag_BT_DIREITA = 0;
+            ConfiguraLCD8(0x01);
+            CriaMascaraForno();
+            while (!flag_BT_ESQUERDA){   
+                MostrarSubMenu();
+                AtualizaBotoes();
+            }
+            flag_BT_ESQUERDA = 0;
+        }
+        selecao_menu = 1;
+        break;
+    case 2:
+        Pagina1_2();
+        if (flag_BT_DIREITA){
+            flag_BT_DIREITA = 0;
+            ConfiguraLCD8(0x01);
+            CriaMascara();
+            Pagina2();
+            while (!flag_BT_ESQUERDA){       
+                AtualizaBotoes();
+                AtualizaSensores();
+                Pagina2();
+            }
+            flag_BT_ESQUERDA = 0;
+        }
+        break;
+    case 3:
+        Pagina1_3();
+        if (flag_BT_DIREITA){
+            flag_BT_DIREITA = 0;
+            ConfiguraLCD8(0x01);
+            CriaMascaraTemperatura();
+            if (T_max == 0xFFFF) {
+                T_max = 0;
+            }
+            if (T_min == 0xFFFF) {
+                T_min = 0;
+            }
+            AtualizaTempMax();
+            AtualizaTempMin();
+
+            while (!flag_BT_ESQUERDA){
+                AtualizaBotoes();
+                AtualizaCursorTemp();
+                CalcTemperaturaMax();
+                CalcTemperaturaMin();
+                if (flag_BT_CIMA || flag_BT_BAIXO){
+                    flag_BT_CIMA = 0;
+                    flag_BT_BAIXO = 0;
+                    selecao_menu_temper = ! selecao_menu_temper;
+                }   
+                if (flag_BT_OK){
+                    flag_BT_OK = 0;
+                    if (selecao_menu_temper){
+                        T_max ++;
+                        if (T_max > 200){
+                            T_max = 0;
+                        }
+                        AtualizaTempMax();
+                    }
+                    else{
+                        T_min ++;
+                        if (T_min > 200){
+                            T_min = 0;
+                        }
+                        AtualizaTempMin();
+                    }   
+                }                 
+            }
+            flag_BT_ESQUERDA = 0;
+        }
+        break;
+    case 4:
+        Pagina1_4();
+        if (flag_BT_DIREITA){
+            flag_BT_DIREITA = 0;
+            ConfiguraLCD8(0x01);
+            
+            while (!flag_BT_ESQUERDA){
+                flag_BT_ESQUERDA = 0;
+
+                EscreveLinhaLCD8("senha: 1,0,1,1,0");
+                
+                check = ChecarSenha();
+                // while (ChecarSenha() == 0){
+                //     for (unsigned short i = 0; i < 5; i++){
+                //         ConfiguraLCD8(0xC0 + i);
+                        
+                //         if (flag_BT_CIMA){
+                //             flag_BT_CIMA = 0;
+                //             tentativa[i] = 1;
+                //         }
+                //         else if (flag_BT_BAIXO){
+                //             flag_BT_BAIXO = 0;
+                //             tentativa[i] = 0;
+                //         }
+                //         EscreveLCD8(0x30 + tentativa[i]);
+                //     }
+                // }
+            }
+        }
+        
+        break;
+    default:
+        break;
+    }
+}
+void MostrarSubMenu(void){
+    AtualizaMenu();
+    switch (selecao_menu){
+    case 1:
+        if (flag_BT_OK){
+            flag_BT_OK = 0;
+            flag_forno_1 = !flag_forno_1;           
+        }
+        Pagina3_1();
+        break;
+    case 2:
+        if (flag_BT_OK){
+            flag_BT_OK = 0;
+            flag_forno_2 = !flag_forno_2;
+        }         
+        Pagina3_2();   
+        break;
+    case 3:
+        if (flag_BT_OK){
+            flag_BT_OK = 0;
+            flag_forno_3 = !flag_forno_3;
+        }       
+        Pagina3_3();
+        break;
+    case 4:
+        if (flag_BT_OK){
+            flag_BT_OK = 0;
+            flag_forno_4 = !flag_forno_4;
+        }       
+        Pagina3_4();
+        break;
+    default:
+        break;
+    }
+}
+void Pagina1_1(void){
+    EscreveLinhaLCD8(1,">Visualiza      ");
+    EscreveLinhaLCD8(2," Seleciona      ");
+}
+void Pagina1_2(void){
+    EscreveLinhaLCD8(1,">Seleciona      ");
+    EscreveLinhaLCD8(2," Configura      ");
+}
+void Pagina1_3(void){
+    EscreveLinhaLCD8(1,">Configura      ");
+    EscreveLinhaLCD8(2," Desliga        ");
+}
+void Pagina1_4(void){
+    EscreveLinhaLCD8(1,">Desliga        ");
+    EscreveLinhaLCD8(2," Visualiza      ");
+}
+
+void Pagina2(void){
+    ConfiguraLCD8(0x84);
+    AtualizaDislay(VAN0);
+    ConfiguraLCD8(0x8C);
+    AtualizaDislay(VAN1);
+    ConfiguraLCD8(0xC4);
+    AtualizaDislay(VAN2);
+    ConfiguraLCD8(0xCC);
+    AtualizaDislay(VAN3);
+}
+void CriaMascaraForno(void){
+    ConfiguraLCD8(0x81);
+    EscreveLCD8('F'); // 81
+    EscreveLCD8('O'); // 82
+    EscreveLCD8('R'); // 83
+    EscreveLCD8('N'); // 84
+    EscreveLCD8('O'); // 85
+    ConfiguraLCD8(0x89);
+    EscreveLCD8('O'); // 89
+    EscreveLCD8('F'); // 8A
+    EscreveLCD8('F'); // 8B 
+
+    ConfiguraLCD8(0xC1);
+    EscreveLCD8('F'); // C1
+    EscreveLCD8('O'); // C2
+    EscreveLCD8('R'); // C3
+    EscreveLCD8('N'); // C4
+    EscreveLCD8('O'); // C5
+    ConfiguraLCD8(0xC9);
+    EscreveLCD8('O'); // 89
+    EscreveLCD8('F'); // 8A
+    EscreveLCD8('F'); // 8B 
+}
+void Pagina3_1(void){
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('>');
+    ConfiguraLCD8(0xC0);
+    EscreveLCD8(' ');
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + selecao_menu);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x31 + selecao_menu);
+
+    if (flag_forno_1){
+        ConfiguraLCD8(0x89);
+        Ligado();
+    }
+    if (!flag_forno_1){
+        ConfiguraLCD8(0x89);
+        Desligado();
+    }
+    if (flag_forno_2){
+        ConfiguraLCD8(0xC9);
+        Ligado();
+    }
+    if (!flag_forno_2){
+        ConfiguraLCD8(0xC9);
+        Desligado();
+    }
+}
+void Pagina3_2(void){
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('>');
+    ConfiguraLCD8(0xC0);
+    EscreveLCD8(' ');
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + selecao_menu);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x31 + selecao_menu);
+
+    if (flag_forno_2){
+        ConfiguraLCD8(0x89);
+        Ligado();
+    }
+    if (!flag_forno_2){
+        ConfiguraLCD8(0x89);
+        Desligado();
+    }
+    if (flag_forno_3){
+        ConfiguraLCD8(0xC9);
+        Ligado();
+    }
+    if (!flag_forno_3){
+        ConfiguraLCD8(0xC9);
+        Desligado();
+    }
+}
+void Pagina3_3(void){
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('>');
+    ConfiguraLCD8(0xC0);
+    EscreveLCD8(' ');
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + selecao_menu);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x31 + selecao_menu);
+
+    if (flag_forno_3){
+        ConfiguraLCD8(0x89);
+        Ligado();
+    }
+    if (!flag_forno_3){
+        ConfiguraLCD8(0x89);
+        Desligado();
+    }
+    if (flag_forno_4){
+        ConfiguraLCD8(0xC9);
+        Ligado();
+    }
+    if (!flag_forno_4){
+        ConfiguraLCD8(0xC9);
+        Desligado();
+    }
+}
+void Pagina3_4(void){
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('>');
+    ConfiguraLCD8(0xC0);
+    EscreveLCD8(' ');
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + selecao_menu);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x31);
+
+    if (flag_forno_4){
+        ConfiguraLCD8(0x89);
+        Ligado();
+    }
+    if (!flag_forno_4){
+        ConfiguraLCD8(0x89);
+        Desligado();
+    }
+    if (flag_forno_1){
+        ConfiguraLCD8(0xC9);
+        Ligado();
+    }
+    if (!flag_forno_1){
+        ConfiguraLCD8(0xC9);
+        Desligado();
+    }
+}
+void AlterarForno(unsigned short flag){
+    if (flag){
+        Ligado(); 
+    }
+    else{
+        Desligado();
+    }
+}
+void Ligado(void){
+    EscreveLCD8('O');
+    EscreveLCD8('N');
+    EscreveLCD8(' '); 
+}
+void Desligado(void){
+    EscreveLCD8('O');
+    EscreveLCD8('F');
+    EscreveLCD8('F');
+}
+void CalcTemperaturaMax(void){
+    unsigned short aux;
+    c_max = T_max / 100;
+    aux = T_max % 100;
+    d_max = aux / 10;
+    u_max = aux % 10;
+}
+void CalcTemperaturaMin(void){
+    unsigned short aux;
+    c_min = T_min / 100;
+    aux = T_min % 100;
+    d_min = aux / 10;
+    u_min = aux % 10;
+}
+void AtualizaCursorTemp(void){
+    if (selecao_menu_temper){
+        ConfiguraLCD8(0x80);
+        EscreveLCD8('>');
+        ConfiguraLCD8(0xC0);
+        EscreveLCD8(' ');
+    }
+    else{
+        ConfiguraLCD8(0x80);
+        EscreveLCD8(' ');
+        ConfiguraLCD8(0xC0);
+        EscreveLCD8('>');
+    }
+}
+void AtualizaTempMax(void){
+    CalcTemperaturaMax();
+    ConfiguraLCD8(0x86);
+    EscreveLCD8(0x30 + c_max);
+    EscreveLCD8(0x30 + d_max);
+    EscreveLCD8(0x30 + u_max);
+}
+void AtualizaTempMin(void){
+    CalcTemperaturaMin();
+    ConfiguraLCD8(0xC6);
+    EscreveLCD8(0x30 + c_min);
+    EscreveLCD8(0x30 + d_min);
+    EscreveLCD8(0x30 + u_min);
+}
+void CriaMascaraTemperatura(void){
+    ConfiguraLCD8(0x81);
+    EscreveLCD8('T');
+    EscreveLCD8('m');
+    EscreveLCD8('a');
+    EscreveLCD8('x');
+    EscreveLCD8(':');
+    EscreveLCD8('?');
+    EscreveLCD8('?');
+    EscreveLCD8('?');
+    EscreveLCD8('C');
+    ConfiguraLCD8(0xC1);
+    EscreveLCD8('T');
+    EscreveLCD8('m');
+    EscreveLCD8('i');
+    EscreveLCD8('n');
+    EscreveLCD8(':');
+    EscreveLCD8('?');
+    EscreveLCD8('?');
+    EscreveLCD8('?');
+    EscreveLCD8('C');
+}
+unsigned short ChecarSenha(void){
+    for (unsigned short i = 0; i < 5; i++){
+        if (tentativa[i] != senha[i]){
+            return 0;
+        }
+        return 1;
+    }   
+}
