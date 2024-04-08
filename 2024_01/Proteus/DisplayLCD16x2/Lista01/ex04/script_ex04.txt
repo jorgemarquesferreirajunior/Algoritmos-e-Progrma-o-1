@@ -379,12 +379,11 @@ void MostrarMenu(void){
             AtualizaBotoes();
             
             while (!ChecarSenha()){
+                ConfiguraLCD8(0x01);
                 ConfiguraLCD8(0x80);
                 i = 0;
                 for (i = 0; i < 5; i++){
-                                            
-                    
-                    
+
                     while (!flag_BT_CIMA){
                         AtualizaBotoes();
                         if (flag_BT_CIMA){
@@ -397,12 +396,9 @@ void MostrarMenu(void){
                             tentativa[i] = 0;
                             break;
                         }
-                        
                     }
                     EscreveLCD8(0x30 + tentativa[i]);
                 }
-                
-                EscreveLinhaLCD8(2,"                ");
             }
             tentativa[0] = senha[0] + 1;
         }
@@ -685,11 +681,12 @@ void CriaMascaraTemperatura(void){
     EscreveLCD8('C');
 }
 unsigned short ChecarSenha(void){
+    unsigned short ck = 1;
     for (j = 0; j < 5; j++){
         if (tentativa[j] != senha[j]){
-            return 0;
+            ck =  0;
         }
-        return 1;
-    }   
+    }
     j = 0;
+    return ck;
 }
