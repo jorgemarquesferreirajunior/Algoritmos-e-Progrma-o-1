@@ -227,6 +227,4 @@ void CriaMascara(void){
    // CC , CD , CE - valor
     ConfiguraLCD8(0xCF);
     EscreveLCD8('C'); // CF
-   
-   
 }
