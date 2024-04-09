@@ -1,0 +1,78 @@
+#include <p18F4550.h>
+#include <delays.h>
+#include <math.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+
+#define Sensor_Luminosidade   PORTBbits.RA0
+#define BT_Manu_Auto          PORTBbits.RB0
+#define BT_Abre               PORTBbits.RB1
+#define BT_Fecha              PORTBbits.RB2
+#define Sensor_Chuva          PORTBbits.RB3
+#define Sensor_Inicio         PORTBbits.RB4
+#define Sensor_Centro         PORTBbits.RB5
+#define Sensor_Final          PORTBbits.RB6
+
+#define Motor_Abre            PORTDbits.RD0
+#define Motor_Fecha           PORTDbits.RD0
+
+unsigned short Luminosidade;
+
+// Prototipos
+
+void Delay_ms(unsigned int);
+unsigned short LerAnalogico(char);
+unsigned short ConversorTensao(float);
+void ChecaBotoes(void);
+void ChecaChuvaELuminosidade(void);
+
+void main(void){
+    PORTA = 0x00; LATA = 0x00; TRISA = 0x01;
+    PORTB = 0x00; LATB = 0x00; TRISB = 0xFF; 
+    PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
+    PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
+    ADCON2 = 0x81;
+    ADCON1 = 0x0E;
+    ADCON0 = 0x01;
+    
+    while(1){
+       Luminosidade = ConversorTensao(LerAnalogico(0));
+
+       ChecaChuvaELuminosidade();
+       Delay_ms(30);
+       
+    }                     
+}
+
+void Delay_ms(unsigned int tempo){
+    while(tempo > 0){
+        Delay100TCYx(10);
+        tempo--;
+    }
+}
+   
+unsigned short LerAnalogico(char canal){
+    ADCON0bits.CHS = canal;
+    Delay100TCYx(1);
+    ADCON0bits.GO_DONE = 1;
+    while(ADCON0bits.GO_DONE);
+      
+    return ADRES;
+}
+
+unsigned short ConversorTensao(float valor){
+    return (unsigned short)((valor / 1024) * 100);
+}
+
+void ChecaBotoes(void){
+}
+
+void ChecaChuvaELuminosidade(void){
+    if (Sensor_Chuva == 1 || Luminosidade < 10){
+        while (!Sensor_Final){
+            Motor_Fecha = 1;
+        }
+    }
+}

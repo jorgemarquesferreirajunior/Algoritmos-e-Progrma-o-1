@@ -1,0 +1,9 @@
+Considerando um microcontrolador  PIC18F4550 cujo oscilador utilizado é de 20MHz, quantos ciclos de instrução são necessários para gerar um atraso de 500ms
+
+atraso = 500ms = 0,5 s
+
+f = 20MHz
+T = 1 / f
+C = f/4
+
+resp: C * atraso(segundos) = 2,5M ciclos

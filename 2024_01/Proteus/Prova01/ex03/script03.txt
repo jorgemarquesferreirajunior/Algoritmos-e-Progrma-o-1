@@ -1,0 +1,306 @@
+#include <p18F4550.h>
+#include <delays.h>
+#include <math.h>
+
+#pragma config FOSC = HS
+#pragma config WDT = OFF
+#pragma config MCLRE = ON
+
+#define RS      PORTEbits.RE2
+#define ENABLE  PORTEbits.RE1
+#define LCD     PORTD
+#define BT01    PORTBbits.RB0
+#define BT02    PORTBbits.RB1
+#define BT03    PORTBbits.RB2
+#define BT04    PORTBbits.RB3
+
+unsigned short BT01_Anterior = 1;
+unsigned short BT02_Anterior = 1;
+unsigned short BT03_Anterior = 1;
+unsigned short BT04_Anterior = 1;
+unsigned short contador = 0;
+
+
+unsigned short VAN0;
+unsigned short VAN1;
+unsigned short VAN2;
+unsigned short VAN3;
+unsigned short VAN4;
+
+unsigned short centena;
+unsigned short dezena;
+unsigned short unidade;
+
+// Prototipos
+void ConfiguraLCD8(unsigned char COMANDO);
+void InicializaLCD8(void);
+void EscreveLCD8(unsigned char DADO);
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *STR);
+void Delay_ms(unsigned int);
+unsigned short LerAnalogico(char);
+unsigned short ConversorTensao(float);
+void ChecaBotoes(void);
+void AtualizaTensao(unsigned short valor);
+
+void Modo01(void);
+void Modo02(void);
+void Modo03(void);
+void Modo04(void);
+void CriaMascara(void);
+void CriaMascara2(void);
+
+void main(void){
+    PORTA = 0x00; LATA = 0x00; TRISA = 0x1F;
+    PORTB = 0x00; LATB = 0x00; TRISB = 0x0F; 
+    PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
+    PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
+    ADCON2 = 0x81;
+    ADCON1 = 0x0A;
+    ADCON0 = 0x01;
+
+    InicializaLCD8();
+    CriaMascara();
+    
+    while(1){
+       VAN0 = ConversorTensao(LerAnalogico(0));
+       VAN1 = ConversorTensao(LerAnalogico(1));
+       VAN2 = ConversorTensao(LerAnalogico(2));
+       VAN3 = ConversorTensao(LerAnalogico(3));
+       VAN4 = ConversorTensao(LerAnalogico(4));
+
+       ChecaBotoes();
+       
+       switch (contador)
+       {
+       case 1:
+        Modo01();
+        break;
+
+        case 2:
+        Modo02();
+        break;
+
+        case 3:
+        Modo03();
+        break;
+
+        case 4:
+        Modo04();
+        break;
+       
+       default:
+        break;
+       }
+       
+       Delay_ms(30);
+       
+    }                     
+}
+
+void ConfiguraLCD8(unsigned char INST){
+    RS = 0;
+    LCD = INST;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay1KTCYx(10);
+}
+
+void InicializaLCD8(void){
+    Delay1KTCYx(30);
+    ConfiguraLCD8(0x30);
+    Delay1KTCYx(10);
+    ConfiguraLCD8(0x30);
+    Delay100TCYx(2);
+    ConfiguraLCD8(0x30);
+    ConfiguraLCD8(0x38);
+    ConfiguraLCD8(0x06);
+    ConfiguraLCD8(0x0C);
+    ConfiguraLCD8(0x01);
+}
+
+void EscreveLCD8(unsigned char DADO){
+    RS = 1;
+    LCD = DADO;
+    ENABLE = 1;
+    Delay100TCYx(2);
+    ENABLE = 0;
+    Delay100TCYx(2);
+}
+
+void EscreveLinhaLCD8(unsigned char LINHA, rom unsigned char *FRASE){
+    if(LINHA == 1) ConfiguraLCD8(0x80);
+    if(LINHA == 2) ConfiguraLCD8(0xC0);
+    while(*FRASE != '\0'){
+        EscreveLCD8(*FRASE);
+        ++FRASE;
+    }
+}
+
+void Delay_ms(unsigned int tempo){
+    while(tempo > 0){
+        Delay100TCYx(10);
+        tempo--;
+    }
+}
+   
+unsigned short LerAnalogico(char canal){
+    ADCON0bits.CHS = canal;
+    Delay100TCYx(1);
+    ADCON0bits.GO_DONE = 1;
+    while(ADCON0bits.GO_DONE);
+      
+    return ADRES;
+}
+
+unsigned short ConversorTensao(float valor){
+    return (unsigned short)((valor / 1024) * 5000);
+}
+void AtualizaTensao(unsigned short valor){  
+
+    if (valor < 1000){
+	    centena = 0; 
+        dezena = valor / 100;
+        unidade = (valor - (dezena * 100)) / 10;
+    }
+    else{
+        centena = valor / 1000; 
+        dezena = (valor - (centena * 1000)) / 100;
+        unidade = (valor - (centena * 1000) - (dezena * 100)) / 10;
+        }
+
+}
+void ChecaBotoes(void){
+    if (BT01 == 1  && !BT01_Anterior == 1){
+        contador = 1;
+    }
+    BT01_Anterior = BT01;
+    if (BT02 == 1  && !BT02_Anterior == 1){
+        contador = 2;
+    }
+    BT02_Anterior = BT02;
+    if (BT03 == 1  && !BT03_Anterior == 1){
+        contador = 3;
+    }
+    BT03_Anterior = BT03;
+    if (BT04 == 1  && !BT04_Anterior == 1){
+        contador = 4;
+    }
+    BT04_Anterior = BT04;
+}
+
+void CriaMascara(void){
+   
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('P');
+    EscreveLCD8('0');
+    EscreveLCD8('T');
+
+    ConfiguraLCD8(0x84);
+    EscreveLCD8(':');
+    ConfiguraLCD8(0x86);
+    EscreveLCD8(',');
+    ConfiguraLCD8(0x8A);
+    EscreveLCD8('V');
+    EscreveLCD8('o');
+    EscreveLCD8('l');
+    EscreveLCD8('t');
+    EscreveLCD8('s');
+
+    ConfiguraLCD8(0xC0);
+    EscreveLCD8('P');
+    EscreveLCD8('0');
+    EscreveLCD8('T');
+
+    ConfiguraLCD8(0xC4);
+    EscreveLCD8(':');
+    ConfiguraLCD8(0xC6);
+    EscreveLCD8(',');
+    ConfiguraLCD8(0xCA);
+    EscreveLCD8('V');
+    EscreveLCD8('o');
+    EscreveLCD8('l');
+    EscreveLCD8('t');
+    EscreveLCD8('s');
+}
+void CriaMascara2(void){
+    EscreveLinhaLCD8(2, "                ");
+    ConfiguraLCD8(0x80);
+    EscreveLCD8('P');
+    EscreveLCD8('0');
+    EscreveLCD8('T');
+
+    ConfiguraLCD8(0x84);
+    EscreveLCD8(':');
+    ConfiguraLCD8(0x86);
+    EscreveLCD8(',');
+    ConfiguraLCD8(0x8A);
+    EscreveLCD8('V');
+    EscreveLCD8('o');
+    EscreveLCD8('l');
+    EscreveLCD8('t');
+    EscreveLCD8('s');
+}
+
+
+void Modo01(void){
+    CriaMascara();
+    ConfiguraLCD8(0x83);
+    EscreveLCD8(0x30 + contador);
+    ConfiguraLCD8(0xC3);
+    EscreveLCD8(0x31 + contador);
+    
+    AtualizaTensao(VAN0);
+    ConfiguraLCD8(0x85);
+    EscreveLCD8(0x30 + centena);
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+
+    AtualizaTensao(VAN1);
+    ConfiguraLCD8(0xC5);
+    EscreveLCD8(0x30 + centena);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+
+}
+
+void Modo02(void){
+    CriaMascara();
+    ConfiguraLCD8(0x83);
+    EscreveLCD8(0x31 + contador);
+    ConfiguraLCD8(0xC3);
+    EscreveLCD8(0x32 + contador);
+
+    AtualizaTensao(VAN2);
+    ConfiguraLCD8(0x85);
+    EscreveLCD8(0x30 + centena);
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+
+    AtualizaTensao(VAN3);
+    ConfiguraLCD8(0xC5);
+    EscreveLCD8(0x30 + centena);
+    ConfiguraLCD8(0xC7);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+}
+
+void Modo03(void){
+    CriaMascara2();
+    ConfiguraLCD8(0x83);
+    EscreveLCD8(0x32 + contador);
+
+    AtualizaTensao(VAN4);
+    ConfiguraLCD8(0x85);
+    EscreveLCD8(0x30 + centena);
+    ConfiguraLCD8(0x87);
+    EscreveLCD8(0x30 + dezena);
+    EscreveLCD8(0x30 + unidade);
+}
+
+void Modo04(void){
+    ConfiguraLCD8(0x01);
+}
