@@ -69,43 +69,7 @@ void main(void){
        
        ConfiguraLCD8(0xCC);
        AtualizaDislay(VAN3);
-       /*
-       AtualizaDislay(VAN0);
-       
-       
-       EscreveLCD8(' ');
-       
-       EscreveLCD8('S');
-       EscreveLCD8('2');
-       EscreveLCD8(':');
-       AtualizaDislay(VAN1);
-       EscreveLCD8('C');
-       
-       //ConfiguraLCD8(0x01); // limpa e posiciona
-       //ConfiguraLCD8(0x80); // posiciona l1c1
-       ConfiguraLCD8(0xC1); // posiciona l2c1
-       
-       EscreveLCD8('S');
-       EscreveLCD8('3');
-       EscreveLCD8(':');
-       AtualizaDislay(VAN2);
-       EscreveLCD8('C');
-       
-       EscreveLCD8(' ');
-       
-       EscreveLCD8('S');
-       EscreveLCD8('4');
-       EscreveLCD8(':');
-       AtualizaDislay(VAN3);
-       EscreveLCD8('C');
-       */
        delay_ms(10);
-       //AtualizaDislay(VAN1, 'S2:', 1);
-       
-       //AtualizaDislay(VAN1);
-       //ConfiguraLCD8(0x01);
-       //AtualizaDislay(VAN2);
-       //AtualizaDislay(VAN3);
     }                     
 }
 
@@ -187,8 +151,6 @@ void AtualizaDislay(unsigned short valor){
         dezena = floor((valor - centena * 100) / 10);
         unidade = (valor - centena * 100 - dezena * 10);
     }
-    //EscreveLinhaLCD8(linha,STR);
-    //EscreveLCD8(STR);
     EscreveLCD8(0x30 + centena);
     EscreveLCD8(0x30 + dezena);
     EscreveLCD8(0x30 + unidade);
