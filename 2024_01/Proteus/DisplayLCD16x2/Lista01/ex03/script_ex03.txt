@@ -1,11 +1,3 @@
-/*
-
- 3. Utilize o microcontrolador para monitorar o valor de 4 sensores de temperatura com saída analogica de 0
- a 5V (para temperaturas de 0 a 200ºC) e apresentar a temperatura instantanea dos sensores em um
- display LCD.
-
-*/
-
 #include <p18F4550.h>
 #include <delays.h>
 #include <math.h>
