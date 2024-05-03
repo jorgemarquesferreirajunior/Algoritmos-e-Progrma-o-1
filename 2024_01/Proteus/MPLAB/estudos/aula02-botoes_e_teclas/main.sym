@@ -1,0 +1,90 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     dado
+005-007 botaoA0
+008-00A botaoA1
+00B-00C atualiza_dado.valor
+00B     @delay_ms1.P1
+00D-00E botao_pressionado.botao
+00D     atualiza_dado.@SCRATCH1
+00E     atualiza_dado.@SCRATCH2
+00F     botao_pressionado.borda
+010     botao_pressionado.@SCRATCH1
+011     @WRITEBITA.P1
+011     @READBITA.P2
+011     botao_pressionado.@SCRATCH2
+012     @WRITEBITA.P1
+012-013 @READBITA.P2
+012     botao_pressionado.@SCRATCH3
+013-014 @WRITEBITA.P1
+013     botao_pressionado.@SCRATCH4
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @WRITEBITA
+00004E  @READBITA
+000082  botao_pressionado
+00013C  atualiza_dado
+0001AC  @delay_ms1
+0001D6  main
+0001D6  @cinit1
+0001E8  @cinit2
+
+Project Directory:
+    C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\aula02-botoes_e_teclas\
+
+Project Files:
+    main.c                                                  [01-mai-24 22:52  CRC=9DB6A8B0]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\devices\18F4550.h [26-mar-24 09:18  CRC=97DC185D]
+
+Source signature=CD6ED96A
+Program memory checksum=0000
+Hex file CRC=1047
+
+Units:
+    C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\aula02-botoes_e_teclas\main (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    ICD Provisions: Yes
+    Compile Mode:   CCS5
+    Predefined symbols:
+       #define __DEBUG 1
+       #define __18F4550 TRUE
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+Output Files:
+    Errors:      main.err
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

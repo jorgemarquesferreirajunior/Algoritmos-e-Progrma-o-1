@@ -1,0 +1,109 @@
+CCS PCH C Compiler, Version 5.117d, 1               01-mai-24 16:55
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\aula01-piscaled\main.lst
+
+               ROM used:   104 bytes (0%)
+                           Largest free fragment is 31832
+               RAM used:   5 (0%) at main() level
+                           6 (0%) worst case
+               Stack used: 0 locations
+               Stack size: 30
+
+*
+0000:  GOTO   0030
+.................... #include<18F4550.h>
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+.................... 
+.................... #list
+.................... 
+.................... //#include <p18f4550.h>
+.................... // XT: velocidade media para o oscilador
+.................... // NOLVP: modo de gravacao em baixa tensao desabilitado, pino RB4 habilitado para uso
+.................... // NOWDT: nao reiniciar o codigo quando trava
+.................... #fuses XT, NOLVP, NOWDT
+.................... #use delay(clock=4000000) // frequencia do clock: 4Mhz
+0004:  CLRF   FEA
+0006:  MOVLW  06
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BTFSC  FD8.2
+000E:  GOTO   002E
+0012:  MOVLW  01
+0014:  MOVWF  01
+0016:  CLRF   00
+0018:  DECFSZ 00,F
+001A:  BRA    0018
+001C:  DECFSZ 01,F
+001E:  BRA    0016
+0020:  MOVLW  4A
+0022:  MOVWF  00
+0024:  DECFSZ 00,F
+0026:  BRA    0024
+0028:  BRA    002A
+002A:  DECFSZ FEF,F
+002C:  BRA    0012
+002E:  RETURN 0
+.................... 
+.................... void main()
+0030:  CLRF   FF8
+0032:  BCF    FD0.7
+0034:  MOVF   FC1,W
+0036:  ANDLW  C0
+0038:  IORLW  0F
+003A:  MOVWF  FC1
+003C:  MOVLW  07
+003E:  MOVWF  FB4
+.................... {
+.................... 	while(TRUE)
+.................... 	{
+.................... 		output_high(pin_b0);
+0040:  BCF    F93.0
+0042:  BSF    F8A.0
+.................... 		delay_ms(500);
+0044:  MOVLW  02
+0046:  MOVWF  05
+0048:  MOVLW  FA
+004A:  MOVWF  06
+004C:  RCALL  0004
+004E:  DECFSZ 05,F
+0050:  BRA    0048
+.................... 		output_low(pin_b0);
+0052:  BCF    F93.0
+0054:  BCF    F8A.0
+.................... 		delay_ms(500);
+0056:  MOVLW  02
+0058:  MOVWF  05
+005A:  MOVLW  FA
+005C:  MOVWF  06
+005E:  RCALL  0004
+0060:  DECFSZ 05,F
+0062:  BRA    005A
+0064:  BRA    0040
+.................... 	}
+.................... 
+.................... 	
+.................... }
+0066:  BRA    0066
+
+Configuration Fuses:
+   Word  1: C03F   PLL12 CPUDIV4 USBDIV XT FCMEN IESO
+   Word  2: 1E39   NOPUT NOBROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 0000   NOSTVREN NOLVP ICSP1 NOXINST DEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
+
+   Some fuses have been forced to be compatible with the ICD debugger.

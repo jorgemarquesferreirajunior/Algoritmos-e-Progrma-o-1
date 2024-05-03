@@ -50,7 +50,7 @@ void CriaMascara(void);
 void CriaMascara2(void);
 
 void main(void){
-    PORTA = 0x00; LATA = 0x00; TRISA = 0x1F;
+    PORTA = 0x00; LATA = 0x00; TRISA = 0x2F;
     PORTB = 0x00; LATB = 0x00; TRISB = 0x0F; 
     PORTD = 0x00; LATD = 0x00; TRISD = 0x00; 
     PORTE = 0x00; LATE = 0x00; TRISE = 0x00;

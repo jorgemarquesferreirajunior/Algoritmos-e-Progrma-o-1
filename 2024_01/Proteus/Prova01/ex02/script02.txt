@@ -33,16 +33,16 @@ void main(){
       AtualizaSelecao();
       switch (contador)
       {
-      case 1:
+      case 0:
         Modo01();
         break;
-    case 2:
+    case 1:
         Modo02();
         break;
-    case 3:
+    case 2:
         Modo03();
         break;
-    case 4:
+    case 3:
         Modo04();
         break;
       
@@ -55,7 +55,6 @@ void main(){
  
  
 // Funcoes Auxiliares
- 
  void Delay_ms(unsigned int tempo){
    while(tempo > 0){
       Delay100TCYx(10);
@@ -82,18 +81,18 @@ void AtualizaSelecao(void){
         }
         contador++;
     }
-    
 }
+
 void Modo01(void){
-    LED00 = 0;
     LED01 = 0;
+    LED02 = 0;
 }
 
 void Modo02(void){
     LED01 = 1;
-    Delay_ms(50);
+    Delay_ms(25);
     LED01 = 0;
-    Delay_ms(50);
+    Delay_ms(25);
 }
 
 void Modo03(void){
@@ -103,8 +102,7 @@ void Modo03(void){
 
 void Modo04(void){
     LED02 = 1;
-    Delay_ms(200);
+    Delay_ms(100);
     LED02 = 0;
-    Delay_ms(200);
+    Delay_ms(100);
 }
-

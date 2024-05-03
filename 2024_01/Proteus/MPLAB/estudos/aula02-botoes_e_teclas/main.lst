@@ -1,0 +1,349 @@
+CCS PCH C Compiler, Version 5.117d, 1               01-mai-24 22:52
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\aula02-botoes_e_teclas\main.lst
+
+               ROM used:   518 bytes (2%)
+                           Largest free fragment is 31418
+               RAM used:   11 (1%) at main() level
+                           21 (1%) worst case
+               Stack used: 0 locations
+               Stack size: 30
+
+*
+0000:  GOTO   01D6
+.................... #include<18F4550.h>
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+0004:  MOVF   11,W
+0006:  ANDLW  07
+0008:  MOVWF  00
+000A:  RRCF   11,W
+000C:  MOVWF  01
+000E:  RRCF   01,F
+0010:  RRCF   01,F
+0012:  MOVLW  1F
+0014:  ANDWF  01,F
+0016:  MOVF   01,W
+0018:  ADDWF  13,W
+001A:  MOVWF  FE9
+001C:  MOVLW  00
+001E:  ADDWFC 14,W
+0020:  MOVWF  FEA
+0022:  CLRF   01
+0024:  INCF   01,F
+0026:  INCF   00,F
+0028:  GOTO   002E
+002C:  RLCF   01,F
+002E:  DECFSZ 00,F
+0030:  GOTO   002C
+0034:  MOVF   12,F
+0036:  BTFSC  FD8.2
+0038:  GOTO   0044
+003C:  MOVF   01,W
+003E:  IORWF  FEF,F
+0040:  GOTO   004A
+0044:  COMF   01,F
+0046:  MOVF   01,W
+0048:  ANDWF  FEF,F
+004A:  GOTO   00A0 (RETURN)
+004E:  MOVF   11,W
+0050:  ANDLW  07
+0052:  MOVWF  00
+0054:  RRCF   11,W
+0056:  MOVWF  01
+0058:  RRCF   01,F
+005A:  RRCF   01,F
+005C:  MOVLW  1F
+005E:  ANDWF  01,F
+0060:  MOVF   01,W
+0062:  ADDWF  12,W
+0064:  MOVWF  FE9
+0066:  MOVLW  00
+0068:  ADDWFC 13,W
+006A:  MOVWF  FEA
+006C:  MOVFF  FEF,01
+0070:  INCF   00,F
+0072:  BRA    0076
+0074:  RRCF   01,F
+0076:  DECFSZ 00,F
+0078:  BRA    0074
+007A:  MOVLW  01
+007C:  ANDWF  01,F
+007E:  GOTO   00AE (RETURN)
+.................... 
+.................... #list
+.................... 
+.................... #fuses XT, NOLVP, NOWDT
+.................... #use delay(clock=4000000)
+*
+01AC:  CLRF   FEA
+01AE:  MOVLW  0B
+01B0:  MOVWF  FE9
+01B2:  MOVF   FEF,W
+01B4:  BZ    01D2
+01B6:  MOVLW  01
+01B8:  MOVWF  01
+01BA:  CLRF   00
+01BC:  DECFSZ 00,F
+01BE:  BRA    01BC
+01C0:  DECFSZ 01,F
+01C2:  BRA    01BA
+01C4:  MOVLW  4A
+01C6:  MOVWF  00
+01C8:  DECFSZ 00,F
+01CA:  BRA    01C8
+01CC:  BRA    01CE
+01CE:  DECFSZ FEF,F
+01D0:  BRA    01B6
+01D2:  GOTO   0202 (RETURN)
+.................... 
+.................... struct botao
+.................... {
+.................... 	int pino, clicado, liberado;
+.................... };
+.................... 
+.................... int dado = 0;
+.................... struct botao botaoA0, botaoA1;
+.................... 
+.................... // prototipos
+.................... void atualiza_dado(int *valor);
+.................... int botao_pressionado(struct botao *botao, int borda=0);
+.................... 
+.................... void main()
+01D6:  CLRF   FF8
+01D8:  BCF    FD0.7
+01DA:  CLRF   04
+01DC:  MOVF   FC1,W
+01DE:  ANDLW  C0
+01E0:  IORLW  0F
+01E2:  MOVWF  FC1
+01E4:  MOVLW  07
+01E6:  MOVWF  FB4
+.................... {
+.................... 	botaoA0.pino = pin_a0;
+01E8:  CLRF   05
+.................... 	botaoA1.pino = pin_a1;
+01EA:  MOVLW  01
+01EC:  MOVWF  08
+.................... 
+.................... 
+.................... 	while(1)
+.................... 	{
+.................... 		atualiza_dado(&dado);
+01EE:  CLRF   0C
+01F0:  MOVLW  04
+01F2:  MOVWF  0B
+01F4:  BRA    013C
+.................... 		output_b(dado);
+01F6:  CLRF   F93
+01F8:  MOVFF  04,F8A
+.................... 		delay_ms(30);
+01FC:  MOVLW  1E
+01FE:  MOVWF  0B
+0200:  BRA    01AC
+0202:  BRA    01EE
+.................... 	}
+.................... }
+.................... 
+0204:  BRA    0204
+.................... // funcoes
+.................... 
+.................... int botao_pressionado(struct botao *botao, int borda)
+.................... {
+.................... 	if(input(botao->pino) == borda)
+*
+0082:  MOVF   0D,W
+0084:  MOVWF  FE9
+0086:  MOVFF  0E,FEA
+008A:  MOVFF  FEF,10
+008E:  MOVFF  10,11
+0092:  MOVLW  01
+0094:  MOVWF  12
+0096:  MOVLW  0F
+0098:  MOVWF  14
+009A:  MOVLW  92
+009C:  MOVWF  13
+009E:  BRA    0004
+00A0:  MOVFF  10,11
+00A4:  MOVLW  0F
+00A6:  MOVWF  13
+00A8:  MOVLW  80
+00AA:  MOVWF  12
+00AC:  BRA    004E
+00AE:  MOVLW  00
+00B0:  BTFSC  01.0
+00B2:  MOVLW  01
+00B4:  SUBWF  0F,W
+00B6:  BNZ   00D8
+.................... 	{
+.................... 		botao->clicado = 1;
+00B8:  MOVLW  01
+00BA:  ADDWF  0D,W
+00BC:  MOVWF  FE9
+00BE:  MOVLW  00
+00C0:  ADDWFC 0E,W
+00C2:  MOVWF  FEA
+00C4:  MOVLW  01
+00C6:  MOVWF  FEF
+.................... 		botao->liberado = 0;
+00C8:  MOVLW  02
+00CA:  ADDWF  0D,W
+00CC:  MOVWF  FE9
+00CE:  MOVLW  00
+00D0:  ADDWFC 0E,W
+00D2:  MOVWF  FEA
+00D4:  CLRF   FEF
+.................... 	}
+00D6:  BRA    00E8
+.................... 	else
+.................... 	{
+.................... 		botao->liberado = 1;
+00D8:  MOVLW  02
+00DA:  ADDWF  0D,W
+00DC:  MOVWF  FE9
+00DE:  MOVLW  00
+00E0:  ADDWFC 0E,W
+00E2:  MOVWF  FEA
+00E4:  MOVLW  01
+00E6:  MOVWF  FEF
+.................... 	}
+.................... 
+.................... 	if(botao->clicado && botao->liberado)
+00E8:  MOVLW  01
+00EA:  ADDWF  0D,W
+00EC:  MOVWF  FE9
+00EE:  MOVLW  00
+00F0:  ADDWFC 0E,W
+00F2:  MOVWF  FEA
+00F4:  MOVF   FEF,F
+00F6:  BZ    0136
+00F8:  MOVLW  02
+00FA:  ADDWF  0D,W
+00FC:  MOVWF  FE9
+00FE:  MOVLW  00
+0100:  ADDWFC 0E,W
+0102:  MOVWF  FEA
+0104:  MOVF   FEF,F
+0106:  BZ    0136
+.................... 	{
+.................... 		botao->clicado = botao->liberado = 0;
+0108:  MOVLW  01
+010A:  ADDWF  0D,W
+010C:  MOVWF  01
+010E:  MOVLW  00
+0110:  ADDWFC 0E,W
+0112:  MOVWF  03
+0114:  MOVLW  02
+0116:  ADDWF  0D,W
+0118:  MOVWF  FE9
+011A:  MOVLW  00
+011C:  ADDWFC 0E,W
+011E:  MOVWF  FEA
+0120:  CLRF   FEF
+0122:  MOVLW  00
+0124:  MOVFF  03,FEA
+0128:  MOVFF  01,FE9
+012C:  MOVWF  FEF
+.................... 		return 1;
+012E:  MOVLW  01
+0130:  MOVWF  01
+0132:  BRA    013A
+.................... 	}
+0134:  BRA    013A
+.................... 	else
+.................... 	{
+.................... 		return 0;
+0136:  MOVLW  00
+0138:  MOVWF  01
+.................... 	}
+013A:  RETURN 0
+.................... }
+.................... 
+.................... void atualiza_dado(int *valor)
+.................... {
+.................... 	if(botao_pressionado(&botaoA0))
+013C:  CLRF   0E
+013E:  MOVLW  05
+0140:  MOVWF  0D
+0142:  CLRF   0F
+0144:  RCALL  0082
+0146:  MOVF   01,F
+0148:  BZ    0174
+.................... 		{
+.................... 			if(*valor < 255)
+014A:  MOVFF  0C,03
+014E:  MOVFF  0B,FE9
+0152:  MOVFF  0C,FEA
+0156:  INCFSZ FEF,W
+0158:  BRA    015C
+015A:  BRA    0168
+.................... 			{
+.................... 				(*valor)++;
+015C:  MOVFF  0B,FE9
+0160:  MOVFF  0C,FEA
+0164:  INCF   FEF,F
+.................... 			}
+0166:  BRA    0172
+.................... 			else
+.................... 			{
+.................... 				(*valor) = 255;
+0168:  MOVFF  0B,FE9
+016C:  MOVFF  0C,FEA
+0170:  SETF   FEF
+.................... 			}
+.................... 		}
+0172:  BRA    01A8
+.................... 	else if(botao_pressionado(&botaoA1))
+0174:  CLRF   0E
+0176:  MOVLW  08
+0178:  MOVWF  0D
+017A:  CLRF   0F
+017C:  RCALL  0082
+017E:  MOVF   01,F
+0180:  BZ    01A8
+.................... 	{
+.................... 		if(*valor > 0)
+0182:  MOVFF  0C,03
+0186:  MOVFF  0B,FE9
+018A:  MOVFF  0C,FEA
+018E:  MOVF   FEF,F
+0190:  BZ    019E
+.................... 		{
+.................... 			(*valor)--;
+0192:  MOVFF  0B,FE9
+0196:  MOVFF  0C,FEA
+019A:  DECF   FEF,F
+.................... 		}
+019C:  BRA    01A8
+.................... 		else
+.................... 		{
+.................... 			(*valor) = 0;
+019E:  MOVFF  0B,FE9
+01A2:  MOVFF  0C,FEA
+01A6:  CLRF   FEF
+.................... 		}
+.................... 	}
+01A8:  GOTO   01F6 (RETURN)
+.................... }
+
+Configuration Fuses:
+   Word  1: C03F   PLL12 CPUDIV4 USBDIV XT FCMEN IESO
+   Word  2: 1E39   NOPUT NOBROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 0000   NOSTVREN NOLVP ICSP1 NOXINST DEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
+
+   Some fuses have been forced to be compatible with the ICD debugger.
