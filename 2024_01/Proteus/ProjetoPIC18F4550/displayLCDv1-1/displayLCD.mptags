@@ -1,0 +1,114 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+DATA_LCD::PORTD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	12;"	d	line:12
+ENABLE_LCD::PORTEbits.RE1	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	13;"	d	line:13
+Inicializa_LCD_8b_16X2	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	105;"	f	line:105	signature:(void)
+Inicializa_LCD_8b_20X4	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	129;"	f	line:129	signature:(void)
+LCD_H_	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	2;"	d	line:2
+LED_01::PORTBbits.RB0	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	11;"	d	line:11	file:
+LED_02::PORTBbits.RB1	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	12;"	d	line:12	file:
+LED_03::PORTBbits.RB2	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	13;"	d	line:13	file:
+LED_04::PORTBbits.RB3	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	14;"	d	line:14	file:
+LED_05::PORTBbits.RB4	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	15;"	d	line:15	file:
+QTD_BTNS::5	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	18;"	d	line:18	file:
+RS_LCD::PORTEbits.RE2	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	14;"	d	line:14
+TelaInicializacao	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	262;"	f	line:262	signature:(void)
+TelaInicializacao	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	47;"	p	line:47	file:	signature:(void)
+VAN0	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	22;"	v	line:22
+VARIACAO::5	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	19;"	d	line:19	file:
+_LCD_BLINK_CURSOR_ON::0x0F	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	33;"	d	line:33
+_LCD_CMD::0x40	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	40;"	d	line:40
+_LCD_CURSOR_OFF::0x0C	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	29;"	d	line:29
+_LCD_DESLIGADO::0x08	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	36;"	d	line:36
+_LCD_DESLOCA_DIR::0x1E	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	39;"	d	line:39
+_LCD_DESLOCA_ESQ::0x18	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	38;"	d	line:38
+_LCD_DESLOC_DIR::0x06	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	31;"	d	line:31
+_LCD_DESLOC_ESQ::0x04	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	32;"	d	line:32
+_LCD_HOME::0x02	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	28;"	d	line:28
+_LCD_INTERFACE_4bL1_5X7::0x20	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	22;"	d	line:22
+_LCD_INTERFACE_4bL2_5X7::0x28	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	21;"	d	line:21
+_LCD_INTERFACE_8bL1_5X7::0x30	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	20;"	d	line:20
+_LCD_INTERFACE_8bL2_5X7::0x38	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	19;"	d	line:19
+_LCD_LIGADO::0x0C	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	37;"	d	line:37
+_LCD_LIMPA::0x01	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	27;"	d	line:27
+_LCD_LINHA_1::0x80	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	23;"	d	line:23
+_LCD_LINHA_2::0xC0	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	24;"	d	line:24
+_LCD_LINHA_3::0x94	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	25;"	d	line:25
+_LCD_LINHA_4::0xD4	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	26;"	d	line:26
+_LCD_MOVE_CURSOR_DIR::0x14	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	35;"	d	line:35
+_LCD_MOVE_CURSOR_ESQ::0x10	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	34;"	d	line:34
+_LCD_UNDERLINE_ON::0x0E	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	30;"	d	line:30
+analogRead	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	337;"	f	line:337	signature:(char CANAL)
+analogRead	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	49;"	p	line:49	file:	signature:(char CANAL)
+atualizaIndice	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	216;"	f	line:216	signature:(void)
+atualizaIndice	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	45;"	p	line:45	file:	signature:(void)
+bateriaLow	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	164;"	f	line:164
+bateriaLow	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	40;"	p	line:40	file:
+cat1	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	178;"	f	line:178
+cat1	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	41;"	p	line:41	file:
+cat2	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	192;"	f	line:192
+cat2	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	42;"	p	line:42	file:
+cmdLCD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	54;"	f	line:54	signature:(unsigned char comando)
+convertShortToChar	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	386;"	f	line:386	signature:(unsigned short num, char *str)
+convertShortToChar	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	53;"	p	line:53	file:	signature:(unsigned short num, char *str)
+cursor_pos_x	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	27;"	v	line:27
+cursor_pos_y	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	27;"	v	line:27
+cursor_visivel	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	27;"	v	line:27
+delay_ms	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	402;"	f	line:402	signature:(unsigned int tempo)
+delay_ms	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	55;"	p	line:55	file:	signature:(unsigned int tempo)
+down	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	26;"	e	line:26	file:
+enter	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	26;"	e	line:26	file:
+estado_anterior_btn	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	23;"	v	line:23
+estado_atual	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	353;"	l	line:353
+faixas	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	25;"	v	line:25
+flag_btn	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	24;"	v	line:24
+i	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	138;"	l	line:138
+i	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	350;"	l	line:350
+i	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	390;"	l	line:390
+indice	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	27;"	v	line:27
+ini	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	107;"	l	line:107
+left	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	26;"	e	line:26	file:
+lenShort	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	371;"	f	line:371	signature:(unsigned short numero)
+lenShort	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	52;"	p	line:52	file:	signature:(unsigned short numero)
+length	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	389;"	l	line:389
+loadCaracteres	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	206;"	f	line:206	signature:(void)
+loadCaracteres	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	43;"	p	line:43	file:	signature:(void)
+main	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	56;"	f	line:56
+maskInit	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	114;"	f	line:114	signature:(void)
+maskInit	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	34;"	p	line:34	file:	signature:(void)
+menuSelect	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	237;"	f	line:237	signature:(void)
+menuSelect	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	46;"	p	line:46	file:	signature:(void)
+paginaConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	134;"	f	line:134	signature:(void)
+paginaConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	36;"	p	line:36	file:	signature:(void)
+paginaHome	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	124;"	f	line:124	signature:(void)
+paginaHome	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	35;"	p	line:35	file:	signature:(void)
+paginaInfo	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	144;"	f	line:144	signature:(void)
+paginaInfo	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	37;"	p	line:37	file:	signature:(void)
+paginaMe	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	152;"	f	line:152	signature:(void)
+paginaMe	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	38;"	p	line:38	file:	signature:(void)
+printCharLCD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	86;"	f	line:86	signature:(unsigned char caracter)
+printStringLCD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	95;"	f	line:95	signature:(rom unsigned char *caracter)
+pulsoE	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	44;"	f	line:44	signature:(void)
+qtd	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	374;"	l	line:374
+readBtns	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	348;"	f	line:348	signature:(void)
+readBtns	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	50;"	p	line:50	file:	signature:(void)
+right	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	26;"	e	line:26	file:
+setCursorLCD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	62;"	f	line:62	signature:(unsigned char linha, unsigned char coluna)
+setupAdcon	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	105;"	f	line:105	signature:(unsigned char qtd_ports)
+setupAdcon	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	32;"	p	line:32	file:	signature:(unsigned char qtd_ports)
+setupPorts	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	31;"	p	line:31	file:	signature:(void)
+setupPorts	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	96;"	f	line:96	signature:(void)
+setupTimer0	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	30;"	p	line:30	file:	signature:(void)
+setupTimer0	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	87;"	f	line:87	signature:(void)
+temp	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	373;"	l	line:373
+tempo	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	139;"	l	line:139
+testeLCD	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	136;"	f	line:136	signature:(unsigned char linhas)
+up	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\main.c	26;"	e	line:26	file:
+x	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	106;"	l	line:106
+x	C:\Users\Scope11\OneDrive\Documentos\ECA\Proteus\displayLCDv1-1\lcd.h	63;"	l	line:63
