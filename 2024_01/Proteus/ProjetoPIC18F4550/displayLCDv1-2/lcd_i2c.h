@@ -32,8 +32,8 @@
 void cmdLCD_i2c(unsigned char CMD);
 void StartLCDi2c(void);
 void printCharLCD_i2c(unsigned char DATA);
-//void printStringLCD_i2c(unsigned char LINE, rom unsigned char *STR);
 void printStringLCD_i2c(rom unsigned char *STR);
+void printShortLCD_i2c(unsigned short num, unsigned char n_digitos);
 void setCursorLCD_i2c(unsigned char linha, unsigned char coluna);
 
 // Rotina que envia uma instrução de inicialização ou configuração para o LCD
@@ -99,22 +99,6 @@ void printCharLCD_i2c(unsigned char DATA)
 }
 
 // Rotina que escreve uma linha completa no LCD
-/*
-
-void printStringLCD_i2c(unsigned char LINE, rom unsigned char *STR)
-{
-  if(LINE == 1) ControlLCDi2c(0x80);
-  if(LINE == 2) ControlLCDi2c(0xC0);
-
-  // Escreve todos os caracteres até encontrar o final do ponteiro
-  while(*STR != '\0')
-  {
-    printCharLCD_i2c(*STR);
-    ++STR;
-  }
-}
-
-*/
 
 void printStringLCD_i2c(rom unsigned char *STR)
 {
@@ -127,6 +111,21 @@ void printStringLCD_i2c(rom unsigned char *STR)
   }
 }
 
+void printShortLCD_i2c(unsigned short num, unsigned char n_digitos)
+{
+	int i = 0;
+	unsigned short temp = num;
+	
+	cmdLCD_i2c(_LCD_DESLOC_ESQ);
+	for (i = n_digitos; i > 0; i--)
+	{
+		//setCursorLCD_i2c(0, i);
+		printCharLCD_i2c(temp % 10 + '0');
+		temp /= 10;
+		//cmdLCD_i2c(_LCD_DESLOC_ESQ);
+	}
+	cmdLCD_i2c(_LCD_DESLOC_DIR);
+}
 // ================================================================ //
 // SUB-ROTINA DE POSICIONAMENTO DE ESCRITA DE LCD                   //
 // ================================================================ //

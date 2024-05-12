@@ -33,7 +33,7 @@ unsigned short faixas[QTD_BTNS] = {767, 682, 512, 731, 614};// enter,left,up,rig
 enum {enter=0, left, up, right, down};
 unsigned char cursor_pos_x = 0, cursor_pos_y = 0, cursor_visivel = 1, indice = 0; 
 unsigned char status[2] = {"ON", "OFF"};
-unsigned char sprays = 0;
+unsigned short sprays_capacidade = 500, sprays_utilizado = 18;
 //****************************************testes****************************************//
 unsigned short variavel_teste = 0;
 //--------------------------------------prototipos--------------------------------------//
@@ -459,6 +459,10 @@ void atualizaPurificador(void)
 	while(!flag_btn[left])
 	{
 		// implementar
+		setCursorLCD_i2c(1,13);
+		printShortLCD_i2c(sprays_capacidade, lenShort(sprays_capacidade));
+		setCursorLCD_i2c(1,9);
+		printShortLCD_i2c(sprays_utilizado, lenShort(sprays_utilizado));
 		atualizaBotoes();
 	}
 	flag_btn[left] = 0;
