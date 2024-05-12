@@ -14,30 +14,30 @@
 #define RS_LCD	    PORTEbits.RE2
 
 // ================================================================= //
-// DEFINI??ES DE SOFTWARE		                                     //
+// DEFINICOES DE SOFTWARE		                                     //
 // ================================================================= //
 #define _LCD_INTERFACE_8bL2_5X7		0x38	// (8-bit interface, 2 lines, 5*7 Pixels)
 #define _LCD_INTERFACE_8bL1_5X7		0x30	// (8-bit interface, 1 line, 5*7 Pixels)
 #define _LCD_INTERFACE_4bL2_5X7		0x28	// (4-bit interface, 2 lines, 5*7 Pixels)
 #define _LCD_INTERFACE_4bL1_5X7		0x20	// (4-bit interface, 1 line, 5*7 Pixels)
-#define _LCD_LINHA_1						0x80
-#define _LCD_LINHA_2						0xC0
-#define _LCD_LINHA_3						0x94
-#define _LCD_LINHA_4						0xD4
-#define _LCD_LIMPA							0x01
-#define _LCD_HOME						0x02
+#define _LCD_LINHA_1				0x80
+#define _LCD_LINHA_2				0xC0
+#define _LCD_LINHA_3				0x94
+#define _LCD_LINHA_4				0xD4
+#define _LCD_LIMPA					0x01
+#define _LCD_HOME					0x02
 #define _LCD_CURSOR_OFF				0x0C
-#define _LCD_UNDERLINE_ON				0x0E
-#define _LCD_DESLOC_DIR					0x06	// sentido de escrita para a direita -->>
+#define _LCD_UNDERLINE_ON			0x0E
+#define _LCD_DESLOC_DIR				0x06	// sentido de escrita para a direita -->>
 #define _LCD_DESLOC_ESQ				0x04	// sentido de escrita para a esquerda <<--
-#define _LCD_BLINK_CURSOR_ON			0x0F
+#define _LCD_BLINK_CURSOR_ON		0x0F
 #define _LCD_MOVE_CURSOR_ESQ		0x10
-#define _LCD_MOVE_CURSOR_DIR			0x14
-#define _LCD_DESLIGADO					0x08
-#define _LCD_LIGADO						0x0C
-#define _LCD_DESLOCA_ESQ				0x18
-#define _LCD_DESLOCA_DIR				0x1E
-#define _LCD_CMD							0x40    
+#define _LCD_MOVE_CURSOR_DIR		0x14
+#define _LCD_DESLIGADO				0x08
+#define _LCD_LIGADO					0x0C
+#define _LCD_DESLOCA_ESQ			0x18
+#define _LCD_DESLOCA_DIR			0x1E
+#define _LCD_CMD					0x40    
 // ================================================================= //
 // SUB-ROTINA PULSO PINO ENABLE_LCD                                  //
 // ================================================================= //

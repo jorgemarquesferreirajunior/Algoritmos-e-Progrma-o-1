@@ -1,36 +1,30 @@
-//---------------------------------------------------------Includes---------------------------------------------------------//
+//***************************************Includes***************************************//
 #include<p18F4550.h>
 #include "lcd.h"
-
-//----------------------------------------------------------pragma----------------------------------------------------------//
+//****************************************pragma****************************************//
 #pragma config FOSC		= HS
 #pragma config WDT 		= OFF
 #pragma config MCLRE	= OFF
 #pragma config LVP = OFF
-
-//--------------------------------------------------Mapeamento-de-Hardware--------------------------------------------------//
+//--------------------------------mapeamento-de-hardware--------------------------------//
 #define LED_BTN_LEFT 	PORTBbits.RB0 
 #define LED_BTN_UP		PORTBbits.RB1 
 #define LED_BTN_RIGHT 	PORTBbits.RB2 
 #define LED_BTN_DOWN 	PORTBbits.RB3 
 #define LED_BTN_ENTER 	PORTBbits.RB4
-//--------------------------------------------------------Diretivas--------------------------------------------------------//
+//--------------------------------------diretivas--------------------------------------//
 #define QTD_BTNS 		5
 #define VARIACAO		5
-
-//--------------------------------------------------------Variaveis--------------------------------------------------------//
+//--------------------------------------variaveis--------------------------------------//
 unsigned short VAN0;
 unsigned char estado_anterior_btn[QTD_BTNS]	= {0};
-unsigned char flag_btn[QTD_BTNS]			= {0};
-unsigned short faixas[QTD_BTNS] 			= {767, 682, 512, 731, 614};// enter = 767, left= 682, up = 512, right = 731, down = 614
+unsigned char flag_btn[QTD_BTNS] = {0};
+unsigned short faixas[QTD_BTNS] = {767, 682, 512, 731, 614};// enter,left,up,right,down
 enum {enter=0, left, up, right, down};
 unsigned char cursor_pos_x = 0, cursor_pos_y = 0, cursor_visivel = 1, indice = 0; 
-
-//**********************************************************Testes**********************************************************//
+//****************************************testes****************************************//
 unsigned short variavel_teste = 0;
-
-//--------------------------------------------------------Prototipos--------------------------------------------------------//
-
+//--------------------------------------prototipos--------------------------------------//
 void maskInit(void);
 void paginaHome(void);
 void paginaConfiguracoes(void);
@@ -46,15 +40,15 @@ void atualizaIndice(void);
 void menuSelect(void);
 void TelaInicializacao(void);
 
-signed short analogRead(char CANAL);
-void readBtns(void);
+signed short lerAnalogico(char CANAL);
+void lerBotoes(void);
+void atualizaBotoes(void);
 
 unsigned char lenShort(unsigned short numero);
 void convertShortToChar(unsigned short num, char *str) ;
 
 void delay_ms (unsigned int tempo);
-
-//=====================================================Funcao-Principal=====================================================//
+//===================================Funcao-Principal===================================//
 void main()
 {
 	PORTA = 0x00; LATA = 0x00; TRISA = 0x01; 
@@ -77,15 +71,12 @@ void main()
 	
 	while(1)
 	{
-		VAN0 = analogRead(0);
-		readBtns();
 		TelaInicializacao();
 		delay_ms(30);
 		
 	}
 }
-
-//----------------------------------------------------------Telas----------------------------------------------------------//
+//----------------------------------------telas----------------------------------------//
 void maskInit(void)
 {
 	cmdLCD(_LCD_LIMPA);
@@ -102,7 +93,14 @@ void paginaHome(void)
 	setCursorLCD(1, 0);
 	printStringLCD("    00:00   dia");
 	setCursorLCD(0, 0);
-	while(1);
+	
+	while(!flag_btn[left])
+	{
+		atualizaBotoes();
+	}
+	maskInit();
+	TelaInicializacao();
+	flag_btn[left] = 0;
 }
 
 // SUB-ROTINA TELA paginaConfiguracoes
@@ -112,7 +110,14 @@ void paginaConfiguracoes(void)
 	setCursorLCD(1, 0);
 	printStringLCD(" Sensores");
 	setCursorLCD(0, 0);
-	while(1);
+	
+	while(!flag_btn[left])
+	{
+		atualizaBotoes();
+	}
+	maskInit();
+	TelaInicializacao();
+	flag_btn[left] = 0;
 }
 
 // SUB-ROTINA TELA paginaInfo
@@ -120,7 +125,14 @@ void paginaInfo(void)
 {
 	printStringLCD("CAT-BOX V.: 1.0");
 	setCursorLCD(0, 0);
-	while(1);
+	
+	while(!flag_btn[left])
+	{
+		atualizaBotoes();
+	}
+	maskInit();
+	TelaInicializacao();
+	flag_btn[left] = 0;
 }
 
 // SUB-ROTINA TELA paginaMe
@@ -130,10 +142,16 @@ void paginaMe(void)
 	setCursorLCD(1, 0);
 	printStringLCD("Jorge M. F. J.");
 	setCursorLCD(0, 0);
-	while(1);
+	
+	while(!flag_btn[left])
+	{
+		atualizaBotoes();
+	}
+	maskInit();
+	TelaInicializacao();
+	flag_btn[left] = 0;
 }
-
-//---------------------------------------------------Caracteres-Especiais---------------------------------------------------//
+//---------------------------------caracteres-especiais---------------------------------//
 // SUB-ROTINA PARA CRIACAO DE CARACTERE ESPECIAL NO DISPLAY	
 void bateriaLow()
 {
@@ -183,8 +201,7 @@ void loadCaracteres(void)
 	cat2();
 	bateriaLow();
 }
-
-//------------------------------------------------------Controle-Telas------------------------------------------------------//
+//------------------------------------controle-telas------------------------------------//
 // SUB-ROTINA P/ ATUALIZAR O INDICE DO DISPLAY
 void atualizaIndice(void)
 {
@@ -235,6 +252,7 @@ void menuSelect(void)
 // SUB-ROTINA PARA NAVEGACAO NA TELA DE INICIALIZACAO
 void TelaInicializacao(void)
 {	
+	atualizaBotoes();
 	if(flag_btn[left])
 	{
 		flag_btn[left] = 0;
@@ -303,10 +321,9 @@ void TelaInicializacao(void)
 	menuSelect();
 	
 }
-
-//------------------------------------------------Controle-Botoes-Analogicos------------------------------------------------//
+//------------------------------controle-botoes-analogicos------------------------------//
 // SUB-ROTINA PARA LEITURA DE UMA PORTA ANALOGICA DO PIC
-signed short analogRead(char CANAL)
+signed short lerAnalogico(char CANAL)
 {
 	ADCON0bits.CHS = CANAL;		// Seleciona canal A/D
 	Delay100TCYx(1);				// Aguarda tempo para troca de canal antes de iniciar conversão
@@ -317,7 +334,7 @@ signed short analogRead(char CANAL)
 }
 
 // SUB-ROTINA PARA MONITORAMENTO DOS BOTOES ANALOGICOS
-void readBtns(void)
+void lerBotoes(void)
 {
 	unsigned char i;	
 	for(i = 0; i < QTD_BTNS; i++)
@@ -337,7 +354,12 @@ void readBtns(void)
 	}
 }
 
-//---------------------------------------------------Manipulacao-de-Dados---------------------------------------------------//
+void atualizaBotoes(void)
+{
+	VAN0 = lerAnalogico(0);
+	lerBotoes();
+}
+//---------------------------------manipulacao-de-dados---------------------------------//
 // SUB-ROTINA PARA RETORNAR A QUANTIDADE DE DIGITOS DE UM NUMERO
 unsigned char lenShort(unsigned short numero)
 {
@@ -368,8 +390,7 @@ void convertShortToChar(unsigned short num, char *str)
 	}
 	str[length] = '\0'; // Adiciona o caractere nulo ao final da string
 }
-
-//--------------------------------------------------Funcao-Auxiliar-Delay--------------------------------------------------//
+//--------------------------------funcao-auxiliar-delay--------------------------------//
 void delay_ms (unsigned int tempo)
 {
 	while(tempo > 0){
