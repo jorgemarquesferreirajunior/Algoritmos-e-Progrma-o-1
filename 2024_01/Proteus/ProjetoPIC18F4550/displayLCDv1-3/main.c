@@ -2,7 +2,6 @@
 #include <p18F4550.h>
 #include <delays.h>
 #include "lcd_i2c.h"
-//#include "rtc.h"
 
 //****************************************pragma****************************************//
 #pragma config FOSC		= HS
@@ -10,7 +9,7 @@
 #pragma config WDT 		= OFF
 #pragma config MCLRE	= OFF
 #pragma config LVP 		= OFF
-#pragma interrupt interrupcaoRelogio // Função de tratamento de interrupções - interrupcao
+#pragma interrupt interrupcaoRelogio // Funï¿½ï¿½o de tratamento de interrupï¿½ï¿½es - interrupcao
 
 //--------------------------------mapeamento-de-hardware--------------------------------//
 #define LED_BTN_LEFT 	PORTBbits.RB2 
@@ -24,24 +23,11 @@
 #define FIM_CURSO_GV_ABERTO		PORTDbits.RD2
 #define FIM_CURSO_GV_FECHADO	PORTDbits.RD3
 
-// Definições de bits do registrador T1CON
-#define TMR1ON T1CONbits.TMR1ON
-#define T1OSCEN T1CONbits.T1OSCEN
-#define T1SYNC T1CONbits.T1SYNC
-#define TMR1CS T1CONbits.TMR1CS
-#define T1CKPS T1CONbits.T1CKPS
-
-// Definições de bits do registrador PIE1
-#define TMR1IE PIE1bits.TMR1IE
-
-// Definições de bits do registrador PIR1
-#define TMR1IF PIR1bits.TMR1IF
-
 //--------------------------------------diretivas--------------------------------------//
 #define QTD_BTNS 		5
 #define VARIACAO		5
 //--------------------------------------variaveis--------------------------------------//
-unsigned char estado_anterior_btn[QTD_BTNS]	= {0}, flag_btn[QTD_BTNS] = {0}, cursor_pos_x = 0, cursor_pos_y = 0, cursor_visivel = 1, indice = 0, status[2] = {"ON", "OFF"};
+unsigned char estado_anterior_btn[QTD_BTNS]	= {0}, flag_btn[QTD_BTNS] = {0}, cursor_pos_x = 0, cursor_pos_y = 0, cursor_visivel = 1, indice = 0, estado_btn, status[2] = {"ON", "OFF"};
 unsigned short VAN0, sprays_capacidade = 500, sprays_utilizado = 18;
 unsigned short faixas[QTD_BTNS] = {767, 682, 512, 731, 614};// enter,left,up,right,down
 enum {enter=0, left, up, right, down};
@@ -79,6 +65,11 @@ void piscaCursor(void);
 
 signed short lerAnalogico(char CANAL);
 void lerBotoes(void);
+void lerBtnLeft(void);
+void lerBtnright(void);
+void lerBtnUp(void);
+void lerBtnDown(void);
+void lerBtnEnter(void);
 void atualizaBotoes(void);
 
 unsigned char lenShort(unsigned short numero);
@@ -86,9 +77,9 @@ void convertShortToChar(unsigned short num, char *str) ;
 
 void delay_ms (unsigned int tempo);
 
-// Protótipos das Rotinas de Tratamento de Interrupções (interrupcaoRelogio)
-void configTimer0(void);
-void setTimer0(void);
+// Protï¿½tipos das Rotinas de Tratamento de Interrupï¿½ï¿½es (interrupcaoRelogio)
+void configTimer1(void);
+void setTimer1(void);
 void configInterrupcaoRelogio(void);
 void interrupcaoRelogio(void);
 void atualizaRelogio(void);
@@ -108,7 +99,7 @@ void main()
 {
 	PORTA = 0x00; LATA = 0x00; TRISA = 0x01; 
 	PORTB = 0x00; LATB = 0x00; TRISB = 0x03; 
-	PORTC = 0x00; LATC = 0x00; TRISC = 0x00; 
+	PORTC = 0x00; LATC = 0x00; TRISC = 0x03; 
 	PORTD = 0x00; LATD = 0x00; TRISD = 0x0F; 
 	PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
 	
@@ -117,11 +108,11 @@ void main()
 	ADCON0 = 0x01;
 	CMCON = 0x07;
 	
-	configTimer0();
+	configTimer1();
 	configInterrupcaoRelogio();
 
 	OpenI2C(MASTER, SLEW_OFF); 	// Inicializa I2C: Mestre com velocidade de 100Khz.
-	SSPADD = 9;                	// Taxa de comunicação I2C de 100khz
+	SSPADD = 9;                	// Taxa de comunicaï¿½ï¿½o I2C de 100khz
 	
 	StartLCDi2c();	
 	maskInit();
@@ -132,7 +123,6 @@ void main()
 	}
 }
 //----------------------------------------telas----------------------------------------//
-
 
 void maskInit(void)
 {
@@ -175,66 +165,58 @@ void maskRelogio(void)
 // SUB-ROTINA TELA paginaHome
 void paginaHome(void)
 {
-	setCursorLCD_i2c(0, 0);printStringLCD_i2c("------CAT-BOX------");
+	setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
+	printStringLCD_i2c("------CAT-BOX------");
 	
-	atualizaBotoes();
 	while(!flag_btn[left])
 	{				
-		atualizaRelogio();mostrarRelogio();
-		atualizaBotoes();		
+		atualizaRelogio();
+		mostrarRelogio();
+		lerBtnLeft();
 	}
 	flag_btn[left] = 0;
-	cursor_pos_x = cursor_pos_y = 0;// cursor home	
-	atualizaIndice();
 	maskInit();TelaInicializacao();
 }
 
 // SUB-ROTINA TELA paginaConfiguracoes
 void paginaConfiguracoes(void)
 {
-	cmdLCD_i2c(_LCD_LIMPA);
-	printStringLCD_i2c("=-=-=-AJUSTES-=-=-=");
-	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  Motores");
-	setCursorLCD_i2c(2, 0);printStringLCD_i2c("  Sensores");
-	setCursorLCD_i2c(3, 0);printStringLCD_i2c("  Relogio");
+	setCursorLCD_i2c(0,0);printStringLCD_i2c("=-=-=-AJUSTES-=-=-=");
+	setCursorLCD_i2c(1,0);printStringLCD_i2c("  Motores");
+	setCursorLCD_i2c(2,0);printStringLCD_i2c("  Sensores");
+	setCursorLCD_i2c(3,0);printStringLCD_i2c("  Relogio");
 	cursor_pos_y = 1;cursor_pos_x = 0;
 	
-	atualizaBotoes();
 	while(!flag_btn[left])
-	{		
+	{	
+		lerBtnUp();
+		lerBtnDown();
+		lerBtnLeft();
 		if(flag_btn[up])
 		{
 			flag_btn[up] = 0;
 			LED_BTN_UP = !LED_BTN_UP;
 			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
-			if(cursor_pos_y == 1)
-			{
-				cursor_pos_y = 3;
-			}else
-			{
-				cursor_pos_y --;
-			}	
+			if(cursor_pos_y == 1) cursor_pos_y = 3;
+			else cursor_pos_y --;
 		}
 		if(flag_btn[down])
 		{
 			flag_btn[down] = 0;
 			LED_BTN_DOWN = !LED_BTN_DOWN;
 			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
-			if(cursor_pos_y == 3)
-			{
-				cursor_pos_y = 1;
-			}else
-			{
-				cursor_pos_y ++;
-			}		
+			if(cursor_pos_y == 3) cursor_pos_y = 1;
+			else cursor_pos_y ++;		
 		}
-		atualizaBotoes();
+		
+		atualizaIndiceConfiguracoes();
+		setCursorLCD_i2c(3,19);
+		printShortLCD_i2c(indice, lenShort(indice));
 		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);piscaCursor();
-		atualizaIndiceConfiguracoes();configuracoesSelect();
+		configuracoesSelect();
 	}
 	flag_btn[left] = 0;
 	cursor_pos_y = 0;cursor_pos_x = 8; // cursor configuracoes
-	atualizaIndice();
 	maskInit();TelaInicializacao();
 	
 }
@@ -357,10 +339,10 @@ void piscaCursor(void)
 
 void atualizaIndice(void)
 {
-	if(cursor_pos_y == 0 && cursor_pos_x == 0) 		indice = 1; //home
-	else if(cursor_pos_y == 0 && cursor_pos_x == 8) indice = 2; // config
-	else if(cursor_pos_y == 1 && cursor_pos_x == 0) indice = 3; // info
-	else if(cursor_pos_y == 1 && cursor_pos_x == 8) indice = 4; // me
+	if (cursor_pos_y == 0 && cursor_pos_x == 0) 	 indice = 1; //home
+	else if (cursor_pos_y == 0 && cursor_pos_x == 8) indice = 2; // config
+	else if (cursor_pos_y == 1 && cursor_pos_x == 0) indice = 3; // info
+	else if (cursor_pos_y == 1 && cursor_pos_x == 8) indice = 4; // me
 }
 
 void atualizaIndiceInfo(void)
@@ -452,10 +434,10 @@ void menuSelect(void)
 				paginaConfiguracoes();
 				break;
 			case 3:
-				paginaInfo();
+				//paginaInfo();
 				break;
 			case 4:
-				paginaMe();
+				//paginaMe();
 				break;
 		}
 	}
@@ -495,6 +477,7 @@ void infoSelect(void)
 
 void configuracoesSelect(void)
 {
+	lerBtnEnter();
 	if(flag_btn[enter])
 	{
 		flag_btn[enter] = 0;
@@ -502,15 +485,15 @@ void configuracoesSelect(void)
 		cmdLCD_i2c(_LCD_LIMPA);
 		switch(indice)
 		{
-			case 1:
-				maskRelogio();
-				setupRelogio();
+			case 1://motores
+				//maskRelogio();
+				//setupRelogio();
 				break;
-			case 2:
-				maskRelogio();
-				setupRelogio();
+			case 2://sensores
+				//maskRelogio();
+				//setupRelogio();
 				break;
-			case 3:
+			case 3://relogio
 				maskRelogio();
 				setupRelogio();
 				break;
@@ -527,45 +510,44 @@ void TelaInicializacao(void)
 	{
 		flag_btn[left] = 0;
 		LED_BTN_LEFT = !LED_BTN_LEFT;
-		if(cursor_pos_x > 0)
-		{
-			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
-			printCharLCD_i2c('  ');
-			cursor_pos_x -= 8;
-		}				
+		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
+		printCharLCD_i2c('  ');
+		if(cursor_pos_x == 0) cursor_pos_x = 8;
+		else cursor_pos_x -= 8;	
 	}
 	if(flag_btn[up])
 	{
 		flag_btn[up] = 0;
 		LED_BTN_UP = !LED_BTN_UP;
-		if(cursor_pos_y > 0)
-		{
-			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
-			cursor_pos_y --;
-		}				
+		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
+		printCharLCD_i2c('  ');
+		if(cursor_pos_y == 0) cursor_pos_y = 1;
+		else cursor_pos_y --;			
 	}
 	if(flag_btn[right])
 	{
 		flag_btn[right] = 0;
 		LED_BTN_RIGHT = !LED_BTN_RIGHT;
-		if(cursor_pos_x < 8)
-		{
-			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
-			cursor_pos_x += 8;
-		}			
+		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
+		printCharLCD_i2c('  ');
+		if(cursor_pos_x == 8) cursor_pos_x = 0;
+		else cursor_pos_x += 8;	
 	}
 	if(flag_btn[down])
 	{
 		flag_btn[down] = 0;
 		LED_BTN_DOWN = !LED_BTN_DOWN;
-		if(cursor_pos_y < 1)
-		{
-			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
-			cursor_pos_y ++;
-		}			
+		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);printCharLCD_i2c('  ');
+		if(cursor_pos_y == 1) cursor_pos_y = 0;
+		else cursor_pos_y ++;	
 	}
-	setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);piscaCursor();
-	atualizaIndice();menuSelect();
+	atualizaIndice();
+	setCursorLCD_i2c(3, 19);
+	printShortLCD_i2c(indice, lenShort(indice));
+	setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);
+	piscaCursor();
+	
+	menuSelect();
 }
 
 //------------------------------controle-botoes-analogicos------------------------------//
@@ -573,9 +555,9 @@ void TelaInicializacao(void)
 signed short lerAnalogico(char CANAL)
 {
 	ADCON0bits.CHS = CANAL;		// Seleciona canal A/D
-	Delay100TCYx(1);				// Aguarda tempo para troca de canal antes de iniciar conversão
-	ADCON0bits.GO_DONE = 1;    	// Inicia a conversão
-	while(ADCON0bits.GO_DONE);  // Aguarda término da conversão
+	Delay100TCYx(1);				// Aguarda tempo para troca de canal antes de iniciar conversï¿½o
+	ADCON0bits.GO_DONE = 1;    	// Inicia a conversï¿½o
+	while(ADCON0bits.GO_DONE);  // Aguarda tï¿½rmino da conversï¿½o
 	
 	return ADRES;
 }
@@ -596,6 +578,70 @@ void lerBotoes(void)
 		}
 		estado_anterior_btn[i] = estado_atual;
 	}
+}
+// enter,left,up,right,down
+void lerBtnEnter(void)
+{
+	VAN0 = lerAnalogico(0);
+	estado_btn = 0;
+	
+	if ((faixas[enter] - VARIACAO) <= VAN0 && (faixas[enter] + VARIACAO) >= VAN0)
+	{
+		estado_btn = 1;
+		if(estado_btn && !estado_anterior_btn[enter]) flag_btn[enter]= 1;
+	}
+	estado_anterior_btn[enter] = estado_btn;
+}
+void lerBtnLeft(void)
+{
+	VAN0 = lerAnalogico(0);
+	estado_btn = 0;
+	
+	if ((faixas[left] - VARIACAO) <= VAN0 && (faixas[left] + VARIACAO) >= VAN0)
+	{
+		estado_btn = 1;
+		if(estado_btn && !estado_anterior_btn[left]) flag_btn[left]= 1;
+	}
+	estado_anterior_btn[left] = estado_btn;
+}
+
+void lerBtnUp(void)
+{
+	VAN0 = lerAnalogico(0);
+	estado_btn = 0;
+	
+	if ((faixas[up] - VARIACAO) <= VAN0 && (faixas[up] + VARIACAO) >= VAN0)
+	{
+		estado_btn = 1;
+		if(estado_btn && !estado_anterior_btn[up]) flag_btn[up]= 1;
+	}
+	estado_anterior_btn[up] = estado_btn;
+}
+
+void lerBtnRight(void)
+{
+	VAN0 = lerAnalogico(0);
+	estado_btn = 0;
+	
+	if ((faixas[right] - VARIACAO) <= VAN0 && (faixas[right] + VARIACAO) >= VAN0)
+	{
+		estado_btn = 1;
+		if(estado_btn && !estado_anterior_btn[right]) flag_btn[right]= 1;
+	}
+	estado_anterior_btn[right] = estado_btn;
+}
+
+void lerBtnDown(void)
+{
+	VAN0 = lerAnalogico(0);
+	estado_btn = 0;
+	
+	if ((faixas[down] - VARIACAO) <= VAN0 && (faixas[down] + VARIACAO) >= VAN0)
+	{
+		estado_btn = 1;
+		if(estado_btn && !estado_anterior_btn[down]) flag_btn[down]= 1;
+	}
+	estado_anterior_btn[down] = estado_btn;
 }
 
 void atualizaBotoes(void)
@@ -623,13 +669,13 @@ unsigned char lenShort(unsigned short numero)
 void convertShortToChar(unsigned short num, char *str) 
 {
 	
-	int length = lenShort(num); // Começamos com um dígito para o caractere nulo
+	int length = lenShort(num); // Comeï¿½amos com um dï¿½gito para o caractere nulo
 	int i = 0;
 		
-	// Converte o número em uma string de caracteres
+	// Converte o nï¿½mero em uma string de caracteres
 	for (i = length - 1; i >= 0; i--)
 	{
-		str[i] = num % 10 + '0'; // Converte o dígito para seu caractere correspondente
+		str[i] = num % 10 + '0'; // Converte o dï¿½gito para seu caractere correspondente
 		num /= 10;
 	}
 	str[length] = '\0'; // Adiciona o caractere nulo ao final da string
@@ -645,7 +691,7 @@ void delay_ms (unsigned int tempo)
 
 void interrupcaoRelogio(void)
 {
-   if(INTCONbits.TMR0IF == 1)
+   if(PIR1bits.TMR1IF == 1)
    {
       secs++;
       cursor_visivel = !cursor_visivel;
@@ -660,39 +706,39 @@ void interrupcaoRelogio(void)
 		      if(hours == 0x18) hours = 0x00;
 	      }
       }
-      setTimer0();
+      setTimer1();
    }
 }
 
 void configInterrupcaoRelogio(void)
 {
-   // Configuração das interrupções	
-   RCONbits.IPEN 		= 0; // Desabilita atribuição de prioridades às interrupções
-   INTCONbits.GIE 		= 1; // Habilita todas as interrupções
-   INTCONbits.PEIE 		= 0; // Desabilita interrupções geradas a partir de periféricos do PIC
-   INTCONbits.TMR0IE 	= 1; // Habilita interrupção do Timer0
+   // Configuraï¿½ï¿½o das interrupï¿½ï¿½es	
+   
+   RCONbits.IPEN 	= 0; // Desabilita atribuiï¿½ï¿½o de prioridades ï¿½s interrupï¿½ï¿½es
+   INTCONbits.GIE 	= 1; // Habilita todas as interrupï¿½ï¿½es
+   INTCONbits.PEIE 	= 1; // Habilita interrupï¿½ï¿½es geradas a partir de perifï¿½ricos do PIC
+   PIE1bits.TMR1IE	= 1; // Habilita interrupï¿½ï¿½o do Timer1
 }
 
-void configTimer0(void)
+void configTimer1(void)
 {
-  T0CONbits.TMR0ON 	= 1; //1 = habilita o contador 0 = para o contador
-  T0CONbits.T08BIT 	= 0; //1 = contador de 8 bits (0 a 255) 0 = contador de 16 bits (0 a 65.535)
-  T0CONbits.T0CS 	= 0; //1 = fonte de clock externa pelo pino RA4/T0CKI 0 = fonte de clock do oscilador interno do microcontrolador
-  T0CONbits.T0SE 	= 0; //[Ignorado se T0CS = 0] 1 = incremento na borda de descida do pino T0CKI 0 = incremento na borda de subida do pino T0CKI	
-  T0CONbits.PSA 	= 0; //1 = PRESCALER não utilizado 0 = PRESCALER habilitado de acordo com a configuração dos bits T0PS2:T0PS0	
-  // [Ignorado se PSA = 1]. COMBINACOES:
-  // 111 = 1:256     110 = 1:128     101 = 1:64     100 = 1:32     011 = 1:16     010 = 1:8     001 = 1:4     000 = 1:2
-  T0CONbits.T0PS2 	= 0;
-  T0CONbits.T0PS1 	= 1;
-  T0CONbits.T0PS0 	= 1;
-  setTimer0();
+	T1CONbits.RD16		= 1; //contador de 8 bits (0) / contador de 16 bits (1)
+	T1CONbits.T1RUN 	= 1; //fonte de clock: oscilador interno (1) / outra fonte (0)
+	T1CONbits.T1CKPS1	= 0; // T1CKPS1:T1CKPS0 ï¿½ Configuraï¿½ï¿½o do prescaler ï¿½ 00 (1:1), 01 (1:2), 10 (1:4), 11 (1:8)
+	T1CONbits.T1CKPS0	= 0;
+	T1CONbits.T1OSCEN 	= 1; // (modo de eco. de ener.) ï¿½ habilita (1) desliga o oscilador interno (0)
+	T1CONbits.T1SYNC	= 0; // (somente no modo contador) ï¿½ modo sï¿½ncrono (0) ou assï¿½ncrono (1)
+	T1CONbits.TMR1CS	= 1; //modo contador ou economia de energia (1) / temporizador (0)
+	T1CONbits.TMR1ON	= 1; //habilita o contador (1) , para o contador (0)
+	setTimer1();
+	
 }
 
-void setTimer0(void)
+void setTimer1(void)
 {
-   INTCONbits.TMR0IF = 0;
-   TMR0H = 0x0B;          
-   TMR0L = 0xDC;
+   PIR1bits.TMR1IF = 0;
+   TMR1H = 0xC0;          
+   TMR1L = 0x00;
 }
 
 void atualizaRelogio(void)
@@ -718,11 +764,43 @@ void mostrarRelogio(void)
 void setupRelogio(void)
 {
 	
-	INTCONbits.TMR0IE 	= !INTCONbits.TMR0IE; // Desabilita interrupção do Timer0
+	//PIE1bits.TMR1IE = !PIE1bits.TMR1IE; // Desabilita interrupcao do Timer1
+	cursor_pos_y = 0; cursor_pos_x = 12;
+
 	while(!flag_btn[left])
 	{
-		atualizaBotoes();
+		lerBtnUp();
+		lerBtnDown();
+		lerBtnLeft();
+
+		setCursorLCD_i2c(0, cursor_pos_x+2); printShortLCD_i2c(hours, lenShort(hours));
+		setCursorLCD_i2c(1, cursor_pos_x+2); printShortLCD_i2c(mins, lenShort(mins));
+		setCursorLCD_i2c(2, cursor_pos_x+2); printShortLCD_i2c(secs, lenShort(secs));
+
+		if (flag_btn[up])
+		{
+			flag_btn[up] = 0;
+			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x); printCharLCD_i2c('  ');
+
+
+			if (cursor_pos_y == 0) cursor_pos_y = 2;
+			else cursor_pos_y --;
+		}
+
+		if (flag_btn[down])
+		{
+			flag_btn[down] = 0;
+			setCursorLCD_i2c(cursor_pos_y, cursor_pos_x); printCharLCD_i2c('  ');
+			
+			if (cursor_pos_y == 2) cursor_pos_y = 0;
+			else cursor_pos_y ++;
+		}
+
+		setCursorLCD_i2c(3, 19);printShortLCD_i2c(indice, lenShort(indice));
+		setCursorLCD_i2c(cursor_pos_y, cursor_pos_x);piscaCursor();
+
 	}
 	flag_btn[left] = 0;
+	cmdLCD_i2c(_LCD_LIMPA);
 	paginaConfiguracoes();
 }
