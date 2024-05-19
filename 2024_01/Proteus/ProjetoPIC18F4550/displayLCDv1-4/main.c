@@ -1,11 +1,8 @@
-//***************************************Includes***************************************//
 #include <p18F4550.h>
-#include "config.c"
-#include "lcd_i2c.h"
+#include "funcoes.c"
 
 void main()
 {
-	
 	PORTA = 0x00; LATA = 0x00; TRISA = 0x01; 
 	PORTB = 0x00; LATB = 0x00; TRISB = 0x03; 
 	PORTC = 0x00; LATC = 0x00; TRISC = 0x03; 
@@ -28,11 +25,10 @@ void main()
 	atualizaIndice();
 
 	LED_ON = 1;
-	
+
 	while(1)
 	{
 		TelaInicializacao();
-
 		menuSelect();
 	}
 }

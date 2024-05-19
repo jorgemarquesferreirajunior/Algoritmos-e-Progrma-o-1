@@ -1,5 +1,5 @@
 MPLINK 5.00, LINKER
-Linker Map File - Created Wed May 15 22:13:21 2024
+Linker Map File - Created Thu May 16 22:20:10 2024
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -8,37 +8,37 @@ Linker Map File - Created Wed May 15 22:13:21 2024
            .code___init.o       code   0x000006    program   0x000002
               high_vector       code   0x000008    program   0x000006
                    .cinit    romdata   0x00000e    program   0x00000e
-             .code_main.o       code   0x00001c    program   0x00148c
-             .stringtable    romdata   0x0014a8    program   0x0001b5
-        .romdata___init.o    romdata   0x00165d    program   0x000000
-        .idata___init.o_i    romdata   0x00165d    program   0x000000
-      .romdata_i2c_writ.o    romdata   0x00165d    program   0x000000
-      .idata_i2c_writ.o_i    romdata   0x00165d    program   0x000000
-      .romdata_i2c_open.o    romdata   0x00165d    program   0x000000
-      .idata_i2c_open.o_i    romdata   0x00165d    program   0x000000
-      .romdata_i2c_idle.o    romdata   0x00165d    program   0x000000
-      .idata_i2c_idle.o_i    romdata   0x00165d    program   0x000000
-      .romdata_fxd1616u.o    romdata   0x00165d    program   0x000000
-      .idata_fxd1616u.o_i    romdata   0x00165d    program   0x000000
-      .romdata_fxd0808u.o    romdata   0x00165d    program   0x000000
-      .idata_fxd0808u.o_i    romdata   0x00165d    program   0x000000
-         .idata_c018i.o_i    romdata   0x00165d    program   0x000000
-         .romdata_c018i.o    romdata   0x00165d    program   0x000000
-          .romdata_main.o    romdata   0x00165d    program   0x000000
-            .code_c018i.o       code   0x00165e    program   0x000000
-               _cinit_scn       code   0x00165e    program   0x00009e
-                     PROG       code   0x0016fc    program   0x000080
-         .code_i2c_writ.o       code   0x00177c    program   0x000072
-         .code_i2c_open.o       code   0x0017ee    program   0x000036
-         .code_fxd1616u.o       code   0x001824    program   0x00002c
-              D1KTCYXCODE       code   0x001850    program   0x000020
-                    .code       code   0x001870    program   0x000020
-             _startup_scn       code   0x001890    program   0x00001c
-             D100TCYXCODE       code   0x0018ac    program   0x00001c
-         .code_fxd0808u.o       code   0x0018c8    program   0x00001c
-              D10TCYXCODE       code   0x0018e4    program   0x000016
-         .code_i2c_idle.o       code   0x0018fa    program   0x00000e
-          .idata_main.o_i    romdata   0x001908    program   0x000032
+             .code_main.o       code   0x00001c    program   0x001410
+             .stringtable    romdata   0x00142c    program   0x0001b2
+               _cinit_scn       code   0x0015de    program   0x00009e
+                     PROG       code   0x00167c    program   0x000080
+         .code_i2c_writ.o       code   0x0016fc    program   0x000072
+         .code_i2c_open.o       code   0x00176e    program   0x000036
+         .code_fxd1616u.o       code   0x0017a4    program   0x00002c
+              D1KTCYXCODE       code   0x0017d0    program   0x000020
+                    .code       code   0x0017f0    program   0x000020
+             _startup_scn       code   0x001810    program   0x00001c
+             D100TCYXCODE       code   0x00182c    program   0x00001c
+         .code_fxd0808u.o       code   0x001848    program   0x00001c
+              D10TCYXCODE       code   0x001864    program   0x000016
+         .code_i2c_idle.o       code   0x00187a    program   0x00000e
+        .romdata___init.o    romdata   0x001888    program   0x000000
+      .romdata_i2c_writ.o    romdata   0x001888    program   0x000000
+      .romdata_fxd0808u.o    romdata   0x001888    program   0x000000
+         .romdata_c018i.o    romdata   0x001888    program   0x000000
+      .romdata_fxd1616u.o    romdata   0x001888    program   0x000000
+          .idata_main.o_i    romdata   0x001888    program   0x000032
+      .romdata_i2c_open.o    romdata   0x001888    program   0x000000
+      .romdata_i2c_idle.o    romdata   0x001888    program   0x000000
+          .romdata_main.o    romdata   0x001888    program   0x000000
+        .idata___init.o_i    romdata   0x0018ba    program   0x000000
+      .idata_i2c_writ.o_i    romdata   0x0018ba    program   0x000000
+         .idata_c018i.o_i    romdata   0x0018ba    program   0x000000
+      .idata_i2c_open.o_i    romdata   0x0018ba    program   0x000000
+      .idata_i2c_idle.o_i    romdata   0x0018ba    program   0x000000
+      .idata_fxd1616u.o_i    romdata   0x0018ba    program   0x000000
+      .idata_fxd0808u.o_i    romdata   0x0018ba    program   0x000000
+            .code_c018i.o       code   0x0018ba    program   0x000000
     .config_300001_main.o    romdata   0x300001    program   0x000001
     .config_300002_main.o    romdata   0x300002    program   0x000001
     .config_300003_main.o    romdata   0x300003    program   0x000001
@@ -71,158 +71,158 @@ Linker Map File - Created Wed May 15 22:13:21 2024
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x00165c      
-                            0x00165e    0x001939      
+                            0x000000    0x0018b9      
                             0x300001    0x300003      
                             0x300005    0x300006      
-            6462 out of 33048 program addresses used, program memory utilization is 19%
+            6335 out of 33048 program addresses used, program memory utilization is 19%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D0808S   0x001712    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x001720    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x00171c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001726    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                   D100_1   0x0018ba    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                    D100x   0x0018b8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                    D10_1   0x0018f4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                     D10x   0x0018ec    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                   D1616S   0x001752    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x001760    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x00175c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x001772    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                    D1K_1   0x00185c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-                     D1Kx   0x00185a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-                  DA0808S   0x001708    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  DA1616S   0x001742    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-             Delay100TCYx   0x0018ac    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-              Delay10TCYx   0x0018e4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-              Delay1KTCYx   0x001850    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-                 FXD0808S   0x0016fc    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 FXD0808U   0x0018c8    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
-                 FXD1616S   0x001730    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 FXD1616U   0x001824    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                  IdleI2C   0x0018fa    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_idle.c
-                  OpenI2C   0x0017ee    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_open.c
-              StartLCDi2c   0x0000d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-        TelaInicializacao   0x000b88    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 WriteI2C   0x00177c    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_writ.c
-       _D100TCYXCODE_0008   0x0018b4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x0018be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x0018c4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-        _D10TCYXCODE_000A   0x0018ee    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x0018f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x0018f2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D1KTCYXCODE_0010   0x001860    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0016   0x001866    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-       ___return_lbl00000   0x0018e2    program     static                          
-       ___return_lbl00000   0x00184e    program     static                          
+                   D0808S   0x001692    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x0016a0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00169c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x0016a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                   D100_1   0x00183a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                    D100x   0x001838    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                    D10_1   0x001874    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                     D10x   0x00186c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                   D1616S   0x0016d2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x0016e0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x0016dc    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x0016f2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                    D1K_1   0x0017dc    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+                     D1Kx   0x0017da    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+                  DA0808S   0x001688    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  DA1616S   0x0016c2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+             Delay100TCYx   0x00182c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+              Delay10TCYx   0x001864    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+              Delay1KTCYx   0x0017d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+                 FXD0808S   0x00167c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXD0808U   0x001848    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                 FXD1616S   0x0016b0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 FXD1616U   0x0017a4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                  IdleI2C   0x00187a    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_idle.c
+                  OpenI2C   0x00176e    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_open.c
+              StartLCDi2c   0x0000d2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+        TelaInicializacao   0x000622    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 WriteI2C   0x0016fc    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_writ.c
+       _D100TCYXCODE_0008   0x001834    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x00183e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x001844    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+        _D10TCYXCODE_000A   0x00186e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x001870    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x001872    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D1KTCYXCODE_0010   0x0017e0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0016   0x0017e6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+       ___return_lbl00000   0x0017ce    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x0018aa    program     static                          
-       ___return_lbl00002   0x0016fa    program     static                          
-       ___return_lbl00026   0x00000c    program     static                          
-               __config_0   0x300001    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_1   0x300002    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_2   0x300003    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_3   0x300005    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_4   0x300006    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+       ___return_lbl00000   0x001862    program     static                          
+       ___return_lbl00001   0x00182a    program     static                          
+       ___return_lbl00002   0x00167a    program     static                          
+       ___return_lbl00039   0x00000c    program     static                          
+               __config_0   0x300001    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_1   0x300002    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_2   0x300003    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_3   0x300005    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_4   0x300006    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
                    __init   0x000006    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-               __string_0   0x00165a    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_1   0x001656    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_10   0x0015bf    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_11   0x0015b1    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_12   0x0015a3    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_13   0x00158e    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_14   0x001579    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_15   0x001564    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_16   0x001550    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_17   0x00153c    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_18   0x001532    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_19   0x001527    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_20   0x00151d    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_21   0x001508    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_22   0x0014f3    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_23   0x0014de    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_24   0x0014c9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_25   0x0014bb    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_26   0x0014ac    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_27   0x0014a8    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_3   0x001640    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_4   0x001629    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_5   0x001619    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_6   0x001609    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_7   0x0015f9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_8   0x0015e9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_9   0x0015d4    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-            __zero_memory   0x001870    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                _do_cinit   0x00165e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+               __string_0   0x0015c9    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_1   0x0015b4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_10   0x001519    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_11   0x001504    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_12   0x0014ef    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_13   0x0014ec    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_14   0x0014e8    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_16   0x0014d4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_17   0x0014c0    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_18   0x0014b6    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_19   0x0014ab    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_2   0x0015a4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_20   0x0014a1    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_21   0x00148c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_22   0x001477    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_23   0x001462    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_24   0x00144d    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_25   0x00143f    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_26   0x001430    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_27   0x00142c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_3   0x001594    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_4   0x001584    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_5   0x001574    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_6   0x00155f    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_7   0x00154a    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_8   0x00153c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_9   0x00152e    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+            __zero_memory   0x0017f0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                _do_cinit   0x0015de    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x001890    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-           atualizaBotoes   0x000f84    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           atualizaIndice   0x0008d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       atualizaIndiceInfo   0x000910    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          atualizaMotores   0x000a3a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          atualizaRelogio   0x001232    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-         atualizaSensores   0x000958    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               bateriaLow   0x0007da    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     cat1   0x000824    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     cat2   0x00086a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               cmdLCD_i2c   0x00001c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-                compare_l   0x001886    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
- configInterrupcaoRelogio   0x00120a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             configTimer1   0x001214    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-      configuracoesSelect   0x000b54    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       convertShortToChar   0x001002    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                copy_loop   0x0016d0    program     static                          
-            copy_one_byte   0x0016d6    program     static                          
-                 delay_ms   0x001108    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     done   0x0016fa    program     static                          
-             done_copying   0x0016e4    program     static                          
-                  endloop   0x00184a    program     static                          
-                  endloop   0x0018de    program     static                          
-               infoSelect   0x000b06    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       interrupcaoRelogio   0x001146    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
- interrupt_at_high_vector   0x000008    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 lenShort   0x000f96    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             lerAnalogico   0x000caa    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                lerBotoes   0x000ce8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               lerBtnDown   0x000f26    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              lerBtnEnter   0x000dae    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               lerBtnLeft   0x000e0c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              lerBtnRight   0x000ec8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 lerBtnUp   0x000e6a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           loadCaracteres   0x0008b0    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     loop   0x0018d0    program     static                          
-                     loop   0x0018a0    program     static                          
-                     loop   0x00182e    program     static                          
-                   loop_h   0x00187e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_l   0x001888    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                     main   0x000354    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 maskInit   0x0003ae    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              maskMotores   0x000496    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          maskPurificador   0x00045a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              maskRelogio   0x0004d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             maskSensores   0x0003ea    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               menuSelect   0x000ace    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-        mostraPurificador   0x000a54    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           mostrarRelogio   0x0012b8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-      paginaConfiguracoes   0x000560    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               paginaHome   0x000528    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               paginaInfo   0x000690    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 paginaMe   0x00078a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              piscaCursor   0x0008b8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-         printCharLCD_i2c   0x000132    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-        printShortLCD_i2c   0x00022c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-       printStringLCD_i2c   0x0001e8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-         setCursorLCD_i2c   0x0002f4    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-                setTimer1   0x001228    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             setupRelogio   0x001300    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     test   0x001678    program     static                          
-               zero_block   0x00187e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                 _startup   0x001810    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+           atualizaBotoes   0x000f48    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           atualizaIndice   0x0009c0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+atualizaIndiceConfiguracoes   0x000a22    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       atualizaIndiceInfo   0x0009fe    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+          atualizaMotores   0x000b30    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+          atualizaRelogio   0x0011ba    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         atualizaSensores   0x000a46    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               bateriaLow   0x000548    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+                     cat1   0x000592    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+                     cat2   0x0005d6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+               cmdLCD_i2c   0x00001c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+                compare_l   0x001806    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+ configInterrupcaoRelogio   0x001192    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             configTimer1   0x00119c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+      configuracoesSelect   0x000c30    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       convertShortToChar   0x000f88    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                copy_loop   0x001650    program     static                          
+            copy_one_byte   0x001656    program     static                          
+                 delay_ms   0x001090    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     done   0x00167a    program     static                          
+             done_copying   0x001664    program     static                          
+                  endloop   0x0017ca    program     static                          
+                  endloop   0x00185e    program     static                          
+               infoSelect   0x000bde    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       interrupcaoRelogio   0x0010ce    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+ interrupt_at_high_vector   0x000008    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 lenShort   0x00022c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+             lerAnalogico   0x000c6e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                lerBotoes   0x000cac    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               lerBtnDown   0x000eea    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              lerBtnEnter   0x000d72    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               lerBtnLeft   0x000dd0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              lerBtnRight   0x000e8c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 lerBtnUp   0x000e2e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           loadCaracteres   0x00061a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+                     loop   0x001850    program     static                          
+                     loop   0x0017ae    program     static                          
+                     loop   0x001820    program     static                          
+                   loop_h   0x0017fe    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_l   0x001808    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                     main   0x0013c6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                 maskInit   0x0003ce    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+              maskMotores   0x0004b6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+          maskPurificador   0x00047a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+              maskRelogio   0x0004f2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+             maskSensores   0x00040a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+               menuSelect   0x000ba2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+        mostraPurificador   0x000b4a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           mostrarRelogio   0x001240    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+      paginaConfiguracoes   0x000744    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               paginaHome   0x000710    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               paginaInfo   0x00085a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 paginaMe   0x000952    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              piscaCursor   0x0009a2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         printCharLCD_i2c   0x000132    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+        printShortLCD_i2c   0x000298    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+       printStringLCD_i2c   0x0001e8    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+              resetBotoes   0x000f5a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         setCursorLCD_i2c   0x00036e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+                setTimer1   0x0011b0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             setupRelogio   0x001288    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     test   0x0015f8    program     static                          
+               zero_block   0x0017fe    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    ADCON0   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                ADCON0bits   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    ADCON1   0x000fc1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
@@ -472,7 +472,7 @@ atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\On
                   UIRbits   0x000f68       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                     USTAT   0x000f6c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                 USTATbits   0x000f6c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                     VAN0   0x00009d       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                     VAN0   0x00009d       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
                    WDTCON   0x000fd1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                WDTCONbits   0x000fd1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                      WREG   0x000fe8       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
@@ -496,28 +496,28 @@ atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\On
                   __REMB1   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB2   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __REMB3   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __tmp_0   0x000010       data     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                  __tmp_0   0x000010       data     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
                 curr_byte   0x000095       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                curr_entry   0x000097       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-             cursor_pos_x   0x00006a       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             cursor_pos_y   0x00006b       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           cursor_visivel   0x00006c       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+             cursor_pos_x   0x00006a       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             cursor_pos_y   0x00006b       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           cursor_visivel   0x00006c       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
                  data_ptr   0x000099       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     dias   0x000081       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-      estado_anterior_btn   0x000060       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               estado_btn   0x00009c       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   faixas   0x000074       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 flag_btn   0x000065       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                    hours   0x000080       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   indice   0x00006d       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     mins   0x00007f       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                     dias   0x000081       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+      estado_anterior_btn   0x000060       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               estado_btn   0x00009c       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   faixas   0x000074       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 flag_btn   0x000065       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                    hours   0x000080       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   indice   0x00006d       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     mins   0x00007f       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
                      prom   0x000092       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                  relogio   0x000082       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     secs   0x00007e       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-        sprays_capacidade   0x000070       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-         sprays_utilizado   0x000072       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   status   0x00006e       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           variavel_teste   0x000090       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                  relogio   0x000082       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     secs   0x00007e       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+        sprays_capacidade   0x000070       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         sprays_utilizado   0x000072       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   status   0x00006e       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           variavel_teste   0x000090       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
 
 
 
@@ -527,144 +527,145 @@ atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\On
                    _entry   0x000000    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
        ___return_lbl00000   0x000004    program     static                          
                    __init   0x000006    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
- interrupt_at_high_vector   0x000008    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       ___return_lbl00026   0x00000c    program     static                          
-               cmdLCD_i2c   0x00001c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-              StartLCDi2c   0x0000d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-         printCharLCD_i2c   0x000132    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-       printStringLCD_i2c   0x0001e8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-        printShortLCD_i2c   0x00022c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-         setCursorLCD_i2c   0x0002f4    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
-                     main   0x000354    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 maskInit   0x0003ae    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             maskSensores   0x0003ea    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          maskPurificador   0x00045a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              maskMotores   0x000496    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              maskRelogio   0x0004d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               paginaHome   0x000528    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-      paginaConfiguracoes   0x000560    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               paginaInfo   0x000690    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 paginaMe   0x00078a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               bateriaLow   0x0007da    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     cat1   0x000824    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     cat2   0x00086a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           loadCaracteres   0x0008b0    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              piscaCursor   0x0008b8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           atualizaIndice   0x0008d2    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       atualizaIndiceInfo   0x000910    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-         atualizaSensores   0x000958    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          atualizaMotores   0x000a3a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-        mostraPurificador   0x000a54    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               menuSelect   0x000ace    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               infoSelect   0x000b06    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-      configuracoesSelect   0x000b54    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-        TelaInicializacao   0x000b88    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             lerAnalogico   0x000caa    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                lerBotoes   0x000ce8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              lerBtnEnter   0x000dae    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               lerBtnLeft   0x000e0c    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 lerBtnUp   0x000e6a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              lerBtnRight   0x000ec8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               lerBtnDown   0x000f26    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           atualizaBotoes   0x000f84    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 lenShort   0x000f96    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       convertShortToChar   0x001002    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 delay_ms   0x001108    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-       interrupcaoRelogio   0x001146    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
- configInterrupcaoRelogio   0x00120a    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             configTimer1   0x001214    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                setTimer1   0x001228    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-          atualizaRelogio   0x001232    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           mostrarRelogio   0x0012b8    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             setupRelogio   0x001300    program     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_27   0x0014a8    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_26   0x0014ac    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_25   0x0014bb    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_24   0x0014c9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_23   0x0014de    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_22   0x0014f3    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_21   0x001508    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_20   0x00151d    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_19   0x001527    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_18   0x001532    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_17   0x00153c    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_16   0x001550    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_15   0x001564    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_14   0x001579    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_13   0x00158e    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_12   0x0015a3    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_11   0x0015b1    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-              __string_10   0x0015bf    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_9   0x0015d4    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_8   0x0015e9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_7   0x0015f9    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_6   0x001609    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_5   0x001619    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_4   0x001629    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_3   0x001640    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_1   0x001656    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __string_0   0x00165a    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                _do_cinit   0x00165e    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x001678    program     static                          
-                copy_loop   0x0016d0    program     static                          
-            copy_one_byte   0x0016d6    program     static                          
-             done_copying   0x0016e4    program     static                          
-       ___return_lbl00002   0x0016fa    program     static                          
-                     done   0x0016fa    program     static                          
-                 FXD0808S   0x0016fc    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001708    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                   D0808S   0x001712    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x00171c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x001720    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001726    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
-                 FXD1616S   0x001730    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  DA1616S   0x001742    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                   D1616S   0x001752    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 D1616SOK   0x00175c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                D1616SNEG   0x001760    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                  D1616SX   0x001772    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
-                 WriteI2C   0x00177c    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_writ.c
-                  OpenI2C   0x0017ee    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_open.c
-                 FXD1616U   0x001824    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x00182e    program     static                          
-                  endloop   0x00184a    program     static                          
-       ___return_lbl00000   0x00184e    program     static                          
-              Delay1KTCYx   0x001850    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-                     D1Kx   0x00185a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-                    D1K_1   0x00185c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0010   0x001860    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-        _D1KTCYXCODE_0016   0x001866    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
-            __zero_memory   0x001870    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_h   0x00187e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-               zero_block   0x00187e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                compare_l   0x001886    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_l   0x001888    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                 _startup   0x001890    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x0018a0    program     static                          
-       ___return_lbl00001   0x0018aa    program     static                          
-             Delay100TCYx   0x0018ac    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0008   0x0018b4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                    D100x   0x0018b8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                   D100_1   0x0018ba    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0012   0x0018be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-       _D100TCYXCODE_0018   0x0018c4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
-                 FXD0808U   0x0018c8    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
-                     loop   0x0018d0    program     static                          
-                  endloop   0x0018de    program     static                          
-       ___return_lbl00000   0x0018e2    program     static                          
-              Delay10TCYx   0x0018e4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                     D10x   0x0018ec    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000A   0x0018ee    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000C   0x0018f0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-        _D10TCYXCODE_000E   0x0018f2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                    D10_1   0x0018f4    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
-                  IdleI2C   0x0018fa    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_idle.c
-               __config_0   0x300001    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_1   0x300002    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_2   0x300003    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_3   0x300005    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-               __config_4   0x300006    program     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+ interrupt_at_high_vector   0x000008    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       ___return_lbl00039   0x00000c    program     static                          
+               cmdLCD_i2c   0x00001c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+              StartLCDi2c   0x0000d2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+         printCharLCD_i2c   0x000132    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+       printStringLCD_i2c   0x0001e8    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+                 lenShort   0x00022c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+        printShortLCD_i2c   0x000298    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+         setCursorLCD_i2c   0x00036e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h
+                 maskInit   0x0003ce    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+             maskSensores   0x00040a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+          maskPurificador   0x00047a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+              maskMotores   0x0004b6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+              maskRelogio   0x0004f2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+               bateriaLow   0x000548    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+                     cat1   0x000592    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+                     cat2   0x0005d6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+           loadCaracteres   0x00061a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\mascaras.c
+        TelaInicializacao   0x000622    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               paginaHome   0x000710    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+      paginaConfiguracoes   0x000744    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               paginaInfo   0x00085a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 paginaMe   0x000952    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              piscaCursor   0x0009a2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           atualizaIndice   0x0009c0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       atualizaIndiceInfo   0x0009fe    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+atualizaIndiceConfiguracoes   0x000a22    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         atualizaSensores   0x000a46    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+          atualizaMotores   0x000b30    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+        mostraPurificador   0x000b4a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               menuSelect   0x000ba2    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               infoSelect   0x000bde    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+      configuracoesSelect   0x000c30    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             lerAnalogico   0x000c6e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                lerBotoes   0x000cac    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              lerBtnEnter   0x000d72    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               lerBtnLeft   0x000dd0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 lerBtnUp   0x000e2e    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              lerBtnRight   0x000e8c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+               lerBtnDown   0x000eea    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           atualizaBotoes   0x000f48    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+              resetBotoes   0x000f5a    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       convertShortToChar   0x000f88    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 delay_ms   0x001090    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+       interrupcaoRelogio   0x0010ce    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+ configInterrupcaoRelogio   0x001192    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             configTimer1   0x00119c    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                setTimer1   0x0011b0    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+          atualizaRelogio   0x0011ba    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           mostrarRelogio   0x001240    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             setupRelogio   0x001288    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     main   0x0013c6    program     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_27   0x00142c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_26   0x001430    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_25   0x00143f    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_24   0x00144d    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_23   0x001462    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_22   0x001477    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_21   0x00148c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_20   0x0014a1    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_19   0x0014ab    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_18   0x0014b6    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_17   0x0014c0    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_16   0x0014d4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_14   0x0014e8    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_13   0x0014ec    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_12   0x0014ef    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_11   0x001504    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+              __string_10   0x001519    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_9   0x00152e    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_8   0x00153c    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_7   0x00154a    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_6   0x00155f    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_5   0x001574    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_4   0x001584    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_3   0x001594    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_2   0x0015a4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_1   0x0015b4    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __string_0   0x0015c9    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                _do_cinit   0x0015de    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x0015f8    program     static                          
+                copy_loop   0x001650    program     static                          
+            copy_one_byte   0x001656    program     static                          
+             done_copying   0x001664    program     static                          
+                     done   0x00167a    program     static                          
+       ___return_lbl00002   0x00167a    program     static                          
+                 FXD0808S   0x00167c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x001688    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                   D0808S   0x001692    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00169c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x0016a0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x0016a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXD1616S   0x0016b0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  DA1616S   0x0016c2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                   D1616S   0x0016d2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 D1616SOK   0x0016dc    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                D1616SNEG   0x0016e0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                  D1616SX   0x0016f2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616s.asm
+                 WriteI2C   0x0016fc    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_writ.c
+                  OpenI2C   0x00176e    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_open.c
+                 FXD1616U   0x0017a4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
+                     loop   0x0017ae    program     static                          
+                  endloop   0x0017ca    program     static                          
+       ___return_lbl00000   0x0017ce    program     static                          
+              Delay1KTCYx   0x0017d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+                     D1Kx   0x0017da    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+                    D1K_1   0x0017dc    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0010   0x0017e0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+        _D1KTCYXCODE_0016   0x0017e6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d1ktcyx.asm
+            __zero_memory   0x0017f0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_h   0x0017fe    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+               zero_block   0x0017fe    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                compare_l   0x001806    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_l   0x001808    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                 _startup   0x001810    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x001820    program     static                          
+       ___return_lbl00001   0x00182a    program     static                          
+             Delay100TCYx   0x00182c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0008   0x001834    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                    D100x   0x001838    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                   D100_1   0x00183a    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0012   0x00183e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+       _D100TCYXCODE_0018   0x001844    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d100tcyx.asm
+                 FXD0808U   0x001848    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                     loop   0x001850    program     static                          
+                  endloop   0x00185e    program     static                          
+       ___return_lbl00000   0x001862    program     static                          
+              Delay10TCYx   0x001864    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                     D10x   0x00186c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000A   0x00186e    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000C   0x001870    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+        _D10TCYXCODE_000E   0x001872    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                    D10_1   0x001874    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\d10tcyx.asm
+                  IdleI2C   0x00187a    program     extern E:\3.46\pic18-lt\cxx-framework\src\pmc_common\i2c\i2c_idle.c
+               __config_0   0x300001    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_1   0x300002    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_2   0x300003    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_3   0x300005    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               __config_4   0x300006    program     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
                      SIGN   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
             __FPFLAGSbits   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
                 __FPFLAGS   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
@@ -686,30 +687,30 @@ atualizaIndiceConfiguracoes   0x000934    program     extern C:\Users\Scope11\On
                  __BARGB1   0x00000d       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
                  __BARGB0   0x00000e       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
                    __BEXP   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                  __tmp_0   0x000010       data     static C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+                  __tmp_0   0x000010       data     static C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
             DelayCounter1   0x000014       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\delays\delayd1.asm
-      estado_anterior_btn   0x000060       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                 flag_btn   0x000065       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             cursor_pos_x   0x00006a       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-             cursor_pos_y   0x00006b       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           cursor_visivel   0x00006c       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   indice   0x00006d       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   status   0x00006e       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-        sprays_capacidade   0x000070       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-         sprays_utilizado   0x000072       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                   faixas   0x000074       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     secs   0x00007e       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     mins   0x00007f       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                    hours   0x000080       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     dias   0x000081       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                  relogio   0x000082       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-           variavel_teste   0x000090       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+      estado_anterior_btn   0x000060       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                 flag_btn   0x000065       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             cursor_pos_x   0x00006a       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+             cursor_pos_y   0x00006b       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           cursor_visivel   0x00006c       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   indice   0x00006d       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   status   0x00006e       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+        sprays_capacidade   0x000070       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+         sprays_utilizado   0x000072       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                   faixas   0x000074       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     secs   0x00007e       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     mins   0x00007f       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                    hours   0x000080       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     dias   0x000081       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                  relogio   0x000082       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+           variavel_teste   0x000090       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
                      prom   0x000092       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                 curr_byte   0x000095       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                curr_entry   0x000097       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                  data_ptr   0x000099       data     static E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-               estado_btn   0x00009c       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
-                     VAN0   0x00009d       data     extern C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c
+               estado_btn   0x00009c       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
+                     VAN0   0x00009d       data     extern C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\config.c
                   SPPDATA   0x000f62       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    SPPCFG   0x000f63       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                SPPCFGbits   0x000f63       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm

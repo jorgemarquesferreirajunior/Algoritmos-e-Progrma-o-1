@@ -10,172 +10,57 @@ DAY	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F45
 DAY_WEEK	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
 DS1307R::0xD1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	11;"	d	line:11
 DS1307W::0xD0	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	10;"	d	line:10
-FIM_CURSO_GV_ABERTO::PORTDbits.RD2	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	23;"	d	line:23	file:
-FIM_CURSO_GV_FECHADO::PORTDbits.RD3	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	24;"	d	line:24	file:
-FIM_CURSO_TB_INFERIOR::PORTDbits.RD1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	22;"	d	line:22	file:
-FIM_CURSO_TB_SUPERIOR::PORTDbits.RD0	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	21;"	d	line:21	file:
 HOURS	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
-LCD	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	42;"	l	line:42
-LCD	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	81;"	l	line:81
-LCD_I2C_H	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	2;"	d	line:2
-LED_BTN_DOWN::PORTBbits.RB5	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	18;"	d	line:18	file:
-LED_BTN_ENTER::PORTBbits.RB6	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	19;"	d	line:19	file:
-LED_BTN_LEFT::PORTBbits.RB2	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	15;"	d	line:15	file:
-LED_BTN_RIGHT::PORTBbits.RB4	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	17;"	d	line:17	file:
-LED_BTN_UP::PORTBbits.RB3	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	16;"	d	line:16	file:
+LCD	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	42;"	l	line:42
+LCD	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	81;"	l	line:81
+LCD_I2C_H	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	2;"	d	line:2
 MINUTES	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
 MONTH	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
-PCF8574W::0x4E	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	5;"	d	line:5
-QTD_BTNS::5	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	27;"	d	line:27	file:
+PCF8574W::0x4E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	5;"	d	line:5
 RTC_H	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	2;"	d	line:2
 ReadRTC	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	17;"	p	line:17	signature:(void)
 ReadRTC	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	38;"	f	line:38	signature:(void)
 SECONDS	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
 ShowRTCInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	18;"	p	line:18	signature:(void)
 ShowRTCInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	57;"	f	line:57	signature:(void)
-StartLCDi2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	33;"	p	line:33	signature:(void)
-StartLCDi2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	63;"	f	line:63	signature:(void)
+StartLCDi2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	33;"	p	line:33	signature:(void)
+StartLCDi2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	63;"	f	line:63	signature:(void)
 StartRTC	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	16;"	p	line:16	signature:(void)
 StartRTC	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	21;"	f	line:21	signature:(void)
-TelaInicializacao	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	506;"	f	line:506	signature:(void)
-TelaInicializacao	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	60;"	p	line:60	file:	signature:(void)
-VAN0	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	31;"	v	line:31
-VARIACAO::5	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	28;"	d	line:28	file:
 YEAR	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-1\rtc.h	14;"	v	line:14
-_LCD_BLINK_CURSOR_ON::0x0F	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	20;"	d	line:20
-_LCD_CMD::0x40	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	27;"	d	line:27
-_LCD_CURSOR_OFF::0x0C	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	16;"	d	line:16
-_LCD_DESLIGADO::0x08	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	23;"	d	line:23
-_LCD_DESLOCA_DIR::0x1E	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	26;"	d	line:26
-_LCD_DESLOCA_ESQ::0x18	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	25;"	d	line:25
-_LCD_DESLOC_DIR::0x06	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	18;"	d	line:18
-_LCD_DESLOC_ESQ::0x04	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	19;"	d	line:19
-_LCD_HOME::0x02	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	15;"	d	line:15
-_LCD_INTERFACE_4bL1_5X7::0x20	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	9;"	d	line:9
-_LCD_INTERFACE_4bL2_5X7::0x28	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	8;"	d	line:8
-_LCD_INTERFACE_8bL1_5X7::0x30	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	7;"	d	line:7
-_LCD_INTERFACE_8bL2_5X7::0x38	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	6;"	d	line:6
-_LCD_LIGADO::0x0C	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	24;"	d	line:24
-_LCD_LIMPA::0x01	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	14;"	d	line:14
-_LCD_LINHA_1::0x80	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	10;"	d	line:10
-_LCD_LINHA_2::0xC0	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	11;"	d	line:11
-_LCD_LINHA_3::0x94	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	12;"	d	line:12
-_LCD_LINHA_4::0xD4	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	13;"	d	line:13
-_LCD_MOVE_CURSOR_DIR::0x14	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	22;"	d	line:22
-_LCD_MOVE_CURSOR_ESQ::0x10	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	21;"	d	line:21
-_LCD_UNDERLINE_ON::0x0E	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	17;"	d	line:17
-atualizaBotoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	586;"	f	line:586	signature:(void)
-atualizaBotoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	68;"	p	line:68	file:	signature:(void)
-atualizaIndice	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	343;"	f	line:343	signature:(void)
-atualizaIndice	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	54;"	p	line:54	file:	signature:(void)
-atualizaIndiceConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	358;"	f	line:358	signature:(void)
-atualizaIndiceConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	56;"	p	line:56	file:	signature:(void)
-atualizaIndiceInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	351;"	f	line:351	signature:(void)
-atualizaIndiceInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	55;"	p	line:55	file:	signature:(void)
-atualizaMotores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	394;"	f	line:394	signature:(void)
-atualizaMotores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	62;"	p	line:62	file:	signature:(void)
-atualizaMotores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	63;"	p	line:63	file:	signature:(void)
-atualizaRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	685;"	f	line:685	signature:(void)
-atualizaRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	80;"	p	line:80	file:	signature:(void)
-atualizaSensores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	365;"	f	line:365	signature:(void)
-atualizaSensores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	61;"	p	line:61	file:	signature:(void)
-bateriaLow	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	286;"	f	line:286
-bateriaLow	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	49;"	p	line:49	file:
-cat1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	300;"	f	line:300
-cat1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	50;"	p	line:50	file:
-cat2	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	314;"	f	line:314
-cat2	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	51;"	p	line:51	file:
-cmdLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	32;"	p	line:32	signature:(unsigned char CMD)
-cmdLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	40;"	f	line:40	signature:(unsigned char CMD)
-configInterrupcaoRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	652;"	f	line:652	signature:(void)
-configInterrupcaoRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	78;"	p	line:78	file:	signature:(void)
-configTimer1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	662;"	f	line:662	signature:(void)
-configTimer1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	76;"	p	line:76	file:	signature:(void)
-configuracoesSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	481;"	f	line:481	signature:(void)
-configuracoesSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	59;"	p	line:59	file:	signature:(void)
-convertShortToChar	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	608;"	f	line:608	signature:(unsigned short num, char *str)
-convertShortToChar	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	71;"	p	line:71	file:	signature:(unsigned short num, char *str)
-cursor_pos_x	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-cursor_pos_y	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-cursor_visivel	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-delay_ms	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	623;"	f	line:623	signature:(unsigned int tempo)
-delay_ms	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	73;"	p	line:73	file:	signature:(unsigned int tempo)
-dias	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	34;"	v	line:34
-down	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	33;"	e	line:33	file:
-enter	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	33;"	e	line:33	file:
-estado_anterior_btn	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-estado_atual	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	574;"	l	line:574
-faixas	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	32;"	v	line:32
-flag_btn	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-hours	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	34;"	v	line:34
-i	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	116;"	l	line:116
-i	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	571;"	l	line:571
-i	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	612;"	l	line:612
-i	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	699;"	l	line:699
-indice	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-infoSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	449;"	f	line:449	signature:(void)
-infoSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	58;"	p	line:58	file:	signature:(void)
-interrupcaoRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	631;"	f	line:631	signature:(void)
-interrupcaoRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	79;"	p	line:79	file:	signature:(void)
-interrupt_at_high_vector	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	86;"	f	line:86	signature:(void)
-left	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	33;"	e	line:33	file:
-lenShort	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	593;"	f	line:593	signature:(unsigned short numero)
-lenShort	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	70;"	p	line:70	file:	signature:(unsigned short numero)
-length	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	611;"	l	line:611
-lerAnalogico	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	558;"	f	line:558	signature:(char CANAL)
-lerAnalogico	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	66;"	p	line:66	file:	signature:(char CANAL)
-lerBotoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	569;"	f	line:569	signature:(void)
-lerBotoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	67;"	p	line:67	file:	signature:(void)
-loadCaracteres	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	328;"	f	line:328	signature:(void)
-loadCaracteres	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	52;"	p	line:52	file:	signature:(void)
-main	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	93;"	f	line:93
-maskInit	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	122;"	f	line:122	signature:(void)
-maskInit	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	39;"	p	line:39	file:	signature:(void)
-maskMotores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	145;"	f	line:145	signature:(void)
-maskMotores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	41;"	p	line:41	file:	signature:(void)
-maskPurificador	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	138;"	f	line:138	signature:(void)
-maskPurificador	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	42;"	p	line:42	file:	signature:(void)
-maskRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	152;"	f	line:152	signature:(void)
-maskRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	43;"	p	line:43	file:	signature:(void)
-maskSensores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	129;"	f	line:129	signature:(void)
-maskSensores	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	40;"	p	line:40	file:	signature:(void)
-menuSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	424;"	f	line:424	signature:(void)
-menuSelect	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	57;"	p	line:57	file:	signature:(void)
-mins	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	34;"	v	line:34
-mostraPurificador	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	408;"	f	line:408	signature:(void)
-mostrarRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	697;"	f	line:697	signature:(void)
-mostrarRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	81;"	p	line:81	file:	signature:(void)
-paginaConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	178;"	f	line:178	signature:(void)
-paginaConfiguracoes	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	45;"	p	line:45	file:	signature:(void)
-paginaHome	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	161;"	f	line:161	signature:(void)
-paginaHome	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	44;"	p	line:44	file:	signature:(void)
-paginaInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	228;"	f	line:228	signature:(void)
-paginaInfo	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	46;"	p	line:46	file:	signature:(void)
-paginaMe	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	267;"	f	line:267	signature:(void)
-paginaMe	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	47;"	p	line:47	file:	signature:(void)
-piscaCursor	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	337;"	f	line:337	signature:(void)
-piscaCursor	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	64;"	p	line:64	file:	signature:(void)
-printCharLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	34;"	p	line:34	signature:(unsigned char DATA)
-printCharLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	79;"	f	line:79	signature:(unsigned char DATA)
-printShortLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	114;"	f	line:114	signature:(unsigned short num, unsigned char n_digitos)
-printShortLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	36;"	p	line:36	signature:(unsigned short num, unsigned char n_digitos)
-printStringLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	103;"	f	line:103	signature:(rom unsigned char *STR)
-printStringLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	35;"	p	line:35	signature:(rom unsigned char *STR)
-qtd	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	596;"	l	line:596
-relogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	34;"	v	line:34
-right	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	33;"	e	line:33	file:
-secs	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	34;"	v	line:34
-setCursorLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	132;"	f	line:132	signature:(unsigned char linha, unsigned char coluna)
-setCursorLCD_i2c	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	37;"	p	line:37	signature:(unsigned char linha, unsigned char coluna)
-setTimer1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	678;"	f	line:678	signature:(void)
-setTimer1	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	77;"	p	line:77	file:	signature:(void)
-setupRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	705;"	f	line:705	signature:(void)
-setupRelogio	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	82;"	p	line:82	file:	signature:(void)
-sprays_capacidade	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	31;"	v	line:31
-sprays_utilizado	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	31;"	v	line:31
-status	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	30;"	v	line:30
-temp	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	117;"	l	line:117
-temp	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	595;"	l	line:595
-up	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	33;"	e	line:33	file:
-variavel_teste	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	36;"	v	line:36
-x	C:\Users\Scope11\OneDrive\Documentos\Proteus\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	133;"	l	line:133
+_LCD_BLINK_CURSOR_ON::0x0F	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	20;"	d	line:20
+_LCD_CMD::0x40	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	27;"	d	line:27
+_LCD_CURSOR_OFF::0x0C	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	16;"	d	line:16
+_LCD_DESLIGADO::0x08	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	23;"	d	line:23
+_LCD_DESLOCA_DIR::0x1E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	26;"	d	line:26
+_LCD_DESLOCA_ESQ::0x18	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	25;"	d	line:25
+_LCD_DESLOC_DIR::0x06	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	18;"	d	line:18
+_LCD_DESLOC_ESQ::0x04	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	19;"	d	line:19
+_LCD_HOME::0x02	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	15;"	d	line:15
+_LCD_INTERFACE_4bL1_5X7::0x20	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	9;"	d	line:9
+_LCD_INTERFACE_4bL2_5X7::0x28	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	8;"	d	line:8
+_LCD_INTERFACE_8bL1_5X7::0x30	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	7;"	d	line:7
+_LCD_INTERFACE_8bL2_5X7::0x38	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	6;"	d	line:6
+_LCD_LIGADO::0x0C	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	24;"	d	line:24
+_LCD_LIMPA::0x01	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	14;"	d	line:14
+_LCD_LINHA_1::0x80	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	10;"	d	line:10
+_LCD_LINHA_2::0xC0	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	11;"	d	line:11
+_LCD_LINHA_3::0x94	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	12;"	d	line:12
+_LCD_LINHA_4::0xD4	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	13;"	d	line:13
+_LCD_MOVE_CURSOR_DIR::0x14	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	22;"	d	line:22
+_LCD_MOVE_CURSOR_ESQ::0x10	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	21;"	d	line:21
+_LCD_UNDERLINE_ON::0x0E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	17;"	d	line:17
+cmdLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	32;"	p	line:32	signature:(unsigned char CMD)
+cmdLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	40;"	f	line:40	signature:(unsigned char CMD)
+i	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	116;"	l	line:116
+main	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\main.c	6;"	f	line:6
+printCharLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	34;"	p	line:34	signature:(unsigned char DATA)
+printCharLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	79;"	f	line:79	signature:(unsigned char DATA)
+printShortLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	114;"	f	line:114	signature:(unsigned short num, unsigned char n_digitos)
+printShortLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	36;"	p	line:36	signature:(unsigned short num, unsigned char n_digitos)
+printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	103;"	f	line:103	signature:(rom unsigned char *STR)
+printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	35;"	p	line:35	signature:(rom unsigned char *STR)
+setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	132;"	f	line:132	signature:(unsigned char linha, unsigned char coluna)
+setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	37;"	p	line:37	signature:(unsigned char linha, unsigned char coluna)
+temp	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	117;"	l	line:117
+x	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-3\lcd_i2c.h	133;"	l	line:133
