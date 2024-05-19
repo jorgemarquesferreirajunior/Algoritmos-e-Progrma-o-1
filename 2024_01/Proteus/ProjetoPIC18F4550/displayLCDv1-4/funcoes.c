@@ -1,5 +1,7 @@
 #include "config.c"
 
+unsigned char s = 0;
+
 void paginaHome(void);
 void paginaConfiguracoes(void);
 void paginaMonitoramento(void);
@@ -9,12 +11,16 @@ void configSprays(void);
 void cabecalhoPaginaConfiguracoes(void);
 void configMotores(void);
 void configRelogio(void);
+void configData(void);
+
+void atualizaInfoSpray(void);
+
 
 void atualizaIndice(void);
 void atualizaIndiceInfo(void);
 void atualizaIndiceConfiguracoes(void);
 void menuSelect(void);
-void infoSelect(void);
+//void infoSelect(void);
 void configuracoesSelect(void);
 void TelaInicializacao(void);
 void atualizaSensores(void);
@@ -40,6 +46,7 @@ void delay_ms (unsigned int tempo);
 void configTimer1(void);
 void setTimer1(void);
 void configInterrupcaoRelogio(void);
+void configPWM(void);
 void interrupcaoRelogio(void);
 void atualizaRelogio(void);
 void mostrarRelogio(void);
@@ -103,9 +110,10 @@ void paginaHome(void)
 
 void cabecalhoPaginaConfiguracoes(void)
 {
-	setCursorLCD_i2c(0,0);printStringLCD_i2c("  Spray Purificador ");
-	setCursorLCD_i2c(1,0);printStringLCD_i2c("  Velocidade Motores");
-	setCursorLCD_i2c(2,0);printStringLCD_i2c("  Hora do Relogio   ");
+	setCursorLCD_i2c(0,0);printStringLCD_i2c("  SPRAY PUIFICADOR  ");
+	setCursorLCD_i2c(1,0);printStringLCD_i2c("  VELOCIDADE MOTORES");
+	setCursorLCD_i2c(2,0);printStringLCD_i2c("  HORA DO RELOGIO   ");
+	setCursorLCD_i2c(3,0);printStringLCD_i2c("  DATA              ");
 }
 void paginaConfiguracoes(void)
 {
@@ -123,14 +131,14 @@ void paginaConfiguracoes(void)
 			resetBotoes();
 			setCursorLCD_i2c(linha, coluna);
 			printCharLCD_i2c('  ');
-			if(linha == 0) linha = 2;
+			if(linha == 0) linha = 3;
 			else linha --;			
 		}
 		if(flag_btn[down])
 		{
 			resetBotoes();
 			setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
-			if(linha == 2) linha = 0;
+			if(linha == 3) linha = 0;
 			else linha ++;	
 		}
 		
@@ -139,8 +147,6 @@ void paginaConfiguracoes(void)
 			configuracoesSelect();	
 		}
 		
-		setCursorLCD_i2c(3, 19);
-		printShortLCD_i2c(linha);
 		setCursorLCD_i2c(linha, coluna);
 		piscaCursor();
 	}
@@ -185,7 +191,9 @@ void configSprays(void)
 	maskPurificador();
 	linha = 0;coluna = 0;
 	setCursorLCD_i2c(linha, coluna);
-	
+	novo_sprays_capacidade = sprays_capacidade;
+	novo_sprays_utilizado = sprays_utilizado;
+
 	while(!sair)
 	{				
 		lerBtnUp();
@@ -194,6 +202,18 @@ void configSprays(void)
 		lerBtnLeft();
 		lerBtnEnter();
 		
+		atualizaInfoSpray();
+
+		
+
+		for(s=0;s<3;s++)
+		{
+			setCursorLCD_i2c(0,15+s);
+			printCharLCD_i2c(info_sprays_capacidade[s]);
+			setCursorLCD_i2c(1,15+s);
+			printCharLCD_i2c(info_sprays_utilizado[s]);
+		}
+
 		if (flag_btn[up])
 		{
 			resetBotoes();
@@ -209,36 +229,72 @@ void configSprays(void)
 			if(linha == 2) linha = 0;
 			else linha ++;	
 		}
-		if (linha > 1)
-		{
-			if (flag_btn[left])
-			{
-				resetBotoes();
-				setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
-				if(coluna == 0) coluna = 11;
-				else coluna -= 11;	
-			}
-			
-			if (flag_btn[right])
-			{
-				resetBotoes();
-				setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
-				if(coluna == 11) coluna = 0;
-				else coluna += 11;	
-			}
-			
-			if (flag_btn[enter])
-			{
-				resetBotoes();
-				sair = 1;
-			}
-		}
 		
-		setCursorLCD_i2c(3, 19);
-		printShortLCD_i2c(linha);
+		switch(linha)
+		{
+			case 0:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					if(novo_sprays_capacidade == 0) novo_sprays_capacidade = 0;
+					else novo_sprays_capacidade --;	
+				}
+	
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					if(novo_sprays_capacidade == 999 ) novo_sprays_capacidade = 999;
+					else novo_sprays_capacidade ++;	
+				}
+				break;
+			case 1:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					if(novo_sprays_utilizado == 0) novo_sprays_utilizado = 0;
+					else novo_sprays_utilizado --;	
+				}
+	
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					if(novo_sprays_utilizado == 999 ) novo_sprays_utilizado = 999;
+					else novo_sprays_utilizado ++;	
+				}
+				break;
+			case 2:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 0) coluna = 11;
+					else coluna -= 11;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 11) coluna = 0;
+					else coluna += 11;	
+				}
+				
+				if (flag_btn[enter])
+				{
+					resetBotoes();
+					sair = 1;
+					if(coluna == 0)
+					{
+						sprays_capacidade = novo_sprays_capacidade;
+						sprays_utilizado = novo_sprays_utilizado;
+					}
+				}
+				break;
+		}		
+		//setCursorLCD_i2c(3, 19);
+		//printShortLCD_i2c(linha);
 		setCursorLCD_i2c(linha, coluna);
 		piscaCursor();
-		
 	}
 	linha = 0, coluna = 0, sair = 0;
 	resetBotoes();
@@ -300,8 +356,8 @@ void configMotores(void)
 			}
 		}
 		
-		setCursorLCD_i2c(3, 19);
-		printShortLCD_i2c(linha);
+		//setCursorLCD_i2c(3, 19);
+		//printShortLCD_i2c(linha);
 		setCursorLCD_i2c(linha, coluna);
 		piscaCursor();
 		
@@ -318,7 +374,9 @@ void configRelogio(void)
 	maskRelogio();
 	linha = 0;coluna = 0;
 	setCursorLCD_i2c(linha, coluna);
-	
+	//PIE1bits.TMR1IE = !PIE1bits.TMR1IE; // Desabilita interrupcao do Timer1
+	new_secs = secs, new_mins = mins, new_hours = hours;
+
 	while(!sair)
 	{				
 		lerBtnUp();
@@ -326,7 +384,16 @@ void configRelogio(void)
 		lerBtnRight();
 		lerBtnLeft();
 		lerBtnEnter();
-		
+	
+		setCursorLCD_i2c(0, 14);
+		printShortLCD_i2c(new_hours);
+
+		setCursorLCD_i2c(1, 14);
+		printShortLCD_i2c(new_mins);
+
+		setCursorLCD_i2c(2, 14);
+		printShortLCD_i2c(new_secs);		
+
 		if (flag_btn[up])
 		{
 			resetBotoes();
@@ -342,44 +409,223 @@ void configRelogio(void)
 			if(linha == 3) linha = 0;
 			else linha ++;	
 		}
-		if (linha == 3)
+
+		switch(linha)
 		{
-			if (flag_btn[left])
-			{
-				resetBotoes();
-				setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
-				if(coluna == 0) coluna = 11;
-				else coluna -= 11;	
-			}
-			
-			if (flag_btn[right])
-			{
-				resetBotoes();
-				setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
-				if(coluna == 11) coluna = 0;
-				else coluna += 11;	
-			}
-			
-			if (flag_btn[enter])
-			{
-				resetBotoes();
-				sair = 1;
-			}
+			case 0:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_hours == 0) new_hours = 24;
+					else new_hours --;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_hours == 24) new_hours = 0;
+					else new_hours ++;		
+				}
+				break;
+			case 1:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_mins == 0) new_mins = 60;
+					else new_mins --;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_mins == 60) new_mins = 0;
+					else new_mins ++;		
+				}
+				break;
+			case 2:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_secs == 0) new_secs = 60;
+					else new_secs --;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(new_secs == 60) new_secs = 0;
+					else new_secs ++;		
+				}
+				break;
+			case 3:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 0) coluna = 11;
+					else coluna -= 11;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 11) coluna = 0;
+					else coluna += 11;	
+				}
+				
+				if (flag_btn[enter])
+				{
+					resetBotoes();
+					sair = 1;
+					if(coluna == 0)
+					{
+						hours = new_hours;
+						mins = new_mins;
+						secs = new_secs;
+					}
+				}
+				break;
+	
 		}
-		
-		setCursorLCD_i2c(3, 19);
-		printShortLCD_i2c(linha);
 		setCursorLCD_i2c(linha, coluna);
 		piscaCursor();
-		
 	}
 	linha = 2, coluna = 0, sair = 0;
 	resetBotoes();
 	cmdLCD_i2c(_LCD_LIMPA);
 	cabecalhoPaginaConfiguracoes();
-	//implementar
+}
+
+void configData(void)
+{
+	maskData();
+	linha = 1;coluna = 0;
+	setCursorLCD_i2c(linha, coluna);
+	new_dias = dias;
+
+	while(!sair)
+	{				
+		lerBtnUp();
+		lerBtnDown();
+		lerBtnRight();
+		lerBtnLeft();
+		lerBtnEnter();	
+	
+		setCursorLCD_i2c(1,13);
+		printShortLCD_i2c(new_dias);
+		
+		setCursorLCD_i2c(1,14);
+		
+		switch(new_dias)
+		{
+			case 0:
+				printStringLCD_i2c("-DOM");
+				break;
+			case 1:
+				printStringLCD_i2c("-SEG");
+				break;
+			case 2:
+				printStringLCD_i2c("-TER");
+				break;
+			case 3:
+				printStringLCD_i2c("-QUA");
+				break;
+			case 4:
+				printStringLCD_i2c("-QUI");
+				break;
+			case 5:
+				printStringLCD_i2c("-SEX");
+				break;
+			case 6:
+				printStringLCD_i2c("-SAB");
+				break;			
+		}
+
+		if (flag_btn[up])
+		{
+			resetBotoes();
+			setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+			if(linha == 1) linha = 2;
+			else linha --;	
+		}
+		
+		if (flag_btn[down])
+		{
+			resetBotoes();
+			setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+			if(linha == 2) linha = 1;
+			else linha ++;	
+		}
+		
+		switch(linha)
+		{
+			case 1:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					if(new_dias == 0) new_dias = 6;
+					else new_dias --;	
+				}
+	
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					if(new_dias == 6) new_dias = 0;
+					else new_dias ++;
+				}
+				break;
+			case 2:
+				if (flag_btn[left])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 0) coluna = 11;
+					else coluna -= 11;	
+				}
+				
+				if (flag_btn[right])
+				{
+					resetBotoes();
+					setCursorLCD_i2c(linha, coluna);printCharLCD_i2c('  ');
+					if(coluna == 11) coluna = 0;
+					else coluna += 11;	
+				}
+				
+				if (flag_btn[enter])
+				{
+					resetBotoes();
+					sair = 1;
+					if(coluna == 0) dias = new_dias;
+				}
+				break;
+		}		
+		setCursorLCD_i2c(linha, coluna);
+		piscaCursor();
+	}
+	linha = 3, coluna = 0, sair = 0;
+	resetBotoes();
+	cmdLCD_i2c(_LCD_LIMPA);
+	cabecalhoPaginaConfiguracoes();
 }
 //------------------------------------controle-telas------------------------------------//
+void atualizaInfoSpray(void)
+{
+	info_sprays_capacidade[2] = novo_sprays_capacidade % 10 + '0';
+	info_sprays_capacidade[1] = (novo_sprays_capacidade / 10) % 10 + '0';
+	info_sprays_capacidade[0] = (novo_sprays_capacidade / 10) / 10 + '0';
+
+	info_sprays_utilizado[2] = novo_sprays_utilizado % 10 + '0';
+	info_sprays_utilizado[1] = (novo_sprays_utilizado / 10) % 10 + '0';
+	info_sprays_utilizado[0] = (novo_sprays_utilizado / 10) / 10 + '0';
+}
+
 void configuracoesSelect(void)
 {
 	cmdLCD_i2c(_LCD_LIMPA);
@@ -393,6 +639,9 @@ void configuracoesSelect(void)
 			break;
 		case 2:
 			configRelogio();
+			break;
+		case 3:
+			configData();
 			break;
 	}
 	resetBotoes();
@@ -417,9 +666,8 @@ void TelaInicializacao(void)
 		if(linha == 3) linha = 0;
 		else linha ++;	
 	}
-	//atualizaIndice();
-	setCursorLCD_i2c(3, 19);
-	printShortLCD_i2c(linha);
+	//setCursorLCD_i2c(3, 19);
+	//printShortLCD_i2c(linha);
 	setCursorLCD_i2c(linha, coluna);
 	piscaCursor();
 	resetBotoes();
@@ -512,12 +760,12 @@ void mostraPurificador(void)
 	atualizaIndiceInfo();paginaMonitoramento();
 }
 
+/*
 void infoSelect(void)
 {
 	if(flag_btn[enter])
 	{
 		flag_btn[enter] = 0;
-		LED_BTN_ENTER = !LED_BTN_ENTER;	
 		cmdLCD_i2c(_LCD_LIMPA);
 		switch(indice)
 		{
@@ -543,7 +791,7 @@ void infoSelect(void)
 		maskInit();TelaInicializacao();
 	}
 }
-
+*/
 
 
 //------------------------------controle-botoes-analogicos------------------------------//
@@ -683,30 +931,30 @@ void delay_ms (unsigned int tempo)
 
 void interrupcaoRelogio(void)
 {
-   if(PIR1bits.TMR1IF == 1)
-   {
-	  if(boas_vindas > 0 ) boas_vindas --;
-	  
-      secs++;
-      cursor_visivel = !cursor_visivel;
-      if(secs == 0x3c)
-      {
-	      secs = 0x00;
-	      mins++;
-	      if(mins == 0x3c)
-	      {
-		      mins = 0x00;
-		      hours++;
-		      if(hours == 0x18)
-		      {
-			      hours = 0x00;
-			      if (dias == 6) dias = 0x00;
-			      else dias++;
-		      }
-	      }
-      }
-      setTimer1();
-   }
+	if(PIR1bits.TMR1IF == 1)
+	{
+		if(boas_vindas > 0 ) boas_vindas --;
+		variavel_teste --;
+		secs++;
+		cursor_visivel = !cursor_visivel;
+		if(secs == 0x3c)
+		{
+			secs = 0x00;
+			mins++;
+			if(mins == 0x3c)
+			{
+				mins = 0x00;
+				hours++;
+				if(hours == 0x18)
+				{
+					hours = 0x00;
+					if (dias == 6) dias = 0x00;
+					else dias++;
+				}
+			}
+		}
+		setTimer1();
+	}
 }
 
 void configInterrupcaoRelogio(void)
@@ -790,8 +1038,6 @@ void mostrarRelogio(void)
 
 void setupRelogio(void)
 {
-	
-	//PIE1bits.TMR1IE = !PIE1bits.TMR1IE; // Desabilita interrupcao do Timer1
 	linha = 0; coluna = 12;
 
 	while(!flag_btn[left])
@@ -825,6 +1071,62 @@ void setupRelogio(void)
 	}
 	resetBotoes();
 	linha = 1, coluna = 0;
-	//cmdLCD_i2c(_LCD_LIMPA);
+}
+
+void configPWM(void)
+{
+	// Inicializa do Timer2: responsável por determinar a frequência dos canais PWM
+
+	// Configuracao do POSTSCALER - T2OUTPS3:T2OUTPS0 - 0000 (1:1) ATE 1111 (1:16)
+	T2CONbits.T2OUTPS3 = 0;T2CONbits.T2OUTPS2 = 0;T2CONbits.T2OUTPS1 = 0;T2CONbits.T2OUTPS0 = 0;
+	T2CONbits.TMR2ON = 1; // Habilita (1) / Desabilita (0) o contador
+	
+	//Configuração do prescaler - T2CKPS1:T2CKPS0 - 00 (SEM DIVISAO) 01 (1:4) 1X (1:16)
+	T2CONbits.T2CKPS1 = 0;T2CONbits.T2CKPS0 = 0;
+	PIR1bits.TMR2IF = 0; // Limpa flag de overflow do Timer2
+	
+	/*
+	Fosc = Frequencia do microcontrolador
+	1/Fosc = Tosc = Periodo do microcontrolador
+	Tpwm = Tosc*4*TMR2Prescale*(PR2+1) = Periodo do PWM
+	PR2 = (Tpwm / (Tosc*4*TMR2Prescale)) - 1
+	*/
+	
+	// Fpwm = 10KHz -> Tpwm = 1/Fpwm = 100us
+	// Fosc = 4MHz  -> Tosc = 1/Fosc = 250ns
+	// PR2 = (100us / (250ns*4*1)) - 1 = 99
+
+	PR2 = 100;
+	/*
+	DC1B1:DC1B0 – bits 1 e 0 do Duty Cycle do PWM1
+	CCP1M3:CCP1M0 – Configuração do módulo CCP1
+	0000 (CCP desabilitado)
+	0001 (reservado)
+	0010 (Modo Comparação)
+	0011 (reservado) ATE 1011 (reservado) 1011 (Modo Comparação)
+	11xx (Modo PWM)
+	1100 – saída ativo alto
+	1101 – saída ativo alto
+	1111 – saída ativo baixo (pwm invertido)
+	1111 – saída ativo baixo (pwm invertido)
+	*/
+
+	CCP1CONbits.DC1B1 = 0;CCP1CONbits.DC1B0 = 0;
+	CCP1CONbits.CCP1M3 = 1;CCP1CONbits.CCP1M2 = 1;CCP1CONbits.CCP1M1 = 0;CCP1CONbits.CCP1M0 = 0;
+	
+	// DCpwm = DUTY CYCLE
+	// CCPR1L = DCpwm * (PR2+1) = 0,5*100 = 50
+	// Ton = Tosc*CCPR1L*4*TRM2Prescaler = 125us
+	
+	CCPR1L  = 30;
+
+	// Inicializa do Timer2: responsável por determinar a frequência dos canais PWM
+  //T2CON = 0x04;        // POSTSCALER: 1:1, ligado, PRESCALER 1:1
+  //PIR1bits.TMR2IF = 0; // Limpa flag de overflow do Timer2
+  //PR2 = 100;            // Período do Timer2 (Fpwm=10KHz, Fosc=4MHz)
+	
+  // Inicializa PMW 1 com Ajuste 30%
+  //CCP1CON = 0x0C; // LSBs do duty cycle = 00 (não usado em 8 bits), operação como PWM (canal 1 Ativo alto)
+  //CCPR1L  = 30;   // 8 bits mais significativos do duty cycle (PWM1)
 }
 

@@ -14,6 +14,7 @@ void main()
 	ADCON0 = 0x01;
 	CMCON = 0x07;
 	
+	configPWM();
 	configTimer1();
 	configInterrupcaoRelogio();	
 
@@ -26,9 +27,21 @@ void main()
 
 	LED_ON = 1;
 
+	GIRO_MOTOR_TAMBOR_N1 = variavel_teste2;
+	GIRO_MOTOR_TAMBOR_N2 = !variavel_teste2;
 	while(1)
 	{
 		TelaInicializacao();
 		menuSelect();
+
+		CCPR1L = 80;
+		if (variavel_teste == 0)
+		{
+			variavel_teste = 4;
+			variavel_teste2 = !variavel_teste2;
+			GIRO_MOTOR_TAMBOR_N1 = variavel_teste2;
+			GIRO_MOTOR_TAMBOR_N2 = !variavel_teste2;
+			
+		}
 	}
 }

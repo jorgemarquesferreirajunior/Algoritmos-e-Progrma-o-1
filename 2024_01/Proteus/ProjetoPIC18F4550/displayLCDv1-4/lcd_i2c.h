@@ -134,10 +134,8 @@ void printShortLCD_i2c(unsigned short num)
 	cmdLCD_i2c(_LCD_DESLOC_ESQ);
 	for (i = lenShort(num); i > 0; i--)
 	{
-		//setCursorLCD_i2c(0, i);
 		printCharLCD_i2c(temp % 10 + '0');
 		temp /= 10;
-		//cmdLCD_i2c(_LCD_DESLOC_ESQ);
 	}
 	cmdLCD_i2c(_LCD_DESLOC_DIR);
 }

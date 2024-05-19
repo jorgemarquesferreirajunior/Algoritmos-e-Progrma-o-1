@@ -8,6 +8,7 @@ void maskMonitoramento(void);
 void maskMotores(void);
 void maskPurificador(void);
 void maskRelogio(void);
+void maskData(void);
 void bateriaLow();
 void cat1();
 void cat2();
@@ -64,6 +65,14 @@ void maskRelogio(void)
 	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  MINUTO..:         ");
 	setCursorLCD_i2c(2, 0);printStringLCD_i2c("  SEGUNDO.:         ");
 	setCursorLCD_i2c(3, 0);printStringLCD_i2c("  CONFIRMA   CANCELA");
+}
+
+void maskData(void)
+{
+	cmdLCD_i2c(_LCD_LIMPA);
+	setCursorLCD_i2c(0, 0);printStringLCD_i2c("DE 0[DOM] A 6[SAB]  ");
+	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  NOVA DATA:        ");
+	setCursorLCD_i2c(2, 0);printStringLCD_i2c("  CONFIRMA   CANCELA");
 }
 
 //---------------------------------caracteres-especiais---------------------------------//
