@@ -47,8 +47,8 @@ printShortLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Pr
 printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	104;"	f	line:104	signature:(rom unsigned char *STR)
 printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	35;"	p	line:35	signature:(rom unsigned char *STR)
 qtd	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	118;"	l	line:118
-setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	147;"	f	line:147	signature:(unsigned char linha, unsigned char coluna)
+setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	145;"	f	line:145	signature:(unsigned char linha, unsigned char coluna)
 setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	38;"	p	line:38	signature:(unsigned char linha, unsigned char coluna)
 temp	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	117;"	l	line:117
 temp	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	132;"	l	line:132
-x	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	148;"	l	line:148
+x	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	146;"	l	line:146

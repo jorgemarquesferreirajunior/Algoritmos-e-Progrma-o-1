@@ -15,7 +15,7 @@ void main()
 	CMCON = 0x07;
 	
 	configPWM();
-	configTimer1();
+	configTimer0();
 	configInterrupcaoRelogio();	
 
 	OpenI2C(MASTER, SLEW_OFF); 	// Inicializa I2C: Mestre com velocidade de 100Khz.

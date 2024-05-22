@@ -1,6 +1,6 @@
 #include "lcd_i2c.h"
 
-unsigned char boas_vindas = 5;
+unsigned char boas_vindas = 1;
 
 // Prototipos
 void maskInit(void);
@@ -13,7 +13,16 @@ void bateriaLow();
 void cat1();
 void cat2();
 void loadCaracteres(void);
+void cabecalhoPaginaConfiguracoes(void);
 
+
+void cabecalhoPaginaConfiguracoes(void)
+{
+	setCursorLCD_i2c(0,0);printStringLCD_i2c("  SPRAY PUIFICADOR  ");
+	setCursorLCD_i2c(1,0);printStringLCD_i2c("  VELOCIDADE MOTORES");
+	setCursorLCD_i2c(2,0);printStringLCD_i2c("  HORA DO RELOGIO   ");
+	setCursorLCD_i2c(3,0);printStringLCD_i2c("  DATA              ");
+}
 //Funcoes
 void maskInit(void)
 {	
@@ -53,8 +62,8 @@ void maskPurificador(void)
 void maskMotores(void)
 {
 	cmdLCD_i2c(_LCD_LIMPA);
-	setCursorLCD_i2c(0, 0);printStringLCD_i2c("  MOTOR TAMBOR      ");
-	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  MOTOR COMPORTA    ");
+	setCursorLCD_i2c(0, 0);printStringLCD_i2c("  VEL MOTOR TAMB:00%");
+	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  VEL MOTOR COMP:00%");
 	setCursorLCD_i2c(2, 0);printStringLCD_i2c("  CONFIRMA   CANCELA");
 }
 
@@ -125,11 +134,3 @@ void loadCaracteres(void)
 	cat2();
 	bateriaLow();
 }
-
-
-
-
-
-
-
-

@@ -2,7 +2,7 @@
 #define LCD_I2C_H
 
 #include <i2c.h>
-#define PCF8574W  					0x4E  // Endereço expansor PCF8574 e o operação de escrita
+#define PCF8574W  					0x4E  // Endereï¿½o expansor PCF8574 e o operaï¿½ï¿½o de escrita
 #define _LCD_INTERFACE_8bL2_5X7		0x38	// (8-bit interface, 2 lines, 5*7 Pixels)
 #define _LCD_INTERFACE_8bL1_5X7		0x30	// (8-bit interface, 1 line, 5*7 Pixels)
 #define _LCD_INTERFACE_4bL2_5X7		0x28	// (4-bit interface, 2 lines, 5*7 Pixels)
@@ -37,38 +37,38 @@ unsigned char lenShort(unsigned short numero);
 void printShortLCD_i2c(unsigned short num);
 void setCursorLCD_i2c(unsigned char linha, unsigned char coluna);
 
-// Rotina que envia uma instrução de inicialização ou configuração para o LCD
+// Rotina que envia uma instruï¿½ï¿½o de inicializaï¿½ï¿½o ou configuraï¿½ï¿½o para o LCD
 void cmdLCD_i2c(unsigned char CMD)
 {
   unsigned char LCD;
 
-  IdleI2C(); StartI2C();        	// Inicia comunicação I2C
-  IdleI2C(); WriteI2C(PCF8574W); 	// Define dispositivo e operação de escrita
-  LCD = 0xF0 & CMD;             	// Separa parte alta da instrução
-  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instrução (RS=0) e habilita o display (E=1)
-  IdleI2C(); WriteI2C(LCD);     	// Envia instrução
+  IdleI2C(); StartI2C();        	// Inicia comunicaï¿½ï¿½o I2C
+  IdleI2C(); WriteI2C(PCF8574W); 	// Define dispositivo e operaï¿½ï¿½o de escrita
+  LCD = 0xF0 & CMD;             	// Separa parte alta da instruï¿½ï¿½o
+  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instruï¿½ï¿½o (RS=0) e habilita o display (E=1)
+  IdleI2C(); WriteI2C(LCD);     	// Envia instruï¿½ï¿½o
   Delay10TCYx(1);               	// Aguarda 10us
   LCD = (LCD & 0xF8);           	// Desabilita o display (E=0)
-  IdleI2C(); WriteI2C(LCD);     	// Envia instrução
-  LCD = (CMD<<4) & 0xF0;        	// Separa parte baixa da instrução
-  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instrução (RS=0) e habilita o display (E=1)
-  IdleI2C(); WriteI2C(LCD);     	// Escreve instrução
+  IdleI2C(); WriteI2C(LCD);     	// Envia instruï¿½ï¿½o
+  LCD = (CMD<<4) & 0xF0;        	// Separa parte baixa da instruï¿½ï¿½o
+  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instruï¿½ï¿½o (RS=0) e habilita o display (E=1)
+  IdleI2C(); WriteI2C(LCD);     	// Escreve instruï¿½ï¿½o
   Delay10TCYx(1);               	// Aguarda 10us
   LCD = (LCD & 0xF8);           	// Desabilita o display (E=0)
-  IdleI2C(); WriteI2C(LCD);     	// Envia instrução
-  IdleI2C(); StopI2C();         	// Finaliza comunicação I2C
+  IdleI2C(); WriteI2C(LCD);     	// Envia instruï¿½ï¿½o
+  IdleI2C(); StopI2C();         	// Finaliza comunicaï¿½ï¿½o I2C
   Delay1KTCYx(5);  	            	// Aguarda 5ms
 }
 
-// Rotina que realiza a inicialização do LCD
+// Rotina que realiza a inicializaï¿½ï¿½o do LCD
 void StartLCDi2c(void)
 {
   Delay1KTCYx(20);     // Aguarda pelo menos 15ms
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instrução de inicialização
+  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instruï¿½ï¿½o de inicializaï¿½ï¿½o
   Delay1KTCYx(5);      // Aguarda pelo menos 4.1ms
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instrução de inicialização
+  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instruï¿½ï¿½o de inicializaï¿½ï¿½o
   Delay100TCYx(2);     // Aguarda pelo menos 100us
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instrução de inicialização
+  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instruï¿½ï¿½o de inicializaï¿½ï¿½o
   cmdLCD_i2c(_LCD_HOME); // Define interface de 4 bits
   cmdLCD_i2c(_LCD_INTERFACE_4bL2_5X7); // Define interface de 4 bits e display de 2 linhas
   cmdLCD_i2c(_LCD_DESLOC_DIR); // Modo de entrada: desloca cursor para direita sem deslocar a mensagem
@@ -81,8 +81,8 @@ void printCharLCD_i2c(unsigned char DATA)
 {
   unsigned char LCD;
 
-	IdleI2C(); StartI2C();        	// Inicia comunicação I2C
-	IdleI2C(); WriteI2C(PCF8574W); 	// Define dispositivo e operação de escrita
+	IdleI2C(); StartI2C();        	// Inicia comunicaï¿½ï¿½o I2C
+	IdleI2C(); WriteI2C(PCF8574W); 	// Define dispositivo e operaï¿½ï¿½o de escrita
 	LCD = 0xF0 & DATA;            	// Separa parte alta do dado
 	LCD = LCD | 0x0D;             	// Ativa backlight (P3=1), modo dados (RS=1) e habilita o display (E=1)
 	IdleI2C(); WriteI2C(LCD);     	// Envia dado
@@ -95,7 +95,7 @@ void printCharLCD_i2c(unsigned char DATA)
 	Delay10TCYx(10);              	// Aguarda 10us
 	LCD = (LCD & 0xF9);           	// Desabilita o display (E=0)
 	IdleI2C(); WriteI2C(LCD);     	// Envia dado
-	IdleI2C(); StopI2C();         	// Para comunicação I2C
+	IdleI2C(); StopI2C();         	// Para comunicaï¿½ï¿½o I2C
 	Delay1KTCYx(5);  	            	// Aguarda 5ms
 }
 
@@ -104,7 +104,7 @@ void printCharLCD_i2c(unsigned char DATA)
 void printStringLCD_i2c(rom unsigned char *STR)
 {
 
-  // Escreve todos os caracteres até encontrar o final do ponteiro
+  // Escreve todos os caracteres atï¿½ encontrar o final do ponteiro
   while(*STR != '\0')
   {
     printCharLCD_i2c(*STR);
