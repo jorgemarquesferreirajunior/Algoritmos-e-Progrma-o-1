@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1716761358 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\funcao_amiga\funcoes_amigas\main.cpp
+	<iostream>
+	"Vetor.h"
+
+1716761358 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\funcao_amiga\funcoes_amigas\vetor.cpp
+	"Vetor.h"
+	<iostream>
+
+1716761358 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\funcao_amiga\funcoes_amigas\vetor.h
+

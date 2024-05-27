@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1716689928 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\modularizacao\main.cpp
+	<iostream>
+	"vetor_2d.h"
+
+1716674465 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\modularizacao\src\vetor_2d.cpp
+	"vetor_2d.h"
+
+1716742927 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\modularizacao\include\vetor_2d.h
+

@@ -1,0 +1,16 @@
+#ifndef VETOR_
+#define VETOR_
+
+
+class Vetor
+{
+    public:
+        Vetor();
+        virtual ~Vetor();
+
+    protected:
+
+    private:
+};
+
+#endif // VETOR_

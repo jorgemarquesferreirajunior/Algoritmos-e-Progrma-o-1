@@ -1,0 +1,11 @@
+#include "Vetor."
+
+Vetor::Vetor()
+{
+    //ctor
+}
+
+Vetor::~Vetor()
+{
+    //dtor
+}

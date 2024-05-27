@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1716748610 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtor_copia\vetor\main.cpp
+	<iostream>
+	"vetor.h"
+
+1716748779 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtor_copia\vetor\include\vetor.h
+
+1716748734 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtor_copia\vetor\src\vetor.cpp
+	"Vetor.h"
+	<iostream>
+

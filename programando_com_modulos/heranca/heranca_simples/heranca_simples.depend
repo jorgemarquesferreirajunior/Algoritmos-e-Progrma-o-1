@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1716764320 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\heranca\heranca_simples\main.cpp
+	<iostream>
+	"Motor.h"
+
+1716763512 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\heranca\heranca_simples\motor.h
+	"Equipamento.h"
+
+1716763801 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\heranca\heranca_simples\equipamento.h
+
+1716763442 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\heranca\heranca_simples\motor.cpp
+	"Motor.h"
+
+1716763801 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\heranca\heranca_simples\equipamento.cpp
+	"Equipamento.h"
+	<iostream>
+	<cstring>
+

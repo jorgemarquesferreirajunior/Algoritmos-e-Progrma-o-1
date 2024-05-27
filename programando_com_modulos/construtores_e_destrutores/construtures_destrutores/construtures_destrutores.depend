@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1716744634 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtores_e_destrutores\construtures_destrutores\src\vetor.cpp
+	"Vetor.h"
+	<iostream>
+
+1716744629 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtores_e_destrutores\construtures_destrutores\include\vetor.h
+
+1716744169 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\construtores_e_destrutores\construtures_destrutores\main.cpp
+	<iostream>
+	"Vetor.h"
+

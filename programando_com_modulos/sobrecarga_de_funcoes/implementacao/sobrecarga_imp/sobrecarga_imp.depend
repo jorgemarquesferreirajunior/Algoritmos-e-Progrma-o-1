@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1716759738 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\sobrecarga_de_funcoes\implementacao\sobrecarga_imp\vetor.cpp
+	"Vetor.h"
+	<iostream>
+
+1716759621 c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\sobrecarga_de_funcoes\implementacao\sobrecarga_imp\vetor.h
+
+1716759981 source:c:\users\family\documents\proteus\algoritmos-e-programacao\programando_com_modulos\sobrecarga_de_funcoes\implementacao\sobrecarga_imp\main.cpp
+	<iostream>
+	"Vetor.h"
+
