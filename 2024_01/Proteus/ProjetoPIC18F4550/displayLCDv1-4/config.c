@@ -8,18 +8,22 @@
 #pragma config WDT 		= OFF
 #pragma config MCLRE	= OFF
 #pragma config LVP 		= OFF
-#pragma interrupt interrupcaoRelogio // Funcaoo de tratamento de interrupcoes - interrupcao
 
 //--------------------------------mapeamento-de-hardware--------------------------------//
-#define BALANCA						PORTAbits.RA1
-#define GIRO_MOTOR_TAMBOR_N1		PORTBbits.RB2
-#define GIRO_MOTOR_TAMBOR_N2		PORTBbits.RB3
-#define FIM_CURSO_TB_SUPERIOR		PORTDbits.RD0
-#define FIM_CURSO_TB_INFERIOR		PORTDbits.RD1
-#define FIM_CURSO_GV_ABERTO			PORTDbits.RD2
-#define FIM_CURSO_GV_FECHADO		PORTDbits.RD3
-#define LED_ON						PORTDbits.RD4
-#define velocidadePWM_Motor_Tambor	CCPR1L
+#define BALANCA							PORTAbits.RA1
+#define GIRO_MOTOR_TAMBOR_N1			PORTBbits.RB2
+#define GIRO_MOTOR_TAMBOR_N2			PORTBbits.RB3
+#define GIRO_MOTOR_COMPORTA_N1			PORTBbits.RB4
+#define GIRO_MOTOR_COMPORTA_N2			PORTBbits.RB5
+#define MANUAL							PORTBbits.RB7
+#define FIM_CURSO_TB_RECUADO			PORTDbits.RD0
+#define FIM_CURSO_TB_AVANCADO			PORTDbits.RD1
+#define FIM_CURSO_GV_RECUADO			PORTDbits.RD2
+#define FIM_CURSO_GV_AVANCADO			PORTDbits.RD3
+#define LED_ON							PORTDbits.RD4
+#define LED_MANUAL						PORTDbits.RD5
+#define velocidadePWM_Motor_Tambor		CCPR1L
+#define velocidadePWM_Motor_Comporta	CCPR2L
 //--------------------------------------diretivas--------------------------------------//
 #define QTD_BTNS 		5
 #define VARIACAO		5
@@ -38,10 +42,10 @@ unsigned char
 	linha 							= 0,
 	cursor_visivel 					= 1,
 	indice 							= 0,
+	flag_manual						= 0,
 	estado_btn,
 	sair,
 	conta_cursor 					= 0,
-	s			 					= 0,
 	secs 							= 0x26,
 	new_secs 						= 0x00,
 	mins 							= 0x3B,

@@ -73,6 +73,13 @@ void paginaMonitoramento(void)
 	while(!flag_btn[left])
 	{
 		lerBtnLeft();
+		setCursorLCD_i2c(0, 17);
+		printShortLCD_i2c(pwm_motor_tambor);
+		setCursorLCD_i2c(1, 17);
+		printShortLCD_i2c(pwm_motor_comporta);
+		setCursorLCD_i2c(0, 0);
+		
+		
 	}
 	resetBotoes();
 	linha = 2;

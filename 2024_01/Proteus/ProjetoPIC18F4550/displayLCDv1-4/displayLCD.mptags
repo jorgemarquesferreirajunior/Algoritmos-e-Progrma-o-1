@@ -6,49 +6,49 @@
 !_TAG_PROGRAM_VERSION	5.5.4	//
 !_TAG_REVISION_NAME	MCHPTags	//
 !_TAG_REVISION_VERSION	6.0.1	//
-LCD	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	43;"	l	line:43
-LCD	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	82;"	l	line:82
-LCD_I2C_H	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	2;"	d	line:2
-PCF8574W::0x4E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	5;"	d	line:5
-StartLCDi2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	33;"	p	line:33	signature:(void)
-StartLCDi2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	64;"	f	line:64	signature:(void)
-_LCD_BLINK_CURSOR_ON::0x0F	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	20;"	d	line:20
-_LCD_CMD::0x40	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	27;"	d	line:27
-_LCD_CURSOR_OFF::0x0C	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	16;"	d	line:16
-_LCD_DESLIGADO::0x08	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	23;"	d	line:23
-_LCD_DESLOCA_DIR::0x1E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	26;"	d	line:26
-_LCD_DESLOCA_ESQ::0x18	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	25;"	d	line:25
-_LCD_DESLOC_DIR::0x06	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	18;"	d	line:18
-_LCD_DESLOC_ESQ::0x04	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	19;"	d	line:19
-_LCD_HOME::0x02	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	15;"	d	line:15
-_LCD_INTERFACE_4bL1_5X7::0x20	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	9;"	d	line:9
-_LCD_INTERFACE_4bL2_5X7::0x28	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	8;"	d	line:8
-_LCD_INTERFACE_8bL1_5X7::0x30	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	7;"	d	line:7
-_LCD_INTERFACE_8bL2_5X7::0x38	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	6;"	d	line:6
-_LCD_LIGADO::0x0C	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	24;"	d	line:24
-_LCD_LIMPA::0x01	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	14;"	d	line:14
-_LCD_LINHA_1::0x80	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	10;"	d	line:10
-_LCD_LINHA_2::0xC0	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	11;"	d	line:11
-_LCD_LINHA_3::0x94	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	12;"	d	line:12
-_LCD_LINHA_4::0xD4	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	13;"	d	line:13
-_LCD_MOVE_CURSOR_DIR::0x14	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	22;"	d	line:22
-_LCD_MOVE_CURSOR_ESQ::0x10	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	21;"	d	line:21
-_LCD_UNDERLINE_ON::0x0E	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	17;"	d	line:17
-cmdLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	32;"	p	line:32	signature:(unsigned char CMD)
-cmdLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	41;"	f	line:41	signature:(unsigned char CMD)
-i	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	131;"	l	line:131
-lenShort	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	115;"	f	line:115	signature:(unsigned short numero)
-lenShort	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	36;"	p	line:36	signature:(unsigned short numero)
-main	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\main.c	4;"	f	line:4
-printCharLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	34;"	p	line:34	signature:(unsigned char DATA)
-printCharLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	80;"	f	line:80	signature:(unsigned char DATA)
-printShortLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	129;"	f	line:129	signature:(unsigned short num)
-printShortLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	37;"	p	line:37	signature:(unsigned short num)
-printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	104;"	f	line:104	signature:(rom unsigned char *STR)
-printStringLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	35;"	p	line:35	signature:(rom unsigned char *STR)
-qtd	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	118;"	l	line:118
-setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	145;"	f	line:145	signature:(unsigned char linha, unsigned char coluna)
-setCursorLCD_i2c	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	38;"	p	line:38	signature:(unsigned char linha, unsigned char coluna)
-temp	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	117;"	l	line:117
-temp	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	132;"	l	line:132
-x	C:\Users\Scope11\Documents\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	146;"	l	line:146
+LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	43;"	l	line:43
+LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	82;"	l	line:82
+LCD_I2C_H	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	2;"	d	line:2
+PCF8574W::0x4E	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	5;"	d	line:5
+StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	33;"	p	line:33	signature:(void)
+StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	64;"	f	line:64	signature:(void)
+_LCD_BLINK_CURSOR_ON::0x0F	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	20;"	d	line:20
+_LCD_CMD::0x40	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	27;"	d	line:27
+_LCD_CURSOR_OFF::0x0C	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	16;"	d	line:16
+_LCD_DESLIGADO::0x08	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	23;"	d	line:23
+_LCD_DESLOCA_DIR::0x1E	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	26;"	d	line:26
+_LCD_DESLOCA_ESQ::0x18	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	25;"	d	line:25
+_LCD_DESLOC_DIR::0x06	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	18;"	d	line:18
+_LCD_DESLOC_ESQ::0x04	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	19;"	d	line:19
+_LCD_HOME::0x02	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	15;"	d	line:15
+_LCD_INTERFACE_4bL1_5X7::0x20	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	9;"	d	line:9
+_LCD_INTERFACE_4bL2_5X7::0x28	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	8;"	d	line:8
+_LCD_INTERFACE_8bL1_5X7::0x30	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	7;"	d	line:7
+_LCD_INTERFACE_8bL2_5X7::0x38	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	6;"	d	line:6
+_LCD_LIGADO::0x0C	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	24;"	d	line:24
+_LCD_LIMPA::0x01	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	14;"	d	line:14
+_LCD_LINHA_1::0x80	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	10;"	d	line:10
+_LCD_LINHA_2::0xC0	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	11;"	d	line:11
+_LCD_LINHA_3::0x94	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	12;"	d	line:12
+_LCD_LINHA_4::0xD4	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	13;"	d	line:13
+_LCD_MOVE_CURSOR_DIR::0x14	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	22;"	d	line:22
+_LCD_MOVE_CURSOR_ESQ::0x10	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	21;"	d	line:21
+_LCD_UNDERLINE_ON::0x0E	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	17;"	d	line:17
+cmdLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	32;"	p	line:32	signature:(unsigned char CMD)
+cmdLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	41;"	f	line:41	signature:(unsigned char CMD)
+i	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	131;"	l	line:131
+lenShort	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	115;"	f	line:115	signature:(unsigned short numero)
+lenShort	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	36;"	p	line:36	signature:(unsigned short numero)
+main	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\main.c	4;"	f	line:4
+printCharLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	34;"	p	line:34	signature:(unsigned char DATA)
+printCharLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	80;"	f	line:80	signature:(unsigned char DATA)
+printShortLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	129;"	f	line:129	signature:(unsigned short num)
+printShortLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	37;"	p	line:37	signature:(unsigned short num)
+printStringLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	104;"	f	line:104	signature:(rom unsigned char *STR)
+printStringLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	35;"	p	line:35	signature:(rom unsigned char *STR)
+qtd	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	118;"	l	line:118
+setCursorLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	145;"	f	line:145	signature:(unsigned char linha, unsigned char coluna)
+setCursorLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	38;"	p	line:38	signature:(unsigned char linha, unsigned char coluna)
+temp	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	117;"	l	line:117
+temp	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	132;"	l	line:132
+x	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	146;"	l	line:146

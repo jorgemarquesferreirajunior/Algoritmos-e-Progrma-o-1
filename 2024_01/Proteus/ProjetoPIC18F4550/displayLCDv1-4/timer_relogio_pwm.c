@@ -1,12 +1,15 @@
-#include "analogico.c"
+#include "motores.c"
 
 #define ALTA_PRIORIDADE				0x08
+#define BAIXA_PRIORIDADE			0x18
 #define flagTimer0					INTCONbits.TMR0IF 
 #define flagTimer1					PIR1bits.TMR1IF
+#define flagPortB					INTCONbits.RBIF
 
 void delay_ms (unsigned int tempo);
 void interrupcaoRelogio(void);
-void configInterrupcaoRelogio(void);
+void interrupcaoManual(void);
+void configInterrupcoes(void);
 void configTimer1(void);
 void setTimer1(void);
 void configTimer0(void);
@@ -18,11 +21,18 @@ void configPWM(void);
 void piscaCursor(void);
 
 //-----------------------------------setup-timer-pwm-----------------------------------//
-// SUB-ROTINA PARA DEFINICAO DE PRIORIDADE DA INTERRUPCAO
+
 #pragma code high_vector=ALTA_PRIORIDADE
 void interrupt_at_high_vector(void)
 {
   _asm GOTO interrupcaoRelogio _endasm
+}
+#pragma code
+
+#pragma code low_vector=BAIXA_PRIORIDADE
+void interrupt_at_low_vector(void)
+{
+  _asm GOTO interrupcaoManual _endasm
 }
 #pragma code
 
@@ -36,12 +46,15 @@ void delay_ms (unsigned int tempo)
 }
 
 // SUB-ROTINA PARA GERAR UMA INTERRUPCAO BASEADA NO OVERFLOW DO TIMER0
+#pragma interrupt interrupcaoRelogio
 void interrupcaoRelogio(void)
 {
 	if(flagTimer0 == 1)
 	{
 		conta_cursor ++;
 		cursor_visivel = !cursor_visivel;
+		if (flag_manual) {LED_MANUAL = !LED_MANUAL;}
+		else LED_MANUAL = 0;
 		if (conta_cursor == 2)
 		{
 			conta_cursor = 0;
@@ -71,15 +84,79 @@ void interrupcaoRelogio(void)
 	}
 }
 
+#pragma interruptlow interrupcaoManual
+void interrupcaoManual(void){
+	unsigned char pausa;
+	if (flagPortB)
+	{
+		flag_manual = 1;
+		
+		//cmdLCD_i2c(_LCD_LIMPA);
+		//setCursorLCD_i2c(0,0);printStringLCD_i2c("SETANDO MOTORES     ");
+		
+		initMotores();
+		
+		//setCursorLCD_i2c(1,0);printStringLCD_i2c("MOTORES SETADOS     ");
+		
+		pausa = secs;
+		while ((secs - pausa) < 4);
+		
+		//setCursorLCD_i2c(2,0);printStringLCD_i2c("ABRINDO COMPORTA    ");
+		// abre comporta 
+		
+		while(posicaoComporta() != 0) // comporta nao aberta
+		{
+			giraComporta(0,1); // abre comporta
+		}
+		giraComporta(0,0);
+		
+		//setCursorLCD_i2c(3,0);printStringLCD_i2c("COMPORTA ABERTA    ");
+		
+		
+		// gira tambor para o fim
+		while(posicaoTambor() != 0) // tambor para o fim
+		{
+			giraTambor(0,1); // gira tambor para ate o final
+		}	
+		giraTambor(0,0);
+		
+		// espera areia cair
+		pausa = secs;
+		while ((secs - pausa) < 4);
+		
+		// retorna ao inicio
+		
+		// fecha comporta 
+		while(posicaoComporta() != 1) // comporta nao fechada
+		{
+			giraComporta(1,0); // fecha comporta
+		}
+		giraComporta(0,0);
+		
+		// gira tambor para o fim
+		while(posicaoTambor() != 1) // tambor para o inicio
+		{
+			giraTambor(1,0); // gira tambor para ate o inicio
+		}	
+		giraTambor(0,0);
+		
+		flag_manual = 0;
+	}
+	if (PORTB);
+	flagPortB = 0;
+}
+
 // SUB-ROTINA PARA CONFIGURACAO DA INTERRUPCAO DE ATUALIZACAO DO RELOGIO
-void configInterrupcaoRelogio(void)
+void configInterrupcoes(void)
 {
    // Configura??o das interrup??es	
-   RCONbits.IPEN 	= 0; // Desabilita atribuicao de prioridades ?s interrup??es
-   INTCONbits.GIE 	= 1; // Habilita todas as interrup??es
-   INTCONbits.PEIE 	= 1; // Habilita interrupcoes geradas a partir de perif?ricos do PIC
-   INTCONbits.TMR0IE = 1; // Habilita interrupcao do Timer0
-   
+   RCONbits.IPEN		= 1; // Habilita atribuicao de prioridades ?s interrup??es
+   INTCONbits.GIE 		= 1; // Habilita todas as interrup??es
+   INTCONbits.PEIE		= 1; // Habilita interrupcoes geradas a partir de perif?ricos do PIC
+   INTCON2bits.TMR0IP 	= 1; // Atribuicao prioridade alta para interrupcao overflow Timer0
+   INTCON2bits.RBIP 	= 0; // Atribuicao prioridade baixa para interrupcao PORTB<4:7>
+   INTCONbits.TMR0IE	= 1; // Habilita interrupcao do Timer0
+   INTCONbits.RBIE 		= 1; // Habilita interrupcao do PORTB<4:7>
 }
 
 // SUB-ROTINA PARA CONFIGURACAO DO TIMER1
@@ -276,19 +353,9 @@ void configPWM(void)
 
 	CCP1CONbits.DC1B1 = 0;CCP1CONbits.DC1B0 = 0;
 	CCP1CONbits.CCP1M3 = 1;CCP1CONbits.CCP1M2 = 1;CCP1CONbits.CCP1M1 = 0;CCP1CONbits.CCP1M0 = 0;
-	
-	// DCpwm = DUTY CYCLE
-	// CCPR1L = DCpwm * (PR2+1) = 0,5*100 = 50
-	// Ton = Tosc*CCPR1L*4*TRM2Prescaler = 125us
-	
-	velocidadePWM_Motor_Tambor  = 30;
+	velocidadePWM_Motor_Tambor = 0;
 
-	// Inicializa do Timer2: respons�vel por determinar a frequ�ncia dos canais PWM
-  //T2CON = 0x04;        // POSTSCALER: 1:1, ligado, PRESCALER 1:1
-  //PIR1bits.TMR2IF = 0; // Limpa flag de overflow do Timer2
-  //PR2 = 100;            // Per�odo do Timer2 (Fpwm=10KHz, Fosc=4MHz)
-	
-  // Inicializa PMW 1 com Ajuste 30%
-  //CCP1CON = 0x0C; // LSBs do duty cycle = 00 (n�o usado em 8 bits), opera��o como PWM (canal 1 Ativo alto)
-  //CCPR1L  = 30;   // 8 bits mais significativos do duty cycle (PWM1)
+	CCP2CONbits.DC2B1 = 0;CCP2CONbits.DC2B0 = 0;
+	CCP2CONbits.CCP2M3 = 1;CCP2CONbits.CCP2M2 = 1;CCP2CONbits.CCP2M1 = 0;CCP2CONbits.CCP2M0 = 0;
+	velocidadePWM_Motor_Comporta = 0;
 }

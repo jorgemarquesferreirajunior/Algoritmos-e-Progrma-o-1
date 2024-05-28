@@ -1,0 +1,21 @@
+#include<fstream>
+#include<iostream>
+#include<cstdlib>
+
+using namespace std;
+
+int main(){
+	char ch;
+	ifstream arquivo_leitura;
+	ofstream arquivo_escrita;
+
+	
+arquivo_leitura.open("entrada.txt");
+
+
+
+
+
+
+	return 0;
+}

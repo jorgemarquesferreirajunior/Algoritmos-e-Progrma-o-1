@@ -4,8 +4,8 @@
 void main()
 {
 	PORTA = 0x00; LATA = 0x00; TRISA = 0x01; 
-	PORTB = 0x00; LATB = 0x00; TRISB = 0x03; 
-	PORTC = 0x00; LATC = 0x00; TRISC = 0x03; 
+	PORTB = 0x00; LATB = 0x00; TRISB = 0x83; 
+	PORTC = 0x00; LATC = 0x00; TRISC = 0x00; 
 	PORTD = 0x00; LATD = 0x00; TRISD = 0x0F; 
 	PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
 	
@@ -16,7 +16,7 @@ void main()
 	
 	configPWM();
 	configTimer0();
-	configInterrupcaoRelogio();	
+	configInterrupcoes();
 
 	OpenI2C(MASTER, SLEW_OFF); 	// Inicializa I2C: Mestre com velocidade de 100Khz.
 	SSPADD = 9;                	// Taxa de comunica??o I2C de 100khz
@@ -27,21 +27,12 @@ void main()
 
 	LED_ON = 1;
 
-	GIRO_MOTOR_TAMBOR_N1 = variavel_teste2;
-	GIRO_MOTOR_TAMBOR_N2 = !variavel_teste2;
 	while(1)
 	{
 		TelaInicializacao();
 		menuSelect();
 
-		CCPR1L = 80;
-		if (variavel_teste == 0)
-		{
-			variavel_teste = 4;
-			variavel_teste2 = !variavel_teste2;
-			GIRO_MOTOR_TAMBOR_N1 = variavel_teste2;
-			GIRO_MOTOR_TAMBOR_N2 = !variavel_teste2;
-			
-		}
+		velocidadePWM_Motor_Tambor		= 80;
+		velocidadePWM_Motor_Comporta	= 50;
 	}
 }

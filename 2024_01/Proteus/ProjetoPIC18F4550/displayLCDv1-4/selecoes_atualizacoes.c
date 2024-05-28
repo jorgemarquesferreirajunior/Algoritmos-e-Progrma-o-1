@@ -56,6 +56,7 @@ void configuracoesSelect(void)
 // SUB-ROTINA PARA CONFIGURAR O SPRAY
 void configSprays(void)
 {
+	int s;
 	maskPurificador();
 	linha = 0;coluna = 0;
 	setCursorLCD_i2c(linha, coluna);
