@@ -53,8 +53,8 @@ void maskMonitoramento(void)
 void maskPurificador(void)
 {
 	cmdLCD_i2c(_LCD_LIMPA);
-	setCursorLCD_i2c(0, 0);printStringLCD_i2c("  Capacidade:       ");
-	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  Utilizado:        ");
+	setCursorLCD_i2c(0, 0);printStringLCD_i2c("  Capacidade.:      ");
+	setCursorLCD_i2c(1, 0);printStringLCD_i2c("  Utilizado..:      ");
 	setCursorLCD_i2c(2, 0);printStringLCD_i2c("  CONFIRMA   CANCELA");
 	
 }

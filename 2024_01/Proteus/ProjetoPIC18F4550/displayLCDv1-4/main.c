@@ -3,14 +3,14 @@
 
 void main()
 {
-	PORTA = 0x00; LATA = 0x00; TRISA = 0x01; 
+	PORTA = 0x00; LATA = 0x00; TRISA = 0x03; 
 	PORTB = 0x00; LATB = 0x00; TRISB = 0x83; 
 	PORTC = 0x00; LATC = 0x00; TRISC = 0x00; 
 	PORTD = 0x00; LATD = 0x00; TRISD = 0x0F; 
 	PORTE = 0x00; LATE = 0x00; TRISE = 0x00;
 	
 	ADCON2 = 0x81;
-	ADCON1 = 0x0E;
+	ADCON1 = 0x0D;
 	ADCON0 = 0x01;
 	CMCON = 0x07;
 	
@@ -25,14 +25,11 @@ void main()
 	maskInit();
 	atualizaIndice();
 
-	LED_ON = 1;
+	LED_ON = 0;
 
 	while(1)
 	{
 		TelaInicializacao();
 		menuSelect();
-
-		velocidadePWM_Motor_Tambor		= 80;
-		velocidadePWM_Motor_Comporta	= 50;
 	}
 }

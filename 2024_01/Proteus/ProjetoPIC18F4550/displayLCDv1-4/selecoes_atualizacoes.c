@@ -7,9 +7,7 @@ void configMotores(void);
 void configRelogio(void);
 void configData(void);
 void atualizaInfoSpray(void);
-
-//---------------------------------controle-de-paginas---------------------------------//
-
+void atualizaLimpezasRealizadas(void);
 // SUB-ROTINA PARA ATUALIZAR A QTD DE SPRAYS
 void atualizaInfoSpray(void)
 {
@@ -21,6 +19,15 @@ void atualizaInfoSpray(void)
 	info_sprays_utilizado[1] = (novo_sprays_utilizado / 10) % 10 + '0';
 	info_sprays_utilizado[0] = (novo_sprays_utilizado / 10) / 10 + '0';
 }
+
+void atualizaLimpezasRealizadas(void)
+{
+	info_limpezas_realizadas[2] = limpezas_realizadas % 10 + '0';
+	info_limpezas_realizadas[1] = (limpezas_realizadas / 10) % 10 + '0';
+	info_limpezas_realizadas[0] = (limpezas_realizadas / 10) / 10 + '0';
+}
+
+//---------------------------------controle-de-paginas---------------------------------//
 
 // SUB-ROTINA PARA IDENTIFICAR A PAGINA ATUAL SELECIONADA
 void atualizaIndice(void)
@@ -56,7 +63,6 @@ void configuracoesSelect(void)
 // SUB-ROTINA PARA CONFIGURAR O SPRAY
 void configSprays(void)
 {
-	int s;
 	maskPurificador();
 	linha = 0;coluna = 0;
 	setCursorLCD_i2c(linha, coluna);
@@ -72,12 +78,12 @@ void configSprays(void)
 		lerBtnEnter();
 		atualizaInfoSpray();
 
-		for(s=0;s<3;s++)
+		for(k=0;k<3;k++)
 		{
-			setCursorLCD_i2c(0,15+s);
-			printCharLCD_i2c(info_sprays_capacidade[s]);
-			setCursorLCD_i2c(1,15+s);
-			printCharLCD_i2c(info_sprays_utilizado[s]);
+			setCursorLCD_i2c(0,15+k);
+			printCharLCD_i2c(info_sprays_capacidade[k]);
+			setCursorLCD_i2c(1,15+k);
+			printCharLCD_i2c(info_sprays_utilizado[k]);
 		}
 
 		if (flag_btn[up])

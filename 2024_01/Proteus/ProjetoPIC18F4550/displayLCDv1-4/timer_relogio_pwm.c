@@ -53,6 +53,8 @@ void interrupcaoRelogio(void)
 	{
 		conta_cursor ++;
 		cursor_visivel = !cursor_visivel;
+		LedAviso();
+		
 		if (flag_manual) {LED_MANUAL = !LED_MANUAL;}
 		else LED_MANUAL = 0;
 		if (conta_cursor == 2)
@@ -86,60 +88,10 @@ void interrupcaoRelogio(void)
 
 #pragma interruptlow interrupcaoManual
 void interrupcaoManual(void){
-	unsigned char pausa;
 	if (flagPortB)
 	{
 		flag_manual = 1;
-		
-		//cmdLCD_i2c(_LCD_LIMPA);
-		//setCursorLCD_i2c(0,0);printStringLCD_i2c("SETANDO MOTORES     ");
-		
-		initMotores();
-		
-		//setCursorLCD_i2c(1,0);printStringLCD_i2c("MOTORES SETADOS     ");
-		
-		pausa = secs;
-		while ((secs - pausa) < 4);
-		
-		//setCursorLCD_i2c(2,0);printStringLCD_i2c("ABRINDO COMPORTA    ");
-		// abre comporta 
-		
-		while(posicaoComporta() != 0) // comporta nao aberta
-		{
-			giraComporta(0,1); // abre comporta
-		}
-		giraComporta(0,0);
-		
-		//setCursorLCD_i2c(3,0);printStringLCD_i2c("COMPORTA ABERTA    ");
-		
-		
-		// gira tambor para o fim
-		while(posicaoTambor() != 0) // tambor para o fim
-		{
-			giraTambor(0,1); // gira tambor para ate o final
-		}	
-		giraTambor(0,0);
-		
-		// espera areia cair
-		pausa = secs;
-		while ((secs - pausa) < 4);
-		
-		// retorna ao inicio
-		
-		// fecha comporta 
-		while(posicaoComporta() != 1) // comporta nao fechada
-		{
-			giraComporta(1,0); // fecha comporta
-		}
-		giraComporta(0,0);
-		
-		// gira tambor para o fim
-		while(posicaoTambor() != 1) // tambor para o inicio
-		{
-			giraTambor(1,0); // gira tambor para ate o inicio
-		}	
-		giraTambor(0,0);
-		
+		clicoLimpeza();
 		flag_manual = 0;
 	}
 	if (PORTB);
