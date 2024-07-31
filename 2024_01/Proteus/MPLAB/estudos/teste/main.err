@@ -1,0 +1,18 @@
+Compiling C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\main on 09-jun-24 at 15:16
+*** Error 18 "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\main.c" Line 1(9,21): File can not be opened
+    Not in "C:\Program Files (x86)\PICCDEMO\devices\p18F4550.h"
+    Not in "C:\Program Files (x86)\PICCDEMO\drivers\p18F4550.h"
+    Not in source "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\p18F4550.h"
+    Not in local "p18F4550.h"
+    Not in project "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\p18F4550.h"
+    Not in default "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\p18F4550.h"
+*** Error 18 "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\main.c" Line 2(10,20): File can not be opened
+    Not in "C:\Program Files (x86)\PICCDEMO\devices\delays.h"
+    Not in "C:\Program Files (x86)\PICCDEMO\drivers\delays.h"
+    Not in source "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\delays.h"
+    Not in local "delays.h"
+    Not in project "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\delays.h"
+    Not in default "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\delays.h"
+*** Error 128 "C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\teste\main.c" Line 8(15,21): A #DEVICE required before this line
+      3 Errors,  0 Warnings.
+Build Failed.

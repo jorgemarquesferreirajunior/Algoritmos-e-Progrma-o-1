@@ -9,7 +9,7 @@
 LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	43;"	l	line:43
 LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	82;"	l	line:82
 LCD_I2C_H	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	2;"	d	line:2
-PCF8574W::0x4E	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	5;"	d	line:5
+PCF8574W::0x3F	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	5;"	d	line:5
 StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	33;"	p	line:33	signature:(void)
 StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	64;"	f	line:64	signature:(void)
 _LCD_BLINK_CURSOR_ON::0x0F	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	20;"	d	line:20
@@ -39,7 +39,7 @@ cmdLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Pr
 i	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	131;"	l	line:131
 lenShort	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	115;"	f	line:115	signature:(unsigned short numero)
 lenShort	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	36;"	p	line:36	signature:(unsigned short numero)
-main	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\main.c	4;"	f	line:4
+main	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\main.c	5;"	f	line:5
 printCharLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	34;"	p	line:34	signature:(unsigned char DATA)
 printCharLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	80;"	f	line:80	signature:(unsigned char DATA)
 printShortLCD_i2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\ProjetoPIC18F4550\displayLCDv1-4\lcd_i2c.h	129;"	f	line:129	signature:(unsigned short num)

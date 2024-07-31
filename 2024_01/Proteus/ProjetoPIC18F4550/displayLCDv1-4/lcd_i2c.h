@@ -2,7 +2,7 @@
 #define LCD_I2C_H
 
 #include <i2c.h>
-#define PCF8574W  					0x4E  // Endere�o expansor PCF8574 e o opera��o de escrita
+#define PCF8574W  					0x3F  // Endereco expansor PCF8574 e o operacao de escrita
 #define _LCD_INTERFACE_8bL2_5X7		0x38	// (8-bit interface, 2 lines, 5*7 Pixels)
 #define _LCD_INTERFACE_8bL1_5X7		0x30	// (8-bit interface, 1 line, 5*7 Pixels)
 #define _LCD_INTERFACE_4bL2_5X7		0x28	// (4-bit interface, 2 lines, 5*7 Pixels)
@@ -45,13 +45,13 @@ void cmdLCD_i2c(unsigned char CMD)
   IdleI2C(); StartI2C();        	// Inicia comunica��o I2C
   IdleI2C(); WriteI2C(PCF8574W); 	// Define dispositivo e opera��o de escrita
   LCD = 0xF0 & CMD;             	// Separa parte alta da instru��o
-  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instru��o (RS=0) e habilita o display (E=1)
+  LCD = (LCD | 0x0C);    // Ativa backlight (P3=1), modo instru��o (RS=0) e habilita o display (E=1)
   IdleI2C(); WriteI2C(LCD);     	// Envia instru��o
   Delay10TCYx(1);               	// Aguarda 10us
   LCD = (LCD & 0xF8);           	// Desabilita o display (E=0)
   IdleI2C(); WriteI2C(LCD);     	// Envia instru��o
   LCD = (CMD<<4) & 0xF0;        	// Separa parte baixa da instru��o
-  LCD = (LCD | _LCD_CURSOR_OFF);    // Ativa backlight (P3=1), modo instru��o (RS=0) e habilita o display (E=1)
+  LCD = (LCD | 0X0C);    // Ativa backlight (P3=1), modo instru��o (RS=0) e habilita o display (E=1)
   IdleI2C(); WriteI2C(LCD);     	// Escreve instru��o
   Delay10TCYx(1);               	// Aguarda 10us
   LCD = (LCD & 0xF8);           	// Desabilita o display (E=0)
@@ -64,16 +64,16 @@ void cmdLCD_i2c(unsigned char CMD)
 void StartLCDi2c(void)
 {
   Delay1KTCYx(20);     // Aguarda pelo menos 15ms
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instru��o de inicializa��o
-  Delay1KTCYx(5);      // Aguarda pelo menos 4.1ms
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instru��o de inicializa��o
+  cmdLCD_i2c(0x30); // Instru��o de inicializa��o
+  Delay1KTCYx(5);      // Aguarda pelo menos 5ms
+  cmdLCD_i2c(0x30); // Instru��o de inicializa��o
   Delay100TCYx(2);     // Aguarda pelo menos 100us
-  cmdLCD_i2c(_LCD_INTERFACE_8bL1_5X7); // Instru��o de inicializa��o
-  cmdLCD_i2c(_LCD_HOME); // Define interface de 4 bits
-  cmdLCD_i2c(_LCD_INTERFACE_4bL2_5X7); // Define interface de 4 bits e display de 2 linhas
-  cmdLCD_i2c(_LCD_DESLOC_DIR); // Modo de entrada: desloca cursor para direita sem deslocar a mensagem
-  cmdLCD_i2c(_LCD_CURSOR_OFF); // Desliga cursor
-  cmdLCD_i2c(_LCD_LIMPA); // Limpa display
+  cmdLCD_i2c(0x30); // Instru��o de inicializa��o
+  cmdLCD_i2c(0x02); // Define interface de 4 bits
+  cmdLCD_i2c(0x28); // Define interface de 4 bits e display de 2 linhas
+  cmdLCD_i2c(0x06); // Modo de entrada: desloca cursor para direita sem deslocar a mensagem
+  cmdLCD_i2c(0x0C); // Desliga cursor
+  cmdLCD_i2c(0x01); // Limpa display
 }
 
 // Rotina que envia um caractere a ser escrito no LCD

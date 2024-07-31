@@ -25,7 +25,9 @@ void main()
 	maskInit();
 	atualizaIndice();
 
-	LED_ON = 0;
+	LED_ON = 1;
+	//cmdLCD_i2c(0x80);
+	//printStringLCD_i2c("hello world");
 
 	while(1)
 	{

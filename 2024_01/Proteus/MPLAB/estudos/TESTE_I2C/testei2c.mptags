@@ -1,0 +1,35 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+ControlLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	26;"	p	line:26	file:	signature:(unsigned char CMD)
+ControlLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	60;"	f	line:60	signature:(unsigned char CMD)
+DAY	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+DAY_WEEK	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+DS1307R::0xD1	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	20;"	d	line:20	file:
+DS1307W::0xD0	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	19;"	d	line:19	file:
+HOURS	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	107;"	l	line:107
+LCD	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	62;"	l	line:62
+MINUTES	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+MONTH	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+PCF8574W::0x4E	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	18;"	d	line:18	file:
+ReadRTC	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	161;"	f	line:161	signature:(void)
+ReadRTC	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	31;"	p	line:31	file:	signature:(void)
+SECONDS	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+ShowRTCInfo	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	180;"	f	line:180	signature:(void)
+ShowRTCInfo	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	32;"	p	line:32	file:	signature:(void)
+StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	27;"	p	line:27	file:	signature:(void)
+StartLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	87;"	f	line:87	signature:(void)
+StartRTC	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	144;"	f	line:144	signature:(void)
+StartRTC	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	30;"	p	line:30	file:	signature:(void)
+StringLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	129;"	f	line:129	signature:(unsigned char LINE, rom unsigned char *STR)
+StringLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	29;"	p	line:29	file:	signature:(unsigned char LINE, rom unsigned char *STR)
+WriteLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	105;"	f	line:105	signature:(unsigned char DATA)
+WriteLCDi2c	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	28;"	p	line:28	file:	signature:(unsigned char DATA)
+YEAR	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	23;"	v	line:23
+main	C:\Users\family\Documents\Proteus\Algoritmos-e-Programacao\2024_01\Proteus\MPLAB\estudos\TESTE_I2C\main.c	35;"	f	line:35	signature:(void)

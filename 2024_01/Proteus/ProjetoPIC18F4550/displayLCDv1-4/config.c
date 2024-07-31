@@ -6,7 +6,7 @@
 #pragma config FOSC		= HS
 #pragma config PWRT 	= ON
 #pragma config WDT 		= OFF
-#pragma config MCLRE	= OFF
+#pragma config MCLRE	= ON
 #pragma config LVP 		= OFF
 
 //--------------------------------mapeamento-de-hardware--------------------------------//
