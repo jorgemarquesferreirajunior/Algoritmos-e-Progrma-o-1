@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+aux1	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	113;"	l	line:113
+aux2	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	117;"	l	line:117
+bank0	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	40;"	d	line:40
+bank1	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	41;"	d	line:41
+botao1	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	62;"	d	line:62
+botao2	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	63;"	d	line:63
+cblock	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	70;"	l	line:70
+delay500ms	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	108;"	l	line:108
+endc	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	73;"	l	line:73
+inicio	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	90;"	l	line:90
+led1	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	66;"	d	line:66
+led2	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	67;"	d	line:67
+list	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	24;"	l	line:24
+loop	C:\Users\family\Documents\Assembly_For_PIC\aula012-instrucoes_aritmeticas\main012.asm	97;"	l	line:97

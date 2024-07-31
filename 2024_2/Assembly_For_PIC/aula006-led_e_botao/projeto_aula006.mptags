@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+apaga_led1	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	72;"	l	line:72
+bank0	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	21;"	d	line:21
+bank1	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	22;"	d	line:22
+botao1	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	37;"	d	line:37
+inicio	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	55;"	l	line:55
+led1	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	41;"	d	line:41
+list	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	5;"	l	line:5
+loop	C:\Users\family\Documents\Assembly_For_PIC\aula006-led_e_botao\main006.asm	66;"	l	line:66

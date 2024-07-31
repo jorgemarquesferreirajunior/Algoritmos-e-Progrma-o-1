@@ -1,0 +1,370 @@
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;MCU:           PIC16F84A
+                      00002 ;Clock:         4MHz
+                      00003 ;Data:          28072024        Aula:011
+                      00004 ;
+                      00005 ;Aciona LED1 ligado em RB1 e desliga LED2 ligado em RB3
+                      00006 ;aguarda 500ms
+                      00007 ;Aciona LED2 ligado em RB3 e desliga LED1 ligado em RB1
+                      00008 ;Aguarda 500ms
+                      00009 ;
+                      00010 ;OBS:
+                      00011 ;
+                      00012 ;LEDs ligado em current sourcing:
+                      00013 ;
+                      00014 ; '0' - apaga
+                      00015 ; '1' - acende
+                      00016 ;
+                      00017 ;Calculo de ciclo de maquina
+                      00018 ;
+                      00019 ;
+                      00020 ;
+                      00021 ;
+                      00022 ;
+                      00023 
+Warning[205]: Found directive in column 1. (list)
+                      00024 list p=16F84A                                                   ; microcontrolador utilizado
+                      00025 
+                      00026 
+                      00027 ; --- Arquivos incluidos no projeto --------------------------------------------------------------------
+                            -------
+                      00028 #include <p16f84a.inc>                                  ; inclui o arquivo do PIC16F84A
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00208         LIST
+                      00029 
+                      00030 
+                      00031 ; --- FUSES Bits ---------------------------------------------------------------------------------------
+                            -------
+                      00032 ;_XT_OSC ->     tipo de oscilador
+                      00033 ;_WDT_OFF ->    desabilita o reset do PIC para eventos especificos
+                      00034 ;_PWRTE_ON ->   habilita o aguardo de 72ms durante a inicializacao para garantir estavilidade dos regist
+                            radores 
+                      00035 ;_CP_OFF ->             desabilita protecao contra copias de codigo do PIC
+2007   3FF1           00036         __config _XT_OSC & _WDT_OFF & _PWRTE_ON & _CP_OFF
+                      00037 
+                      00038 
+                      00039 ; -- Pagina de Memoria ---------------------------------------------------------------------------------
+                            -------
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00040 #define         bank0           bcf STATUS,RP0  ; Cria um mnemonico para o banco 0 de memoria
+                      00041 #define         bank1           bsf     STATUS,RP0      ; Cria um mnemonico para o banco 1 de memoria
+                      00042 
+                      00043 ; --- Termos do Set de instrucoes
+                      00044 ;W: work (registrador de trabalho ou acumulador)
+                      00045 ;L: literal (constante, numero. Utilizado como 'L' nas instrucoes e 'k' nos argumentos)
+                      00046 ;D: destination (lical onde o resultado de uma operacao sera armazenado)
+                      00047 ;B: bit (bits dentro dos registrados, dentro de um byte, flags)
+                      00048 ;T: test (utilizado para testes de bits)
+                      00049 ;S: skip (pulo/salto/desvio condicional)
+                      00050 ;S: set (setar/tornar nivel alto)
+                      00051 ;C: clear (limpar/tornar nivel baixo)
+                      00052 ;Z: zero (testar se eh equivalente a zero)
+                      00053 
+                      00054 ; OBS: TEMPOS DE CICLO
+                      00055 ; movwf         1 ciclo
+                      00056 ; movlw         1 ciclo
+                      00057 ; goto
+                      00058 ; call
+                      00059 ; return
+                      00060  
+                      00061 ;--- ENTRADAS ------------------------------------------------------------------------------------------
+                            -------
+                      00062 #define         botao1          PORTB,RB0               ; botao ligado em RB0
+                      00063 #define         botao2          PORTB,RB2               ; botao ligado em RB2
+                      00064 
+                      00065 ;--- SAIDAS --------------------------------------------------------------------------------------------
+                            -------
+                      00066 #define         led1            PORTB,RB1               ; led1 ligado em RB1
+                      00067 #define         led2            PORTB,RB3               ; led2 ligado em RB3
+                      00068 
+                      00069 ; --- Registradores de Uso Geral -----------------------------------------------------------------------
+                            -------
+Warning[205]: Found directive in column 1. (cblock)
+                      00070 cblock                                  H'0C'                   ; configura o endereco de memoria inicia
+                            l para uso geral
+  0000000C            00071                         tempo1                                          ; linka a variavel tempo1 ao end
+                            ereco H'0C'
+  0000000D            00072                         tempo2                                          ; linka a variavel tempo1 ao end
+                            ereco H'0D'
+Warning[205]: Found directive in column 1. (ENDC)
+                      00073 endc                                                                    ; finaliza o gerenciamento de me
+                            moria para geristradores de uso geral
+                      00074 
+                      00075 ; Opcao 2
+                      00076 ; tempo1 equ    H'0C'
+                      00077 ; tempo2 equ    H'0D'
+                      00078 
+                      00079 ; --- Vetor de RESET -----------------------------------------------------------------------------------
+                            -------
+0000                  00080                         org                     H'0000'                 ; Origem no endereco 0000h de me
+                            moria
+0000   2805           00081                         goto            inicio                  ; Desvia do vetor de interrupcao 
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00082                         
+                      00083 
+                      00084 ; --- Vetor de Interrupcao -----------------------------------------------------------------------------
+                            -------
+0004                  00085                         org                     H'0004'                 ; Todas as interrupcoes apontam 
+                            para esse endereco
+0004   0009           00086                         retfie                                          ; Retorna da interrupcao
+                      00087 
+                      00088 
+                      00089 ;--- Programa Principal --------------------------------------------------------------------------------
+                            -------
+0005                  00090 inicio:
+0005   1683           00091                         bank1                                           ; seleciona o banco de memoria 1
+0006   30F5           00092                         movlw           H'F5'                   ; W = B'1111 0101' -> entradas <RB7:RB4,
+                            RB2,RB0 > saidas <RB1,RB3> 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0086           00093                         movwf           TRISB                   ; TRISB = H'F5' configurando o registrad
+                            or de entradas e saidas B
+0008   1283           00094                         bank0                                           ; seleciona o banco de memoria 0
+0009   30F5           00095                         movlw           H'F5'                   ; W = B'1111 0101' movendo o valor H'F5'
+                             ao registrador de trabalho
+000A   0086           00096                         movwf           PORTB                   ; PORTB = H'F5'LEDs iniciam desligados
+000B                  00097 loop:                                                                   ; loop infinito
+000B   1486           00098                         bsf                     led1                    ; liga o led1
+000C   1186           00099                         bcf                     led2                    ; desliga o led2
+000D   2012           00100                         call            delay500ms              ; rotina de delay
+000E   1086           00101                         bcf                     led1                    ; desliga led1
+000F   1586           00102                         bsf                     led2                    ; liga led2
+0010   2012           00103                         call            delay500ms              ; rotina de delay
+                      00104                         
+0011   280B           00105                         goto            loop                    ; volta para a label loop
+                      00106 
+                      00107 ;--- Desenvolvimento das Sub-rotinas -------------------------------------------------------------------
+                            -------
+0012                  00108 delay500ms:
+0012   30C8           00109                         movlw           D'200'                  ; W = 200
+0013   008C           00110                         movwf           tempo1                  ; salva o valor 200 na variavel tempo1
+                      00111                                                                                 ; 2 ciclos gastos
+                      00112                         
+0014                  00113 aux1:
+0014   30FA           00114                         movlw           D'250'                  ; w = 250
+0015   008D           00115                         movwf           tempo2                  ; salva o valor 250 na variavel tempo2
+                      00116                                                                                 ; 2 ciclos gastos
+0016                  00117 aux2:
+0016   0000           00118                         nop                                                     ; apenas gasta 1 ciclo d
+                            e processamento do microcontrolador
+0017   0000           00119                         nop
+0018   0000           00120                         nop
+0019   0000           00121                         nop
+001A   0000           00122                         nop
+001B   0000           00123                         nop
+001C   0000           00124                         nop
+                      00125                         
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Message[305]: Using default destination of 1 (file).
+001D   0B8D           00126                         decfsz          tempo2                  ; decrementa uma unidade do valor salvo 
+                            na varaivel tempo2
+001E   2816           00127                         goto            aux2                    ; retorna ao inicio da sub-rotina aux2
+                      00128                                                                                 ; OBS: quando o valor fo
+                            r zero, pula o goto. Isso ocorre por conta
+                      00129                                                                                 ; do comando anterior de
+                            cfsz (drecementa um dado e pula o proximo 
+                      00130                                                                                 ; comando quando o valor
+                             for zero)
+                      00131                                                                                 
+                      00132                                                                                 ; 10 ciclos gastos em um
+                            a sub-rotina em aux2
+                      00133                                                                                 ; eh repetida a sub-roti
+                            na o total de vezes do valor salvo em H'0D'
+                      00134                                                                                 ; 250 x 10 ciclos =  250
+                            0 ciclos
+                      00135                                                                                 
+Message[305]: Using default destination of 1 (file).
+001F   0B8C           00136                         decfsz          tempo1                  ; decrementa uma unidade do valor salvo 
+                            na variavel  tempo1
+0020   2814           00137                         goto            aux1                    ; retorna ao inicio da sub-rotina aux1
+                      00138                                                                                 ; 3 ciclos gastos em uma
+                             repeticao da sub-rotina aux1
+                      00139                                                                                 ; eh repetida a sub-roti
+                            na o total de vezes do valor salvo em H'0C'
+                      00140                                                                                 ; 200 x 2500 ciclos = 50
+                            0000 ciclos 
+                      00141                                                                                 ; delay = tempo de ciclo
+                            s X quanntidade de ciclos em vazio
+                      00142                                                                                 ; delay = 1us x 500000 =
+                             500ms
+0021   0008           00143                         return                                          ; retorna apos a chamada da sub 
+                            rotina
+                      00144                                                                                 
+                      00145                         
+                      00146                         
+                      00147                         
+                      00148                         end                                                     ; final do programa
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           1
+aux1                              00000014
+aux2                              00000016
+bank0                             bcf STATUS,RP0
+bank1                             bsf     STATUS,RP0
+botao1                            PORTB,RB0
+botao2                            PORTB,RB2
+delay500ms                        00000012
+MPASM  5.51                       MAIN011.ASM   7-31-2024  9:29:58         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+inicio                            00000005
+led1                              PORTB,RB1
+led2                              PORTB,RB3
+loop                              0000000B
+tempo1                            0000000C
+tempo2                            0000000D
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : X---XXXXXXXXXXXX XXXXXXXXXXXXXXXX XX-------------- ----------------
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    31
+Program Memory Words Free:   993
+
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     3 reported,     0 suppressed
+
+

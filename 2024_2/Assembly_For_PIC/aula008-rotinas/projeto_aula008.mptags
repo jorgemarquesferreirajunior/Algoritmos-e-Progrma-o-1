@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+apaga_led1	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	90;"	l	line:90
+bank0	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	37;"	d	line:37
+bank1	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	38;"	d	line:38
+botao1	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	53;"	d	line:53
+botao2	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	54;"	d	line:54
+inicio	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	73;"	l	line:73
+led1	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	58;"	d	line:58
+led2	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	59;"	d	line:59
+list	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	21;"	l	line:21
+loop	C:\Users\family\Documents\Assembly_For_PIC\aula008-rotinas\main008.asm	84;"	l	line:84

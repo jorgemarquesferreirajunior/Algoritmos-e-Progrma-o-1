@@ -1,0 +1,338 @@
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;MCU:           PIC16F84A
+                      00002 ;Clock:         4MHz
+                      00003 ;Data:          28072024        Aula:012
+                      00004 ;
+                      00005 ;Instrucoes Aritmeticas
+                      00006 ;
+                      00007 
+Warning[205]: Found directive in column 1. (list)
+                      00008 list p=16F84A                                                   ; microcontrolador utilizado
+                      00009 
+                      00010 
+                      00011 ; --- Arquivos incluidos no projeto --------------------------------------------------------------------
+                            -------
+                      00012 #include <p16f84a.inc>                                  ; inclui o arquivo do PIC16F84A
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00208         LIST
+                      00013 
+                      00014 
+                      00015 ; --- FUSES Bits ---------------------------------------------------------------------------------------
+                            -------
+                      00016 ;_XT_OSC ->     tipo de oscilador
+                      00017 ;_WDT_OFF ->    desabilita o reset do PIC para eventos especificos
+                      00018 ;_PWRTE_ON ->   habilita o aguardo de 72ms durante a inicializacao para garantir estavilidade dos regist
+                            radores 
+                      00019 ;_CP_OFF ->             desabilita protecao contra copias de codigo do PIC
+2007   3FF1           00020         __config _XT_OSC & _WDT_OFF & _PWRTE_ON & _CP_OFF
+                      00021 
+                      00022 
+                      00023 ; -- Pagina de Memoria ---------------------------------------------------------------------------------
+                            -------
+                      00024 #define         bank0           bcf STATUS,RP0  ; Cria um mnemonico para o banco 0 de memoria
+                      00025 #define         bank1           bsf     STATUS,RP0      ; Cria um mnemonico para o banco 1 de memoria
+                      00026 
+                      00027 ; --- Termos do Set de instrucoes
+                      00028 ;W: work (registrador de trabalho ou acumulador)
+                      00029 ;L: literal (constante, numero. Utilizado como 'L' nas instrucoes e 'k' nos argumentos)
+                      00030 ;D: destination (lical onde o resultado de uma operacao sera armazenado)
+                      00031 ;B: bit (bits dentro dos registrados, dentro de um byte, flags)
+                      00032 ;T: test (utilizado para testes de bits)
+                      00033 ;S: skip (pulo/salto/desvio condicional)
+                      00034 ;S: set (setar/tornar nivel alto)
+                      00035 ;C: clear (limpar/tornar nivel baixo)
+                      00036 ;Z: zero (testar se eh equivalente a zero)
+                      00037 
+                      00038 ; OBS: TEMPOS DE CICLO
+                      00039 ; movwf         1 ciclo
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00040 ; movlw         1 ciclo
+                      00041 ; goto
+                      00042 ; call
+                      00043 ; return
+                      00044 
+                      00045 ;--- INSTRUCOES ARITMETICAS 
+                      00046 ; ---------------------------------
+                      00047 ; ADDLW         k
+                      00048 ; Operacao: W = W + k
+                      00049 ; ---------------------------------
+                      00050 ; ADDWF         f,d
+                      00051 ; Operacao: d = W + f
+                      00052 ; d = 0 (W) ou d = 1 (f)
+                      00053 ; ---------------------------------
+                      00054 ; RLF           f,d
+                      00055 ; Operacao: d = f << 1 (rotaciona o registrador f um bit para a esquerda 'multiplica por 2')
+                      00056 ; d = 0 (W) ou d = 1 (f)
+                      00057 ; ---------------------------------
+                      00058 ; RRF           f,d
+                      00059 ; Operacao: d = f >> 1 (rotaciona o registrador f um bit para a direita 'divide por 2')
+                      00060 ; d = 0 (W) ou d = 1 (f)
+                      00061 ; ---------------------------------
+                      00062 ; SUBLW         k
+                      00063 ; Operacao: W = k - W
+                      00064 ; ---------------------------------
+                      00065 ; SUBWF         f,d
+                      00066 ; Operacao: d = f - W
+                      00067 ; d = 0 (W) ou d = 1 (f)
+                      00068 ; ---------------------------------
+                      00069 
+                      00070 
+                      00071  
+                      00072 ;--- ENTRADAS ------------------------------------------------------------------------------------------
+                            -------
+                      00073 ;--- SAIDAS --------------------------------------------------------------------------------------------
+                            -------
+                      00074 ; --- Registradores de Uso Geral -----------------------------------------------------------------------
+                            -------
+Warning[205]: Found directive in column 1. (cblock)
+                      00075 cblock          H'0C'                                           ; configura o endereco de memoria inicia
+                            l para uso geral
+                      00076 
+  0000000C            00077                         regist1
+  0000000D            00078                         regist2
+Warning[205]: Found directive in column 1. (ENDC)
+                      00079 endc                                                                    ; finaliza o gerenciamento de me
+                            moria para geristradores de uso geral
+                      00080 
+                      00081 
+                      00082 ; Opcao 2
+                      00083 ; tempo1 equ    H'0C'
+                      00084 ; tempo2 equ    H'0D'
+                      00085 
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00086 ; --- Vetor de RESET -----------------------------------------------------------------------------------
+                            -------
+0000                  00087                         org                     H'0000'                 ; Origem no endereco 0000h de me
+                            moria
+0000   2805           00088                         goto            inicio                  ; Desvia do vetor de interrupcao 
+                      00089                         
+                      00090 
+                      00091 ; --- Vetor de Interrupcao -----------------------------------------------------------------------------
+                            -------
+0004                  00092                         org                     H'0004'                 ; Todas as interrupcoes apontam 
+                            para esse endereco
+0004   0009           00093                         retfie                                          ; Retorna da interrupcao
+                      00094 
+                      00095 
+                      00096 ;--- Programa Principal --------------------------------------------------------------------------------
+                            -------
+0005                  00097 inicio:
+0005   1683           00098                         bank1                                           ; seleciona o banco de memoria 1
+0006   30FF           00099                         movlw           H'FF'                   ; W = H'FF'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0085           00100                         movwf           TRISA                   ; TRISB = B'1111 1111' -> entradas <RB7:
+                            0 > saidas <>
+0008   30FF           00101                         movlw           H'FF'                   ; W = H'FF'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0086           00102                         movwf           TRISB                   ; TRISB = B'1111 1111' -> entradas <RB7:
+                            0 > saidas <>
+000A   1283           00103                         bank0                                           ; seleciona o banco de memoria 0
+000B   018C           00104                         clrf            regist1                 ; zera o geristrador inteiro corresponde
+                            nte
+000C   018D           00105                         clrf            regist2                 ; zera o geristrador inteiro corresponde
+                            nte
+                      00106                         
+000D                  00107 loop:                                                                   ; loop infinito
+                      00108                         ; soma                  
+000D   300A           00109                         movlw           D'10'                   ; W = 10
+000E   3E23           00110                         addlw           D'35'                   ; W = W + 35 = 10 + 35 = 45             
+                      00111                         
+000F   30AC           00112                         movlw           H'AC'                   ; W = H'AC'
+0010   008C           00113                         movwf           regist1                 ; regist1 = W
+0011   070C           00114                         addwf           regist1,W               ; W = W + regist1
+                      00115                         
+                      00116                         ; subtracao
+0012   3002           00117                         movlw           D'2'                    ; W = 2
+0013   3C05           00118                         sublw           D'5'                    ; W = 5 - 2 = 5 - 2 = 3
+                      00119                         
+0014   301E           00120                         movlw           D'30'                   ; W = 30
+0015   008D           00121                         movwf           regist2                 ; regist2 = W
+0016   3001           00122                         movlw           D'1'                    ; W = 1
+Warning[202]: Argument out of range.  Least significant bits used.
+0017   028D           00123                         subwf           regist2, regist2        ; regist2 = regist2 - W
+                      00124                         
+                      00125                         ; rotacao a esquerda (multiplicacao por 2)
+0018   3005           00126                         movlw           D'5'                    ; W = 5
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0019   008D           00127                         movwf           regist2                 ; regist2 = W
+001A   0D0D           00128                         rlf                     regist2,W               ; W = regist2 << 1
+                      00129                         
+                      00130                         ; rotacao a direita (divide por 2)
+001B   300C           00131                         movlw           D'12'                   ; W = 12
+001C   008D           00132                         movwf           regist2                 ; regist2 = W
+001D   0C0D           00133                         rrf                     regist2,W               ; W = regist2 >> 1
+                      00134                         
+001E   280D           00135                         goto            loop                    ; volta para a label loop
+                      00136 
+                      00137 
+                      00138 
+                      00139 ;--- Desenvolvimento das Sub-rotinas -------------------------------------------------------------------
+                            -------                                         
+                      00140 
+                      00141 ;-------------------------------------------------------------------------------------------------------
+                            -------                         
+                      00142                         end                                                     ; final do programa
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           1
+bank0                             bcf STATUS,RP0
+bank1                             bsf     STATUS,RP0
+inicio                            00000005
+loop                              0000000D
+regist1                           0000000C
+regist2                           0000000D
+MPASM  5.51                       MAIN012.ASM   7-31-2024  10:19:40         PAGE  7
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : X---XXXXXXXXXXXX XXXXXXXXXXXXXXX- ---------------- ----------------
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    28
+Program Memory Words Free:   996
+
+
+Errors   :     0
+Warnings :     4 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+
